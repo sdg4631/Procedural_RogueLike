@@ -375,7 +375,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4056293253498294}
   - component: {fileID: 114119661978352010}
-  m_Layer: 0
+  - component: {fileID: 61746858187145878}
+  m_Layer: 9
   m_Name: LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,6 +1159,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!61 &61746858187145878
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1616369906033928}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!61 &61945396403671452
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1207,7 +1233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   spawnedRoom: {fileID: 0}
-  spawnDelay: 0.3
   replaceSpawnedRoomDelay: 7
 --- !u!114 &114462421542260584
 MonoBehaviour:
@@ -1222,7 +1247,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 4
   spawnedRoom: {fileID: 0}
-  spawnDelay: 0.3
   replaceSpawnedRoomDelay: 7
 --- !u!212 &212057730569405554
 SpriteRenderer:
