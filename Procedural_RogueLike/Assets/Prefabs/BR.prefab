@@ -1195,6 +1195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 2
+  spawnedRoom: {fileID: 0}
+  spawnDelay: 0.3
+  replaceSpawnedRoomDelay: 7
 --- !u!114 &114615705410985788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1207,6 +1210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 3
+  spawnedRoom: {fileID: 0}
+  spawnDelay: 0.3
+  replaceSpawnedRoomDelay: 7
 --- !u!114 &114618722015436424
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour 
 {
+	private RoomTemplates templates;
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Destroy(other.gameObject);
+		if (gameObject.tag != "Entry") // TODO figure out why room correction is causing bugs with the entry room
+		{
+			templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+			templates.rooms.Remove(other.gameObject);
+			Destroy(other.gameObject);		
+		}
+		
 	}
 }

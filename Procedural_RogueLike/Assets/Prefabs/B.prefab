@@ -1189,6 +1189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 2
+  spawnedRoom: {fileID: 0}
+  spawnDelay: 0.3
+  replaceSpawnedRoomDelay: 7
 --- !u!212 &212004892592336270
 SpriteRenderer:
   m_ObjectHideFlags: 1

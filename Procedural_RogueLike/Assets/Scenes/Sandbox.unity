@@ -233,9 +233,10 @@ MonoBehaviour:
   - {fileID: 1463784544747044, guid: bd04b8a98c4db8740b95768503cfc71b, type: 2}
   - {fileID: 1616369906033928, guid: dafe91e3d55267e41aa030cf35a2a39c, type: 2}
   - {fileID: 1958788285230968, guid: 6a2f44518147cdb41a503ebca2d9752d, type: 2}
-  closedRoom: {fileID: 1894338408943798, guid: d62c77c680a940d40bc36886848fdbd1, type: 2}
+  closedRooms:
+  - {fileID: 1894338408943798, guid: d62c77c680a940d40bc36886848fdbd1, type: 2}
   rooms: []
-  waitTime: 2
+  waitTime: 5
   boss: {fileID: 1279436436471518, guid: 125adb1ee8f2ec042a0458784df52797, type: 2}
 --- !u!4 &935264282
 Transform:
@@ -300,6 +301,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114193631599657858, guid: 951e813312c2fa34981517d6d5a9831e,
+        type: 2}
+      propertyPath: closedRooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4233974585671672, guid: 951e813312c2fa34981517d6d5a9831e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -331,6 +337,11 @@ Prefab:
     - target: {fileID: 4233974585671672, guid: 951e813312c2fa34981517d6d5a9831e, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114193631599657858, guid: 951e813312c2fa34981517d6d5a9831e,
+        type: 2}
+      propertyPath: waitTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 951e813312c2fa34981517d6d5a9831e, type: 2}
