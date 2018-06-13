@@ -263,7 +263,7 @@ MonoBehaviour:
   LR: {fileID: 1616369906033928, guid: dafe91e3d55267e41aa030cf35a2a39c, type: 2}
   TBRL: {fileID: 1664083786927598, guid: e0c50a9bf80eae54f99e19da795a4a95, type: 2}
   rooms: []
-  approxNumOfRooms: 10
+  approxNumOfRooms: 8
   waitTime: 5
   spawnedBoss: 0
   boss: {fileID: 1279436436471518, guid: 125adb1ee8f2ec042a0458784df52797, type: 2}
@@ -319,40 +319,6 @@ Prefab:
     - target: {fileID: 4744281481192608, guid: 4449f782608ed7a46be376d18846016f, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1946658674637408, guid: 4449f782608ed7a46be376d18846016f, type: 2}
-      propertyPath: m_TagString
-      value: SpawnPoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407588737292668, guid: 4449f782608ed7a46be376d18846016f, type: 2}
-      propertyPath: m_TagString
-      value: SpawnPoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 1424276409225486, guid: 4449f782608ed7a46be376d18846016f, type: 2}
-      propertyPath: m_TagString
-      value: SpawnPoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917833421703998, guid: 4449f782608ed7a46be376d18846016f, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1115971846180956, guid: 4449f782608ed7a46be376d18846016f, type: 2}
-      propertyPath: m_TagString
-      value: SpawnPoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 1627215577222640, guid: 4449f782608ed7a46be376d18846016f, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 61932747307437670, guid: 4449f782608ed7a46be376d18846016f,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61932747307437670, guid: 4449f782608ed7a46be376d18846016f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4449f782608ed7a46be376d18846016f, type: 2}

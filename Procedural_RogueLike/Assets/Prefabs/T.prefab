@@ -229,6 +229,8 @@ GameObject:
   - component: {fileID: 4257862307876532}
   - component: {fileID: 114393519588264498}
   - component: {fileID: 61176102971243686}
+  - component: {fileID: 114491371057832512}
+  - component: {fileID: 114059234650638584}
   m_Layer: 9
   m_Name: T
   m_TagString: Untagged
@@ -329,7 +331,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawnpoint
   m_TagString: SpawnPoint
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1192,6 +1194,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114059234650638584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412048512471120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277d90aa76cb4594f8ee6f4cda2205f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upNeighbor: 0
+  downNeighbor: 0
+  rightNeighbor: 0
+  leftNeighbor: 0
 --- !u!114 &114347752199041034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1215,6 +1232,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed9da33dc7f23884684ed4aa88fc671a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114491371057832512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412048512471120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fe18a8e02b73640aeaec9bd74c3715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212040822644125290

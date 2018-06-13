@@ -54,6 +54,8 @@ GameObject:
   - component: {fileID: 50304191397515468}
   - component: {fileID: 114896879069555614}
   - component: {fileID: 61301142571895814}
+  - component: {fileID: 114207386403322080}
+  - component: {fileID: 114814384180723352}
   m_Layer: 9
   m_Name: ClosedRoom
   m_TagString: Untagged
@@ -172,6 +174,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114207386403322080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894338408943798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fe18a8e02b73640aeaec9bd74c3715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114814384180723352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894338408943798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277d90aa76cb4594f8ee6f4cda2205f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upNeighbor: 0
+  downNeighbor: 0
+  rightNeighbor: 0
+  leftNeighbor: 0
 --- !u!114 &114896879069555614
 MonoBehaviour:
   m_ObjectHideFlags: 1
