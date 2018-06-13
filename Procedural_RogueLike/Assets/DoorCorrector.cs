@@ -12,7 +12,7 @@ public class DoorCorrector : MonoBehaviour
 	{
 		searchForNeighbors = GetComponent<SearchForNeighborRooms>();
 		templates = FindObjectOfType<RoomTemplates>();
-		Invoke("ReplaceSpawnedRoom", 7f);
+		Invoke("ReplaceSpawnedRoom", 4f);
 	}
 	
 

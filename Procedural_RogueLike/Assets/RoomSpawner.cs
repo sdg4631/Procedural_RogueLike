@@ -76,29 +76,29 @@ public class RoomSpawner : MonoBehaviour
 				spawnedRoom = Instantiate(templates.rightRooms[random], transform.position, Quaternion.identity);
 			}
 		}
-		else if (spawned == false && templates.rooms.Count - 1 >= templates.approxNumOfRooms)
-		{
-			if (openingDirection == 1)
-			{
-				// need to spawn a room with ONLY A BOTTOM door
-				spawnedRoom = Instantiate(templates.closedBottomRoom, transform.position, Quaternion.identity);
-			}
-			else if (openingDirection == 2)
-			{
-				// need to spawn a room with ONLY A TOP door
-				spawnedRoom = Instantiate(templates.closedTopRoom, transform.position, Quaternion.identity);
-			}
-			else if (openingDirection == 3)
-			{
-				// need to spawn a room with ONLY A LEFT door
-				spawnedRoom = Instantiate(templates.closedLeftRoom, transform.position, Quaternion.identity);
-			}
-			else if (openingDirection == 4)
-			{
-				// need to spawn a room with ONLY A RIGHT door
-				spawnedRoom = Instantiate(templates.closedRightRoom, transform.position, Quaternion.identity);
-			}
-		}
+		// else if (spawned == false && templates.rooms.Count - 1 >= templates.approxNumOfRooms)
+		// {
+		// 	if (openingDirection == 1)
+		// 	{
+		// 		// need to spawn a room with ONLY A BOTTOM door
+		// 		spawnedRoom = Instantiate(templates.closedBottomRoom, transform.position, Quaternion.identity);
+		// 	}
+		// 	else if (openingDirection == 2)
+		// 	{
+		// 		// need to spawn a room with ONLY A TOP door
+		// 		spawnedRoom = Instantiate(templates.closedTopRoom, transform.position, Quaternion.identity);
+		// 	}
+		// 	else if (openingDirection == 3)
+		// 	{
+		// 		// need to spawn a room with ONLY A LEFT door
+		// 		spawnedRoom = Instantiate(templates.closedLeftRoom, transform.position, Quaternion.identity);
+		// 	}
+		// 	else if (openingDirection == 4)
+		// 	{
+		// 		// need to spawn a room with ONLY A RIGHT door
+		// 		spawnedRoom = Instantiate(templates.closedRightRoom, transform.position, Quaternion.identity);
+		// 	}
+		// }
 		spawned = true;
 	}
 
