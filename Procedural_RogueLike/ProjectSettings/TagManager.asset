@@ -7,6 +7,21 @@ TagManager:
   - Rooms
   - SpawnPoint
   - Entry
+  - B
+  - BL
+  - BLR
+  - BR
+  - L
+  - LR
+  - R
+  - T
+  - TB
+  - TBL
+  - TBR
+  - TBRL
+  - TL
+  - TLR
+  - TR
   layers:
   - Default
   - TransparentFX

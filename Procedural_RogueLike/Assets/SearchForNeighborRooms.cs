@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SearchForNeighborRooms : MonoBehaviour 
 {
-	RoomTemplates templates;
-
 	public bool upNeighbor = false;
 	public bool downNeighbor = false;
 	public bool rightNeighbor = false;
 	public bool leftNeighbor = false;
 
+	private float waitTime = 6f;
+
 	void Start() 
 	{
-		templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+		Destroy(this, waitTime);
 	}
 	
 	void Update() 
@@ -37,48 +37,48 @@ public class SearchForNeighborRooms : MonoBehaviour
 		// Look for UP neighbor
 		if (hitUp.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an UPSIDE neighbor at " + hitUp.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an UPSIDE neighbor at " + hitUp.collider.transform.position);
 			upNeighbor = true;
 		}
 		else if (hitUpEntry.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an UPSIDE neighbor at " + hitUpEntry.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an UPSIDE neighbor at " + hitUpEntry.collider.transform.position);
 			upNeighbor = true;
 		}
 
 		// Look for DOWN neighbor
 		if (hitDown.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an DOWNSIDE neighbor at " + hitDown.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an DOWNSIDE neighbor at " + hitDown.collider.transform.position);
 			downNeighbor = true;
 		}
 		else if (hitDownEntry.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an DOWNSIDE neighbor at " + hitDownEntry.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an DOWNSIDE neighbor at " + hitDownEntry.collider.transform.position);
 			downNeighbor = true;
 		}
 
 		// Look for RIGHT neighbor
 		if (hitRight.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an RIGHTSIDE neighbor at " + hitRight.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an RIGHTSIDE neighbor at " + hitRight.collider.transform.position);
 			rightNeighbor = true;
 		}
 		else if (hitRightEntry.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an RIGHTSIDE neighbor at " + hitRightEntry.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an RIGHTSIDE neighbor at " + hitRightEntry.collider.transform.position);
 			rightNeighbor = true;
 		}
 
 		// Look for LEFT neighbor
 		if (hitLeft.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an LEFTSIDE neighbor at " + hitLeft.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an LEFTSIDE neighbor at " + hitLeft.collider.transform.position);
 			leftNeighbor = true;
 		}			
 		else if (hitLeftEntry.collider != null)
 		{
-			print("SpawnedRoom at: " + transform.position + "  has an LEFTSIDE neighbor at " + hitLeftEntry.collider.transform.position);
+			// print("SpawnedRoom at: " + transform.position + "  has an LEFTSIDE neighbor at " + hitLeftEntry.collider.transform.position);
 			leftNeighbor = true;
 		}
 	}

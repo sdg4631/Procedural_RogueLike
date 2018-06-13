@@ -263,7 +263,7 @@ MonoBehaviour:
   LR: {fileID: 1616369906033928, guid: dafe91e3d55267e41aa030cf35a2a39c, type: 2}
   TBRL: {fileID: 1664083786927598, guid: e0c50a9bf80eae54f99e19da795a4a95, type: 2}
   rooms: []
-  approxNumOfRooms: 8
+  approxNumOfRooms: 10
   waitTime: 5
   spawnedBoss: 0
   boss: {fileID: 1279436436471518, guid: 125adb1ee8f2ec042a0458784df52797, type: 2}

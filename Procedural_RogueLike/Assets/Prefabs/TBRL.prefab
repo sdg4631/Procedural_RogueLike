@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 114204090031315820}
   m_Layer: 9
   m_Name: TBRL
-  m_TagString: Untagged
+  m_TagString: TBRL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

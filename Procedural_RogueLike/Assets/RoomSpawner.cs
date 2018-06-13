@@ -9,47 +9,33 @@ public class RoomSpawner : MonoBehaviour
 	// 2 --> need top door
 	// 3 --> need left door
 	// 4 --> need right door
-
 	
 	public GameObject spawnedRoom = null;
-	public float replaceSpawnedRoomDelay = 7f; 
 
 	private RoomTemplates templates;
-	private SearchForNeighborRooms searchForNeighbors;
+	private BoxCollider2D myCollider;
+
 	private int random;
 	private bool spawned = false;
+	private float waitTime = 6f;
 
-	BoxCollider2D myCollider;
 	
-
-	// // Used to determine the correct room while error correcting for Spawn()
-	// private bool searchForNeighbors.upNeighbor = false;
-	// private bool searchForNeighbors.downNeighbor = false;
-	// private bool searchForNeighbors.rightNeighbor = false;
-	// private bool searchForNeighbors.leftNeighbor = false;
-
-
+	
 	void Start() 
 	{
 		myCollider = GetComponent<BoxCollider2D>();
 		templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-		searchForNeighbors = GetComponentInParent<SearchForNeighborRooms>();
 		
-		Invoke("Spawn", 0.1f);
-
-	}
-
-	void Update()
-	{
-		
+		Invoke("Spawn", 0.3f);
+		Destroy(gameObject, waitTime);
 	}
 
 	void Spawn() 
 	{
-		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Entry"))) { return; }
-		if (myCollider.IsTouchingLayers(LayerMask.GetMask("SpawnedRoom"))) { return; }
+		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Entry"))) { spawned = true; }
+		if (myCollider.IsTouchingLayers(LayerMask.GetMask("SpawnedRoom"))) { spawned = true; }
 
-		if (spawned == false && templates.rooms.Count - 1 < templates.approxNumOfRooms)
+		if (spawned == false && templates.rooms.Count < templates.approxNumOfRooms)
 		{
 			if (openingDirection == 1)
 			{
@@ -76,29 +62,6 @@ public class RoomSpawner : MonoBehaviour
 				spawnedRoom = Instantiate(templates.rightRooms[random], transform.position, Quaternion.identity);
 			}
 		}
-		// else if (spawned == false && templates.rooms.Count - 1 >= templates.approxNumOfRooms)
-		// {
-		// 	if (openingDirection == 1)
-		// 	{
-		// 		// need to spawn a room with ONLY A BOTTOM door
-		// 		spawnedRoom = Instantiate(templates.closedBottomRoom, transform.position, Quaternion.identity);
-		// 	}
-		// 	else if (openingDirection == 2)
-		// 	{
-		// 		// need to spawn a room with ONLY A TOP door
-		// 		spawnedRoom = Instantiate(templates.closedTopRoom, transform.position, Quaternion.identity);
-		// 	}
-		// 	else if (openingDirection == 3)
-		// 	{
-		// 		// need to spawn a room with ONLY A LEFT door
-		// 		spawnedRoom = Instantiate(templates.closedLeftRoom, transform.position, Quaternion.identity);
-		// 	}
-		// 	else if (openingDirection == 4)
-		// 	{
-		// 		// need to spawn a room with ONLY A RIGHT door
-		// 		spawnedRoom = Instantiate(templates.closedRightRoom, transform.position, Quaternion.identity);
-		// 	}
-		// }
 		spawned = true;
 	}
 
@@ -106,13 +69,8 @@ public class RoomSpawner : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("SpawnPoint"))
-		{
-			if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
-			{
-				// spawn walls blocking off any openings
-										
-			}
-			else if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false)
+		{			
+			if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false)
 			{
 				Destroy(gameObject);
 			}

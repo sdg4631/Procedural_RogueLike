@@ -5,12 +5,6 @@ using UnityEngine;
 public class Destroyer : MonoBehaviour 
 {
 	private RoomTemplates templates;
-	BoxCollider2D myCollider;
-	
-	void Start()
-	{
-		myCollider = GetComponent<BoxCollider2D>();
-	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -19,7 +13,6 @@ public class Destroyer : MonoBehaviour
 			templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
 			templates.rooms.Remove(other.gameObject);
 			Destroy(other.gameObject);		
-		}
-		
+		}		
 	}
 }

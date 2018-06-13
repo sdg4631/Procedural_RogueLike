@@ -4,131 +4,193 @@ using UnityEngine;
 
 public class DoorCorrector : MonoBehaviour 
 {
-	RoomSpawner roomSpawner;
-	SearchForNeighborRooms searchForNeighbors;
-	RoomTemplates templates;
+	private RoomSpawner roomSpawner;
+	private SearchForNeighborRooms searchForNeighbors;
+	private RoomTemplates templates;
+
+	private float waitTime = 6f;
 
 	void Start() 
 	{
 		searchForNeighbors = GetComponent<SearchForNeighborRooms>();
 		templates = FindObjectOfType<RoomTemplates>();
-		Invoke("ReplaceSpawnedRoom", 4f);
+		Invoke("ReplaceSpawnedRoom", 5f);
+		Destroy(this, waitTime);
 	}
 	
 
-	void Update() 
-	{
-		
-	}
-
-// Replaces spawned room with correct doors to adjacent rooms
+	// Replaces spawned room with correct doors to adjacent rooms
 	void ReplaceSpawnedRoom()
 	{
+
 		if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == false)
-		{			
-			var newRoom = Instantiate(templates.TB, transform.position, Quaternion.identity);			
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+		{	
+			if (gameObject.tag != "TB")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TB, transform.position, Quaternion.identity);	
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}					
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
-		{			
-			var newRoom = Instantiate(templates.TL, transform.position, Quaternion.identity);	
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+		{	
+			if (gameObject.tag != "TL")	
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TL, transform.position, Quaternion.identity);	
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}				
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
 		{
-			var newRoom = Instantiate(templates.TR, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "TR")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TR, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
 		{
-			var newRoom = Instantiate(templates.TBL, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "TBL")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TBL, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
 		{
-			var newRoom = Instantiate(templates.TBR, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "TBR")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TBR, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}		
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true)
 		{
-			var newRoom = Instantiate(templates.TLR, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "TLR")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TLR, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
 		{
-			var newRoom = Instantiate(templates.BL, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "BL")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.BL, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
 		{
-			var newRoom = Instantiate(templates.BR, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "BR")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.BR, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true)
 		{
-			var newRoom = Instantiate(templates.BLR, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "BLR")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.BLR, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true)
 		{
-			var newRoom = Instantiate(templates.LR, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "LR")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.LR, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true && gameObject.tag != "Entry")
 		{
-			var newRoom = Instantiate(templates.TBRL, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "TBRL")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.TBRL, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}	
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == false)
 		{
-			var newRoom = Instantiate(templates.closedTopRoom, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "T")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.closedTopRoom, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == false)
 		{
-			var newRoom = Instantiate(templates.closedBottomRoom, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "B")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.closedBottomRoom, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
 		{
-			var newRoom = Instantiate(templates.closedRightRoom, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "R")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.closedRightRoom, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
 		{
-			var newRoom = Instantiate(templates.closedLeftRoom, transform.position, Quaternion.identity);
-			print("Replaced room at: " + transform.position + " with" + newRoom);
-			templates.rooms.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			if (gameObject.tag != "L")
+			{
+				templates.rooms.Remove(gameObject);
+				Destroy(gameObject);
+				var newRoom = Instantiate(templates.closedLeftRoom, transform.position, Quaternion.identity);
+				Destroy(newRoom.GetComponent<DoorCorrector>());	
+				print("Replaced room at: " + transform.position + " with" + newRoom);
+			}			
 		}
+		else
+		{
 
+		}
 	}
 }
