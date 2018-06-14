@@ -9,7 +9,7 @@ public class SearchForNeighborRooms : MonoBehaviour
 	public bool rightNeighbor = false;
 	public bool leftNeighbor = false;
 
-	private float waitTime = 6f;
+	private float waitTime = 5f;
 
 	void Start() 
 	{

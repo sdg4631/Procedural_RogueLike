@@ -8,13 +8,13 @@ public class DoorCorrector : MonoBehaviour
 	private SearchForNeighborRooms searchForNeighbors;
 	private RoomTemplates templates;
 
-	private float waitTime = 6f;
+	private float waitTime = 5f;
 
 	void Start() 
 	{
 		searchForNeighbors = GetComponent<SearchForNeighborRooms>();
 		templates = FindObjectOfType<RoomTemplates>();
-		Invoke("ReplaceSpawnedRoom", 5f);
+		Invoke("ReplaceSpawnedRoom", 4f);
 		Destroy(this, waitTime);
 	}
 	

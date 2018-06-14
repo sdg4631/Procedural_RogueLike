@@ -241,8 +241,6 @@ MonoBehaviour:
   - {fileID: 1616369906033928, guid: dafe91e3d55267e41aa030cf35a2a39c, type: 2}
   - {fileID: 1616369906033928, guid: dafe91e3d55267e41aa030cf35a2a39c, type: 2}
   - {fileID: 1344095342526974, guid: fe864a08f3bc6304984b7a91bfd8d372, type: 2}
-  closedRooms:
-  - {fileID: 1894338408943798, guid: d62c77c680a940d40bc36886848fdbd1, type: 2}
   closedBottomRoom: {fileID: 1955548818017368, guid: c1e982830f02ae14a8934891492011b9,
     type: 2}
   closedTopRoom: {fileID: 1412048512471120, guid: e132d2e9be5b69e4ca841aa8a78a2cec,
@@ -263,7 +261,7 @@ MonoBehaviour:
   LR: {fileID: 1616369906033928, guid: dafe91e3d55267e41aa030cf35a2a39c, type: 2}
   TBRL: {fileID: 1664083786927598, guid: e0c50a9bf80eae54f99e19da795a4a95, type: 2}
   rooms: []
-  approxNumOfRooms: 10
+  approxNumOfRooms: 15
   waitTime: 5
   spawnedBoss: 0
   boss: {fileID: 1279436436471518, guid: 125adb1ee8f2ec042a0458784df52797, type: 2}
@@ -419,7 +417,7 @@ Prefab:
     - target: {fileID: 114193631599657858, guid: 951e813312c2fa34981517d6d5a9831e,
         type: 2}
       propertyPath: approxNumOfRooms
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114193631599657858, guid: 951e813312c2fa34981517d6d5a9831e,
         type: 2}
