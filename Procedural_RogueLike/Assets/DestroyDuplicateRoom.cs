@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class DestroyDuplicateRoom : MonoBehaviour 
 {
+	BoxCollider2D myCollider;
+	RoomTemplates templates;
+
 	void Start()
 	{
-		
+		myCollider = GetComponent<BoxCollider2D>();
+		templates = FindObjectOfType<RoomTemplates>();
+		Invoke("DestroyRoom", 5f);
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void DestroyRoom()
 	{
-		if (coll.gameObject.tag == gameObject.tag)
+		var overlappingRooms = myCollider.IsTouchingLayers(LayerMask.GetMask("SpawnedRoom"));
+		if (overlappingRooms)
 		{
-			Destroy(gameObject);
 			print(gameObject + " destroyed");
+			templates.rooms.Remove(gameObject);
+			Destroy(gameObject);			
 		}
 	}
 }

@@ -8,7 +8,7 @@ public class DoorCorrector : MonoBehaviour
 	private SearchForNeighborRooms searchForNeighbors;
 	private RoomTemplates templates;
 
-	private float waitTime = 5f;
+	private float waitTime = 4f;
 
 	void Start() 
 	{
