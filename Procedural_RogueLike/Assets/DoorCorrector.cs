@@ -150,7 +150,7 @@ public class DoorCorrector : MonoBehaviour
 			{
 				templates.rooms.Remove(gameObject);
 				Destroy(gameObject);
-				var newRoom = Instantiate(templates.closedTopRoom, transform.position, Quaternion.identity);
+				var newRoom = Instantiate(templates.T, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
 				print("Replaced room at: " + transform.position + " with" + newRoom);
 			}
@@ -161,7 +161,7 @@ public class DoorCorrector : MonoBehaviour
 			{
 				templates.rooms.Remove(gameObject);
 				Destroy(gameObject);
-				var newRoom = Instantiate(templates.closedBottomRoom, transform.position, Quaternion.identity);
+				var newRoom = Instantiate(templates.B, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
 				print("Replaced room at: " + transform.position + " with" + newRoom);
 			}			
@@ -172,7 +172,7 @@ public class DoorCorrector : MonoBehaviour
 			{
 				templates.rooms.Remove(gameObject);
 				Destroy(gameObject);
-				var newRoom = Instantiate(templates.closedRightRoom, transform.position, Quaternion.identity);
+				var newRoom = Instantiate(templates.R, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
 				print("Replaced room at: " + transform.position + " with" + newRoom);
 			}			
@@ -183,7 +183,7 @@ public class DoorCorrector : MonoBehaviour
 			{
 				templates.rooms.Remove(gameObject);
 				Destroy(gameObject);
-				var newRoom = Instantiate(templates.closedLeftRoom, transform.position, Quaternion.identity);
+				var newRoom = Instantiate(templates.L, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
 				print("Replaced room at: " + transform.position + " with" + newRoom);
 			}			

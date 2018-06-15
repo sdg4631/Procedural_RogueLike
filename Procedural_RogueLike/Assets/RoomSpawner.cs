@@ -65,16 +65,16 @@ public class RoomSpawner : MonoBehaviour
 		spawned = true;
 	}
 
-	// If two spawn points collide 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.CompareTag("SpawnPoint"))
-		{			
-			if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false)
-			{
-				Destroy(gameObject);
-			}
-			spawned = true;
-		}
-	}
+	// // If two spawn points collide 
+	// void OnTriggerEnter2D(Collider2D other)
+	// {
+	// 	if (other.CompareTag("SpawnPoint"))
+	// 	{			
+	// 		if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false)
+	// 		{
+	// 			Destroy(gameObject);
+	// 		}
+	// 		spawned = true;
+	// 	}
+	// }
 }

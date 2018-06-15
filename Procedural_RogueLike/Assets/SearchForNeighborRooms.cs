@@ -23,16 +23,16 @@ public class SearchForNeighborRooms : MonoBehaviour
 
 	void RaycastForAdjacentRooms()
 	{		
-		RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, 1f, LayerMask.GetMask("SpawnedRoom"));
-		RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 1f, LayerMask.GetMask("SpawnedRoom"));
-		RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 1f, LayerMask.GetMask("SpawnedRoom"));
-		RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 1f, LayerMask.GetMask("SpawnedRoom"));
+		RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, 11f, LayerMask.GetMask("SpawnedRoom"));
+		RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 11f, LayerMask.GetMask("SpawnedRoom"));
+		RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 20f, LayerMask.GetMask("SpawnedRoom"));
+		RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 20f, LayerMask.GetMask("SpawnedRoom"));
 
 		// Raycast separately for ENTRY room 
-		RaycastHit2D hitUpEntry = Physics2D.Raycast(transform.position, Vector2.up, 1f, LayerMask.GetMask("Entry"));
-		RaycastHit2D hitDownEntry = Physics2D.Raycast(transform.position, Vector2.down, 1f, LayerMask.GetMask("Entry"));
-		RaycastHit2D hitRightEntry = Physics2D.Raycast(transform.position, Vector2.right, 1f, LayerMask.GetMask("Entry"));
-		RaycastHit2D hitLeftEntry = Physics2D.Raycast(transform.position, Vector2.left, 1f, LayerMask.GetMask("Entry"));
+		RaycastHit2D hitUpEntry = Physics2D.Raycast(transform.position, Vector2.up, 11f, LayerMask.GetMask("Entry"));
+		RaycastHit2D hitDownEntry = Physics2D.Raycast(transform.position, Vector2.down, 11f, LayerMask.GetMask("Entry"));
+		RaycastHit2D hitRightEntry = Physics2D.Raycast(transform.position, Vector2.right, 20f, LayerMask.GetMask("Entry"));
+		RaycastHit2D hitLeftEntry = Physics2D.Raycast(transform.position, Vector2.left, 20f, LayerMask.GetMask("Entry"));
 
 		// Look for UP neighbor
 		if (hitUp.collider != null)
