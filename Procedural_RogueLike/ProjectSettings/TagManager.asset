@@ -56,9 +56,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Room
+    uniqueID: 3671951187
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Boss
     uniqueID: 235809283
+    locked: 0
+  - name: Player
+    uniqueID: 2807757585
     locked: 0
