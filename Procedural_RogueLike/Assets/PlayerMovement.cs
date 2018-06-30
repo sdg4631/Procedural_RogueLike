@@ -41,24 +41,22 @@ public class PlayerMovement : MonoBehaviour
         var yVelocity = new Vector2(myRigidBody.velocity.x, yThrow * verticalMoveSpeed);
         myRigidBody.velocity = yVelocity;
 
-        AnimateSprite();
-		// FlipSprite();
+        AnimateSprite(xThrow, yThrow);
+		FlipSprite();
 
     }
 
-    void AnimateSprite()
+    void AnimateSprite(float xThrow, float yThrow)
     {    
-        // Player Input Returns   
-        var xThrowAim = Input.GetAxis("HorizontalStick");
-        var yThrowAim = Input.GetAxis("VerticalStick");
 
-        bool playerNotMoving = xThrowAim == 0 && yThrowAim == 0;
-        bool playerMovingForward = xThrowAim >= -0.25 && xThrowAim <= 0.25 && yThrowAim < 0;
-        bool playerMovingLeft = xThrowAim < 0 && yThrowAim <= 0;
-        bool playerMovingRight = xThrowAim > 0 && yThrowAim <= 0;
-        bool playerMovingBack = xThrowAim >= -0.5 && xThrowAim <= 0.5 && yThrowAim > 0;
-        bool playerMovingBackLeft = xThrowAim < 0 && yThrowAim > 0;
-        bool playerMovingBackRight = xThrowAim > 0 && yThrowAim > 0;
+
+        bool playerNotMoving = xThrow == 0 && yThrow == 0;
+        bool playerMovingForward = xThrow >= -0.25 && xThrow <= 0.25 && yThrow < 0;
+        bool playerMovingLeft = xThrow < 0 && yThrow <= 0;
+        bool playerMovingRight = xThrow > 0 && yThrow <= 0;
+        bool playerMovingBack = xThrow >= -0.5 && xThrow <= 0.5 && yThrow > 0;
+        bool playerMovingBackLeft = xThrow < 0 && yThrow > 0;
+        bool playerMovingBackRight = xThrow > 0 && yThrow > 0;
 
         // Activate/Deactivate Parent GameObject
         if (playerMovingForward)
@@ -108,22 +106,15 @@ public class PlayerMovement : MonoBehaviour
         {
             pitBackLR.GetComponent<Animator>().SetBool("RunBackLR", playerMovingBackLeft || playerMovingBackRight);
         }
-
-        bool playerHasHorizontalSpeed = Mathf.Abs(xThrowAim) > Mathf.Epsilon;
-		if (playerHasHorizontalSpeed)
-		{
-			pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(xThrowAim), 1f);
-            pitBackLR.transform.localScale = new Vector2(Mathf.Sign(xThrowAim), 1f);
-		}
     }
 
-    // void FlipSprite()
-	// {
-	// 	bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-	// 	if (playerHasHorizontalSpeed)
-	// 	{
-	// 		pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
-    //         pitBackLR.transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
-	// 	}
-	// }
+    void FlipSprite()
+	{
+		bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+		if (playerHasHorizontalSpeed)
+		{
+			pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
+            pitBackLR.transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+		}
+	}
 }
