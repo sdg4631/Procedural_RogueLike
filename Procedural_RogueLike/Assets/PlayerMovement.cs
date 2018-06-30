@@ -112,8 +112,8 @@ public class PlayerMovement : MonoBehaviour
         bool playerHasHorizontalSpeed = Mathf.Abs(xThrowAim) > Mathf.Epsilon;
 		if (playerHasHorizontalSpeed)
 		{
-			pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
-            pitBackLR.transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+			pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(xThrowAim), 1f);
+            pitBackLR.transform.localScale = new Vector2(Mathf.Sign(xThrowAim), 1f);
 		}
     }
 
