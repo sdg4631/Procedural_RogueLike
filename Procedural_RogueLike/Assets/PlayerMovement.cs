@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] GameObject pitForward;
 	[SerializeField] GameObject pitForwardLR;
-	
-
+    [SerializeField] GameObject pitBack;
+    [SerializeField] GameObject pitBackLR;
 
 	void Start() 
 	{
@@ -41,45 +41,89 @@ public class PlayerMovement : MonoBehaviour
         var yVelocity = new Vector2(myRigidBody.velocity.x, yThrow * verticalMoveSpeed);
         myRigidBody.velocity = yVelocity;
 
-        AnimateSprite(xThrow, yThrow);
-		FlipSprite();
+        AnimateSprite();
+		// FlipSprite();
 
     }
 
-    void AnimateSprite(float xThrow, float yThrow)
-    {
-        // Set Animation States
-        bool playerNotMoving = xThrow == 0 && yThrow == 0;
-        bool playerMovingForward = xThrow == 0 && yThrow < 0;
-        bool playerMovingLeft = xThrow < 0 && yThrow <= 0;
-        bool playerMovingRight = xThrow > 0 && yThrow <= 0;
-        bool playerMovingBack = xThrow == 0 && yThrow > 0;
-        bool playerMovingBackLeft = xThrow < 0 && yThrow > 0;
-        bool playerMovingBackRight = xThrow > 0 && yThrow > 0;
+    void AnimateSprite()
+    {    
+        // Player Input Returns   
+        var xThrowAim = Input.GetAxis("HorizontalStick");
+        var yThrowAim = Input.GetAxis("VerticalStick");
 
+        bool playerNotMoving = xThrowAim == 0 && yThrowAim == 0;
+        bool playerMovingForward = xThrowAim >= -0.25 && xThrowAim <= 0.25 && yThrowAim < 0;
+        bool playerMovingLeft = xThrowAim < 0 && yThrowAim <= 0;
+        bool playerMovingRight = xThrowAim > 0 && yThrowAim <= 0;
+        bool playerMovingBack = xThrowAim >= -0.5 && xThrowAim <= 0.5 && yThrowAim > 0;
+        bool playerMovingBackLeft = xThrowAim < 0 && yThrowAim > 0;
+        bool playerMovingBackRight = xThrowAim > 0 && yThrowAim > 0;
+
+        // Activate/Deactivate Parent GameObject
         if (playerMovingForward)
-            print("playerMovingForward");
+        {
+            pitForward.SetActive(true);
+            pitForwardLR.SetActive(false);
+            pitBack.SetActive(false);
+            pitBackLR.SetActive(false);
+            
+        }
+        else if (playerMovingLeft || playerMovingRight)
+        {
+            pitForwardLR.SetActive(true);
+            pitForward.SetActive(false);
+            pitBack.SetActive(false);
+            pitBackLR.SetActive(false);
+        }
+        else if (playerMovingBack)
+        {
+            pitBack.SetActive(true);
+            pitForward.SetActive(false);
+            pitForwardLR.SetActive(false);
+            pitBackLR.SetActive(false);
+        }
+        else if (playerMovingBackLeft || playerMovingBackRight)
+        {
+            pitBackLR.SetActive(true);
+            pitForward.SetActive(false);
+            pitForwardLR.SetActive(false);
+            pitBack.SetActive(false);
+        }
 
-        if (playerMovingLeft)
-            print("playerMovingLeft");
+        // Set Animation States
+        if (pitForward.activeInHierarchy == true)
+        {
+            pitForward.GetComponent<Animator>().SetBool("RunForward", playerMovingForward);
+        }
+        else if (pitForwardLR.activeInHierarchy)
+        {
+            pitForwardLR.GetComponent<Animator>().SetBool("RunLR", playerMovingLeft || playerMovingRight);
+        }
+        else if (pitBack.activeInHierarchy)
+        {
+            pitBack.GetComponent<Animator>().SetBool("RunBack", playerMovingBack);
+        }
+        else if (pitBackLR.activeInHierarchy)
+        {
+            pitBackLR.GetComponent<Animator>().SetBool("RunBackLR", playerMovingBackLeft || playerMovingBackRight);
+        }
 
-        if (playerMovingRight)
-            print("playerMovingRight");
-
-        if (playerNotMoving)
-            print("playerNotMoving");
-
-        pitForwardLR.SetActive(playerMovingLeft || playerMovingRight);
-        pitForward.SetActive(playerNotMoving || playerMovingForward);
-        pitForward.GetComponent<Animator>().SetBool("RunForward", playerMovingForward);
-    }
-
-    void FlipSprite()
-	{
-		bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(xThrowAim) > Mathf.Epsilon;
 		if (playerHasHorizontalSpeed)
 		{
 			pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
+            pitBackLR.transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
 		}
-	}
+    }
+
+    // void FlipSprite()
+	// {
+	// 	bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+	// 	if (playerHasHorizontalSpeed)
+	// 	{
+	// 		pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
+    //         pitBackLR.transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+	// 	}
+	// }
 }
