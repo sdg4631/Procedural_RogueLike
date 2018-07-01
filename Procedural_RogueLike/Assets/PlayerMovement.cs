@@ -52,11 +52,11 @@ public class PlayerMovement : MonoBehaviour
 
         bool playerNotMoving = xThrow == 0 && yThrow == 0;
         bool playerMovingForward = xThrow >= -0.25 && xThrow <= 0.25 && yThrow < 0;
-        bool playerMovingLeft = xThrow < 0 && yThrow <= 0;
-        bool playerMovingRight = xThrow > 0 && yThrow <= 0;
-        bool playerMovingBack = xThrow >= -0.5 && xThrow <= 0.5 && yThrow > 0;
-        bool playerMovingBackLeft = xThrow < 0 && yThrow > 0;
-        bool playerMovingBackRight = xThrow > 0 && yThrow > 0;
+        bool playerMovingLeft = xThrow < 0 && yThrow < 0.5;
+        bool playerMovingRight = xThrow > 0 && yThrow < 0.5;
+        bool playerMovingBack = xThrow >= -0.25 && xThrow <= 0.25 && yThrow > 0;
+        bool playerMovingBackLeft = xThrow < 0 && yThrow >= 0.5;
+        bool playerMovingBackRight = xThrow > 0 && yThrow >= 0.5;
 
         // Activate/Deactivate Parent GameObject
         if (playerMovingForward)
@@ -89,23 +89,23 @@ public class PlayerMovement : MonoBehaviour
             pitBack.SetActive(false);
         }
 
-        // Set Animation States
-        if (pitForward.activeInHierarchy == true)
-        {
-            pitForward.GetComponent<Animator>().SetBool("RunForward", playerMovingForward);
-        }
-        else if (pitForwardLR.activeInHierarchy)
-        {
-            pitForwardLR.GetComponent<Animator>().SetBool("RunLR", playerMovingLeft || playerMovingRight);
-        }
-        else if (pitBack.activeInHierarchy)
-        {
-            pitBack.GetComponent<Animator>().SetBool("RunBack", playerMovingBack);
-        }
-        else if (pitBackLR.activeInHierarchy)
-        {
-            pitBackLR.GetComponent<Animator>().SetBool("RunBackLR", playerMovingBackLeft || playerMovingBackRight);
-        }
+        // // Set Animation States
+        // if (pitForward.activeInHierarchy == true)
+        // {
+        //     pitForward.GetComponent<Animator>().SetBool("RunForward", playerMovingForward);
+        // }
+        // else if (pitForwardLR.activeInHierarchy)
+        // {
+        //     pitForwardLR.GetComponent<Animator>().SetBool("RunLR", playerMovingLeft || playerMovingRight);
+        // }
+        // else if (pitBack.activeInHierarchy)
+        // {
+        //     pitBack.GetComponent<Animator>().SetBool("RunBack", playerMovingBack);
+        // }
+        // else if (pitBackLR.activeInHierarchy)
+        // {
+        //     pitBackLR.GetComponent<Animator>().SetBool("RunBackLR", playerMovingBackLeft || playerMovingBackRight);
+        // }
     }
 
     void FlipSprite()
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 		if (playerHasHorizontalSpeed)
 		{
 			pitForwardLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
-            pitBackLR.transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+            pitBackLR.transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
 		}
 	}
 }
