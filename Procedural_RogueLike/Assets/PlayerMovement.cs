@@ -25,6 +25,57 @@ public class PlayerMovement : MonoBehaviour
 	void Update() 
 	{
 		Move();		
+
+        Vector3 cursor = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+        cursor = Camera.main.ScreenToWorldPoint(cursor);
+        cursor = cursor - transform.position;
+
+        float angle = Mathf.Atan2(cursor.y - transform.position.y, cursor.x - transform.position.x) * Mathf.Rad2Deg;
+        print(angle);
+
+        if (angle >= -135 && angle <= -45)
+        {
+            pitForward.SetActive(true);
+            pitForwardLR.SetActive(false);
+            pitBack.SetActive(false);
+            pitBackLR.SetActive(false);
+            
+        }
+        else if (((angle < -135 && angle > -180) || (angle < 180 && angle > 145)) || ((angle < 0 && angle > -45) || (angle >= 0 && angle < 35)))
+        {
+            pitForwardLR.SetActive(true);
+            pitForward.SetActive(false);
+            pitBack.SetActive(false);
+            pitBackLR.SetActive(false);
+        }
+        else if (angle <= 95 && angle >= 85)
+        {
+            pitBack.SetActive(true);
+            pitForward.SetActive(false);
+            pitForwardLR.SetActive(false);
+            pitBackLR.SetActive(false);
+        }
+        else if ((angle <= 135 && angle > 95) || (angle < 85 && angle >= 45))
+        {
+            pitBackLR.SetActive(true);
+            pitForward.SetActive(false);
+            pitForwardLR.SetActive(false);
+            pitBack.SetActive(false);
+        }
+
+        //Pit Facing Left
+        if (((angle < -135 && angle > -180) || (angle < 180 && angle > 145)) || (angle <= 135 && angle > 95))
+        {
+            pitForwardLR.transform.localScale = new Vector2(1, 1f);
+            pitBackLR.transform.localScale = new Vector2(1, 1f);
+        }
+
+        // Pit Facing Right
+        if (((angle < 0 && angle > -45) || (angle >= 0 && angle < 35)) || (angle < 85 && angle >= 45))
+        {
+            pitForwardLR.transform.localScale = new Vector2(-1, 1f);
+            pitBackLR.transform.localScale = new Vector2(-1, 1f);
+        }
 	}
 
 	void Move()
@@ -41,8 +92,8 @@ public class PlayerMovement : MonoBehaviour
         var yVelocity = new Vector2(myRigidBody.velocity.x, yThrow * verticalMoveSpeed);
         myRigidBody.velocity = yVelocity;
 
-        AnimateSprite(xThrow, yThrow);
-		FlipSprite();
+        // AnimateSprite(xThrow, yThrow);
+		// FlipSprite();
 
     }
 
