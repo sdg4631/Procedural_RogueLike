@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	// Cached Component References
 	Rigidbody2D myRigidBody;
 
+    [SerializeField] GameObject pitRoot;
 	[SerializeField] GameObject pitForward;
 	[SerializeField] GameObject pitForwardLR;
     [SerializeField] GameObject pitBack;
@@ -159,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
         bool playerMovingBackLeft = xThrow < 0 && yThrow >= 0.5;
         bool playerMovingBackRight = xThrow > 0 && yThrow >= 0.5;
 
+        print (playerMovingForward);
+
         // Activate/Deactivate Parent GameObject
         if (playerMovingForward)
         {
@@ -190,15 +193,24 @@ public class PlayerMovement : MonoBehaviour
             pitBack.SetActive(false);
         }
 
+        if (playerNotMoving)
+        {
+            pitRoot.GetComponent<Animator>().SetBool("isRunning", false);
+        }
+        else
+        {
+            pitRoot.GetComponent<Animator>().SetBool("isRunning", true);
+        }
+
         // // Set Animation States
-        // if (pitForward.activeInHierarchy == true)
-        // {
-        //     pitForward.GetComponent<Animator>().SetBool("RunForward", playerMovingForward);
-        // }
-        // else if (pitForwardLR.activeInHierarchy)
-        // {
-        //     pitForwardLR.GetComponent<Animator>().SetBool("RunLR", playerMovingLeft || playerMovingRight);
-        // }
+        if (pitForward.activeInHierarchy == true)
+        {
+            pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerMovingForward);
+        }
+        else if (pitForwardLR.activeInHierarchy)
+        {
+            pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerMovingLeft || playerMovingRight);
+        }
         // else if (pitBack.activeInHierarchy)
         // {
         //     pitBack.GetComponent<Animator>().SetBool("RunBack", playerMovingBack);
