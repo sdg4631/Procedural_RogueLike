@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     bool aimingWithCursor = false;
     float cursorLastMovedTimer;
     Vector3 lastMouseCoordinate = Vector3.zero;
+
+    // Controller Variables
+    bool aimingWithController = false;
     
 
 	void Start() 
@@ -33,6 +36,76 @@ public class PlayerMovement : MonoBehaviour
         CheckForCursorMovement();
         Move();
         ControlSpriteWithAiming();
+
+        AimingWithController();
+    }
+
+    private void AimingWithController()
+    {
+        var rightAnologXThrow = Input.GetAxis("Right Analog X");
+        var rightAnologYThrow = Input.GetAxis("Right Analog Y");
+        print("xthrow" + rightAnologXThrow);
+        print("yThrow" + rightAnologYThrow);
+
+        if (rightAnologXThrow == 0 && rightAnologYThrow == 0)
+        {
+            aimingWithController = false;
+        }
+        else
+        {
+            aimingWithController = true;
+        }
+
+        bool aimingForwardWithController = rightAnologXThrow >= -0.25 && rightAnologXThrow <= 0.25 && rightAnologYThrow < 0;
+        bool aimingLeftWithController = rightAnologXThrow < 0 && rightAnologYThrow < 0.5;
+        bool aimingRightWithController = rightAnologXThrow > 0 && rightAnologYThrow < 0.5;
+        bool aimingBackWithController = rightAnologXThrow >= -0.25 && rightAnologXThrow <= 0.25 && rightAnologYThrow > 0;
+        bool aimingBackLeftWithController = rightAnologXThrow < 0 && rightAnologYThrow >= 0.5;
+        bool aimingBackRightWithController = rightAnologXThrow > 0 && rightAnologYThrow >= 0.5;
+
+        // Activate/Deactivate Parent GameObject
+        if (aimingForwardWithController)
+        {
+            pitForward.SetActive(true);
+            pitForwardLR.SetActive(false);
+            pitBack.SetActive(false);
+            pitBackLR.SetActive(false);
+
+        }
+        else if (aimingLeftWithController || aimingRightWithController)
+        {
+            pitForwardLR.SetActive(true);
+            pitForward.SetActive(false);
+            pitBack.SetActive(false);
+            pitBackLR.SetActive(false);
+        }
+        else if (aimingBackWithController)
+        {
+            pitBack.SetActive(true);
+            pitForward.SetActive(false);
+            pitForwardLR.SetActive(false);
+            pitBackLR.SetActive(false);
+        }
+        else if (aimingBackLeftWithController || aimingBackRightWithController)
+        {
+            pitBackLR.SetActive(true);
+            pitForward.SetActive(false);
+            pitForwardLR.SetActive(false);
+            pitBack.SetActive(false);
+        }
+
+        if (aimingLeftWithController || aimingBackLeftWithController)
+        {
+            pitForwardLR.transform.localScale = new Vector2(1, 1f);
+            pitBackLR.transform.localScale = new Vector2(1, 1f);
+        }
+
+
+        if (aimingRightWithController || aimingBackRightWithController)
+        {
+            pitForwardLR.transform.localScale = new Vector2(-1, 1f);
+            pitBackLR.transform.localScale = new Vector2(-1, 1f);
+        }
     }
 
     void CheckForCursorMovement()
@@ -69,13 +142,11 @@ public class PlayerMovement : MonoBehaviour
         var yVelocity = new Vector2(myRigidBody.velocity.x, yThrow * verticalMoveSpeed);
         myRigidBody.velocity = yVelocity;
 
-        if (aimingWithCursor == false)
+        if (aimingWithCursor == false && aimingWithController == false)
         {
             ControlSpriteWithMoving(xThrow, yThrow);
 		    FlipSpriteWhileMoving();
         }
-        
-
     }
 
     void ControlSpriteWithMoving(float xThrow, float yThrow)
