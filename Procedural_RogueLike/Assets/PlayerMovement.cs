@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Controller Variables
     bool aimingWithController = false;
+
+    bool playerIsMoving = false;
     
 
 	void Start() 
@@ -35,18 +38,28 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
     {
         CheckForCursorMovement();
+        CheckForPlayerMovement();
         Move();
-        ControlSpriteWithAiming();
-
+        ControlSpriteWithCursorAiming();
         AimingWithController();
+    }
+
+    private void CheckForPlayerMovement()
+    {
+        if (myRigidBody.velocity.magnitude > 0)
+        {
+            playerIsMoving = true;
+        }
+        else
+        {
+            playerIsMoving = false;
+        }
     }
 
     private void AimingWithController()
     {
         var rightAnologXThrow = Input.GetAxis("Right Analog X");
         var rightAnologYThrow = Input.GetAxis("Right Analog Y");
-        print("xthrow" + rightAnologXThrow);
-        print("yThrow" + rightAnologYThrow);
 
         if (rightAnologXThrow == 0 && rightAnologYThrow == 0)
         {
@@ -107,6 +120,24 @@ public class PlayerMovement : MonoBehaviour
             pitForwardLR.transform.localScale = new Vector2(-1, 1f);
             pitBackLR.transform.localScale = new Vector2(-1, 1f);
         }
+
+        // Set Animation States
+        if (pitForward.activeInHierarchy == true)
+        {
+            pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerIsMoving);
+        }
+        else if (pitForwardLR.activeInHierarchy)
+        {
+            pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerIsMoving);
+        }
+        else if (pitBack.activeInHierarchy)
+        {
+            pitBack.GetComponent<Animator>().SetBool("BackFeet", playerIsMoving);
+        }
+        else if (pitBackLR.activeInHierarchy)
+        {
+            pitBackLR.GetComponent<Animator>().SetBool("BackLRFeet", playerIsMoving);
+        }
     }
 
     void CheckForCursorMovement()
@@ -143,6 +174,17 @@ public class PlayerMovement : MonoBehaviour
         var yVelocity = new Vector2(myRigidBody.velocity.x, yThrow * verticalMoveSpeed);
         myRigidBody.velocity = yVelocity;
 
+        
+        bool playerNotMoving = xThrow == 0 && yThrow == 0;
+        if (playerNotMoving)
+        {
+            pitRoot.GetComponent<Animator>().SetBool("isRunning", false);
+        }
+        else
+        {
+            pitRoot.GetComponent<Animator>().SetBool("isRunning", true);
+        }
+
         if (aimingWithCursor == false && aimingWithController == false)
         {
             ControlSpriteWithMoving(xThrow, yThrow);
@@ -152,15 +194,12 @@ public class PlayerMovement : MonoBehaviour
 
     void ControlSpriteWithMoving(float xThrow, float yThrow)
     {    
-        bool playerNotMoving = xThrow == 0 && yThrow == 0;
         bool playerMovingForward = xThrow >= -0.25 && xThrow <= 0.25 && yThrow < 0;
         bool playerMovingLeft = xThrow < 0 && yThrow < 0.5;
         bool playerMovingRight = xThrow > 0 && yThrow < 0.5;
         bool playerMovingBack = xThrow >= -0.25 && xThrow <= 0.25 && yThrow > 0;
         bool playerMovingBackLeft = xThrow < 0 && yThrow >= 0.5;
         bool playerMovingBackRight = xThrow > 0 && yThrow >= 0.5;
-
-        print (playerMovingForward);
 
         // Activate/Deactivate Parent GameObject
         if (playerMovingForward)
@@ -193,32 +232,23 @@ public class PlayerMovement : MonoBehaviour
             pitBack.SetActive(false);
         }
 
-        if (playerNotMoving)
-        {
-            pitRoot.GetComponent<Animator>().SetBool("isRunning", false);
-        }
-        else
-        {
-            pitRoot.GetComponent<Animator>().SetBool("isRunning", true);
-        }
-
-        // // Set Animation States
+        // Set Animation States
         if (pitForward.activeInHierarchy == true)
         {
-            pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerMovingForward);
+            pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerIsMoving);
         }
         else if (pitForwardLR.activeInHierarchy)
         {
-            pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerMovingLeft || playerMovingRight);
+            pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerIsMoving);
         }
-        // else if (pitBack.activeInHierarchy)
-        // {
-        //     pitBack.GetComponent<Animator>().SetBool("RunBack", playerMovingBack);
-        // }
-        // else if (pitBackLR.activeInHierarchy)
-        // {
-        //     pitBackLR.GetComponent<Animator>().SetBool("RunBackLR", playerMovingBackLeft || playerMovingBackRight);
-        // }
+        else if (pitBack.activeInHierarchy)
+        {
+            pitBack.GetComponent<Animator>().SetBool("BackFeet", playerIsMoving);
+        }
+        else if (pitBackLR.activeInHierarchy)
+        {
+            pitBackLR.GetComponent<Animator>().SetBool("BackLRFeet", playerIsMoving);
+        }
     }
 
     void FlipSpriteWhileMoving()
@@ -231,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-    void ControlSpriteWithAiming()
+    void ControlSpriteWithCursorAiming()
     {
         if (aimingWithCursor == true) // TODO or firing???
         {
@@ -277,6 +307,24 @@ public class PlayerMovement : MonoBehaviour
                 pitForward.SetActive(false);
                 pitForwardLR.SetActive(false);
                 pitBack.SetActive(false);
+            }
+
+            // Set Animation States
+            if (pitForward.activeInHierarchy == true)
+            {
+                pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerIsMoving);
+            }
+            else if (pitForwardLR.activeInHierarchy)
+            {
+                pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerIsMoving);
+            }
+            else if (pitBack.activeInHierarchy)
+            {
+                pitBack.GetComponent<Animator>().SetBool("BackFeet", playerIsMoving);
+            }
+            else if (pitBackLR.activeInHierarchy)
+            {
+                pitBackLR.GetComponent<Animator>().SetBool("BackLRFeet", playerIsMoving);
             }
 
             FlipSpriteWhileAiming(angle);
