@@ -581,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1845138827823864
 GameObject:
   m_ObjectHideFlags: 1
@@ -1870,6 +1870,10 @@ MonoBehaviour:
   pitForwardLR: {fileID: 1931729085214444}
   pitBack: {fileID: 1997359496668018}
   pitBackLR: {fileID: 1329708729568614}
+  pitFootstepFX: {fileID: 1369371304840970, guid: e0b5d89b7635164498546e60543a6023,
+    type: 2}
+  dustTrailFX: {fileID: 1492039970330022, guid: 88cc02bc8a59dcf4882b7747a51d0ff8,
+    type: 2}
 --- !u!114 &114713403284049388
 MonoBehaviour:
   m_ObjectHideFlags: 1

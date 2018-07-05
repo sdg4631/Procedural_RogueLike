@@ -13,11 +13,16 @@ public class PlayerMovement : MonoBehaviour
 	// Cached Component References
 	Rigidbody2D myRigidBody;
 
+    // Sprite GameObjects
     [SerializeField] GameObject pitRoot;
 	[SerializeField] GameObject pitForward;
 	[SerializeField] GameObject pitForwardLR;
     [SerializeField] GameObject pitBack;
     [SerializeField] GameObject pitBackLR;
+
+    // Particles
+    [SerializeField] GameObject pitFootstepFX;
+    [SerializeField] GameObject dustTrailFX;
 
     // Cursor Variables
     bool aimingWithCursor = false;
@@ -28,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     bool aimingWithController = false;
 
     bool playerIsMoving = false;
+    float footstepTimer = 0;
+    float dustTimer = 0;
     
 
 	void Start() 
@@ -42,7 +49,10 @@ public class PlayerMovement : MonoBehaviour
         Move();
         ControlSpriteWithCursorAiming();
         AimingWithController();
+        PlayMovementParticles();
     }
+
+
 
     private void CheckForPlayerMovement()
     {
@@ -263,21 +273,19 @@ public class PlayerMovement : MonoBehaviour
 
     void ControlSpriteWithCursorAiming()
     {
+        Vector3 cursor = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+        cursor = Camera.main.ScreenToWorldPoint(cursor);
+        cursor = cursor - transform.position;
+
+        float angle = Mathf.Atan2(cursor.y - transform.position.y, cursor.x - transform.position.x) * Mathf.Rad2Deg;
+
+        var facingForward = angle >= -135 && angle <= -45;
+        var facingForwardLR = ((angle < -135 && angle > -180) || (angle < 180 && angle > 145)) || ((angle < 0 && angle > -45) || (angle >= 0 && angle < 35));
+        var facingBack = angle <= 105 && angle >= 75;
+        var facingBackLR = (angle <= 135 && angle > 105) || (angle < 75 && angle >= 45);
+
         if (aimingWithCursor == true) // TODO or firing???
         {
-           Vector3 cursor = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
-            cursor = Camera.main.ScreenToWorldPoint(cursor);
-            cursor = cursor - transform.position;
-
-            
-
-            float angle = Mathf.Atan2(cursor.y - transform.position.y, cursor.x - transform.position.x) * Mathf.Rad2Deg;
-
-            var facingForward = angle >= -135 && angle <= -45;
-            var facingForwardLR = ((angle < -135 && angle > -180) || (angle < 180 && angle > 145)) || ((angle < 0 && angle > -45) || (angle >= 0 && angle < 35));
-            var facingBack = angle <= 105 && angle >= 75;
-            var facingBackLR = (angle <= 135 && angle > 105) || (angle < 75 && angle >= 45);
-
             // Activate/Deactivate Parent GameObject
             if (facingForward)
             {
@@ -350,5 +358,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void PlayMovementParticles()
+    {
+        // Footsteps
+        if (playerIsMoving && footstepTimer <= 0)
+        {   
+            var footstepSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);       
+            var footsteps = Instantiate(pitFootstepFX, footstepSpawnPosition, Quaternion.identity);
+            Destroy(footsteps, 1f);
+            footstepTimer = .2f;           
+        }
+        footstepTimer -= Time.deltaTime;
+
+        // Dust Trail
+        if (playerIsMoving && dustTimer <= 0)
+        {
+            var dustTrailSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);
+            var dustTrail = Instantiate(dustTrailFX, dustTrailSpawnPosition, Quaternion.identity);
+            float destroyTimer = 3f;
+            Destroy(dustTrail, destroyTimer);
+            dustTimer = 0.02f;
+        }
+        dustTimer -= Time.deltaTime;
+    }
 
 }
