@@ -36,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
 
 				var rock = Instantiate(rockProjectile, spawnPos, Quaternion.identity);
 				rock.transform.LookAt(cursorPos);
+				rock.transform.parent = fxParent.transform;
 				float destroyDelay = 12f;
 				Destroy(rock, destroyDelay);
 			}
