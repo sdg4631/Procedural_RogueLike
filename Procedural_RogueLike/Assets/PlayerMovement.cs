@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject pitBackLR;
 
     // Particles
+    [SerializeField] GameObject fxParent;
     [SerializeField] GameObject pitFootstepFX;
     [SerializeField] GameObject dustTrailFX;
 
@@ -365,6 +366,7 @@ public class PlayerMovement : MonoBehaviour
         {   
             var footstepSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);       
             var footsteps = Instantiate(pitFootstepFX, footstepSpawnPosition, Quaternion.identity);
+            footsteps.transform.parent = fxParent.transform;
             Destroy(footsteps, 1f);
             footstepTimer = .2f;           
         }
@@ -375,6 +377,7 @@ public class PlayerMovement : MonoBehaviour
         {
             var dustTrailSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);
             var dustTrail = Instantiate(dustTrailFX, dustTrailSpawnPosition, Quaternion.identity);
+            dustTrail.transform.parent = fxParent.transform;
             float destroyTimer = 3f;
             Destroy(dustTrail, destroyTimer);
             dustTimer = 0.02f;

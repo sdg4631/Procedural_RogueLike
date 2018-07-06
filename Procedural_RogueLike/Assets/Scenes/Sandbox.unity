@@ -286,7 +286,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1768741570
+--- !u!1001 &1171378957
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -325,7 +325,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 137350508102899496, guid: b8f68f84239a4784f87c73ad153fb277,
+    - target: {fileID: 137787838740348618, guid: b8f68f84239a4784f87c73ad153fb277,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137263650381444730, guid: b8f68f84239a4784f87c73ad153fb277,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -340,19 +345,10 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 137787838740348618, guid: b8f68f84239a4784f87c73ad153fb277,
+    - target: {fileID: 137350508102899496, guid: b8f68f84239a4784f87c73ad153fb277,
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137263650381444730, guid: b8f68f84239a4784f87c73ad153fb277,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4707288274036050, guid: b8f68f84239a4784f87c73ad153fb277, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8f68f84239a4784f87c73ad153fb277, type: 2}
