@@ -8,7 +8,6 @@ public class Reticle : MonoBehaviour
 
 	void Update() 
 	{
-		OnGUI();
 		Cursor.visible = false;
 	}
 
