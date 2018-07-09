@@ -109,11 +109,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (pitForwardLR.transform.localScale.x == 1)
                 {
-                    proj.transform.LookAt(transform.position + new Vector3(-1, 0));
+                    proj.transform.LookAt(transform.position + new Vector3(-10, 0));
                 }
                 else if (pitForwardLR.transform.localScale.x == -1)
                 {
-                    proj.transform.LookAt(transform.position + new Vector3(1, 0));
+                    proj.transform.LookAt(transform.position + new Vector3(10, 0));
                 }
             }
             else if (pitBackMeshes.activeInHierarchy)
