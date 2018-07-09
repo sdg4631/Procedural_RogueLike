@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     bool aimingWithController = false;
 
     bool playerIsMoving = false;
+    Vector3 currentPos; 
     float footstepTimer = 0;
     float dustTimer = 0;
     
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckForPlayerMovement()
     {
-        if (myRigidBody.velocity.magnitude > 0)
+        if (currentPos != transform.position)
         {
             playerIsMoving = true;
         }
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerIsMoving = false;
         }
+        currentPos = transform.position;
     }
 
     private void AimingWithController()
@@ -190,9 +192,9 @@ public class PlayerMovement : MonoBehaviour
         var yVelocity = new Vector2(myRigidBody.velocity.x, yThrow * verticalMoveSpeed);
         myRigidBody.velocity = yVelocity;
 
-        
-        bool playerNotMoving = xThrow == 0 && yThrow == 0;
-        if (playerNotMoving)
+          
+        bool playerNotMovingWithInput = xThrow == 0 && yThrow == 0;
+        if (playerNotMovingWithInput || !playerIsMoving)
         {
             pitRoot.GetComponent<Animator>().SetBool("isRunning", false);
         }
@@ -200,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
         {
             pitRoot.GetComponent<Animator>().SetBool("isRunning", true);
         }
+        currentPos = transform.position;  
 
         if (aimingWithCursor == false && aimingWithController == false)
         {
@@ -281,7 +284,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 cursor = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
         cursor = Camera.main.ScreenToWorldPoint(cursor);
-        cursor = cursor - transform.position;
 
         float angle = Mathf.Atan2(cursor.y - transform.position.y, cursor.x - transform.position.x) * Mathf.Rad2Deg;
 
