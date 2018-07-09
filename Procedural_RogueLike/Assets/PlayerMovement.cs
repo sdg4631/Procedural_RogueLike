@@ -75,10 +75,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void AimingWithController()
     {
-        var rightAnologXThrow = Input.GetAxis("Right Analog X");
-        var rightAnologYThrow = Input.GetAxis("Right Analog Y");
+        var rightAnalogXThrow = Input.GetAxis("Right Analog X");
+        var rightAnalogYThrow = Input.GetAxis("Right Analog Y");
 
-        if (rightAnologXThrow == 0 && rightAnologYThrow == 0)
+        if (rightAnalogXThrow == 0 && rightAnalogYThrow == 0)
         {
             aimingWithController = false;
         }
@@ -87,12 +87,12 @@ public class PlayerMovement : MonoBehaviour
             aimingWithController = true;
         }
 
-        bool aimingForwardWithController = rightAnologXThrow >= -0.25 && rightAnologXThrow <= 0.25 && rightAnologYThrow < 0;
-        bool aimingLeftWithController = rightAnologXThrow < 0 && rightAnologYThrow < 0.5;
-        bool aimingRightWithController = rightAnologXThrow > 0 && rightAnologYThrow < 0.5;
-        bool aimingBackWithController = rightAnologXThrow >= -0.25 && rightAnologXThrow <= 0.25 && rightAnologYThrow > 0;
-        bool aimingBackLeftWithController = rightAnologXThrow < 0 && rightAnologYThrow >= 0.5;
-        bool aimingBackRightWithController = rightAnologXThrow > 0 && rightAnologYThrow >= 0.5;
+        bool aimingForwardWithController = rightAnalogXThrow >= -0.25 && rightAnalogXThrow <= 0.25 && rightAnalogYThrow < 0;
+        bool aimingLeftWithController = rightAnalogXThrow < 0 && rightAnalogYThrow < 0.5;
+        bool aimingRightWithController = rightAnalogXThrow > 0 && rightAnalogYThrow < 0.5;
+        bool aimingBackWithController = rightAnalogXThrow >= -0.25 && rightAnalogXThrow <= 0.25 && rightAnalogYThrow > 0;
+        bool aimingBackLeftWithController = rightAnalogXThrow < 0 && rightAnalogYThrow >= 0.5;
+        bool aimingBackRightWithController = rightAnalogXThrow > 0 && rightAnalogYThrow >= 0.5;
 
         // Activate/Deactivate Parent GameObject
         if (aimingForwardWithController)
@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckForCursorMovement()
     {
-        if (Input.mousePosition != lastMouseCoordinate) // Moving Cursor
+        if (Input.mousePosition != lastMouseCoordinate || Input.GetMouseButtonDown(0)) // Moving Cursor or Attacking
         { 
             cursorLastMovedTimer = 0.0f;
             aimingWithCursor = true;
@@ -169,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
             cursorLastMovedTimer += Time.deltaTime;
         }
 
-        if (cursorLastMovedTimer >= 1f)
+        if (cursorLastMovedTimer >= .5f)
         {
             aimingWithCursor = false;
         }
