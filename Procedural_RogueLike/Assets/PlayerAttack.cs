@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour 
 {
+	// Sprite Parent GameObjects
+	[SerializeField] GameObject pitForward;
+	[SerializeField] GameObject pitForwardLR;
+    [SerializeField] GameObject pitBack;
+    [SerializeField] GameObject pitBackLR;
+
+    //Meshes
+	[SerializeField] GameObject pitForwardMeshes;
+	[SerializeField] GameObject pitForwardLRMeshes;
+    [SerializeField] GameObject pitBackMeshes;
+    [SerializeField] GameObject pitBackLRMeshes;
+
 	[SerializeField] GameObject fxParent;
 	[SerializeField] GameObject rockProjectile;
-
+	
 	Rigidbody2D rockRB;
-
+	
 	bool rockEquipped = true;
+
 
 	void Start() 
 	{
@@ -19,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
 
 	void Update() 
 	{
-		ThrowRock();
+		ThrowRock();		
 	}
 
 	void ThrowRock()
@@ -29,6 +42,27 @@ public class PlayerAttack : MonoBehaviour
 
 			if(Input.GetMouseButtonDown(0))
 			{
+				if (pitForwardMeshes.activeInHierarchy)
+				{
+					pitForward.GetComponent<Animator>().Play("Front Attack", -1, 0);
+				}
+				else if (pitForwardLRMeshes.activeInHierarchy)
+				{
+
+				}
+				else if (pitBackMeshes.activeInHierarchy)
+				{
+
+				}
+				else if (pitBackLRMeshes.activeInHierarchy)
+				{
+					
+				}
+
+					
+				
+				
+				
 				Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
 				cursorPos = Camera.main.ScreenToWorldPoint(cursorPos);
 

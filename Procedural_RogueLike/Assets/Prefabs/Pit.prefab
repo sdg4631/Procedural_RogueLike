@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 137846053285670838}
   m_Layer: 0
   m_Name: Pit 4K Left Eye Black
-  m_TagString: Untagged
+  m_TagString: NormalEyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,12 +154,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4303461763740356}
   m_Layer: 0
-  m_Name: Meshes
+  m_Name: Back Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1173823112507322
 GameObject:
   m_ObjectHideFlags: 1
@@ -169,12 +169,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4094513199656886}
   m_Layer: 0
-  m_Name: Meshes
+  m_Name: Back LR Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1185276337199812
 GameObject:
   m_ObjectHideFlags: 1
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 137656509531464344}
   m_Layer: 0
   m_Name: Pit 4K Right eye black
-  m_TagString: Untagged
+  m_TagString: NormalEyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,12 +267,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4955385618998840}
   m_Layer: 0
-  m_Name: Meshes
+  m_Name: Front LR Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1278742136737494
 GameObject:
   m_ObjectHideFlags: 1
@@ -337,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1333755533194358
 GameObject:
   m_ObjectHideFlags: 1
@@ -828,7 +828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4231313980654818}
   m_Layer: 0
-  m_Name: Meshes
+  m_Name: Front Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 137854762768085984}
   m_Layer: 0
   m_Name: Pit 4K Right Eye Black
-  m_TagString: Untagged
+  m_TagString: NormalEyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -915,7 +915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1955864845179204
 GameObject:
   m_ObjectHideFlags: 1
@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 137653374656200036}
   m_Layer: 0
   m_Name: Pit 4K left eye black
-  m_TagString: Untagged
+  m_TagString: NormalEyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -981,7 +981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4009451860821070
 Transform:
   m_ObjectHideFlags: 1
@@ -1193,7 +1193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1033903299668654}
   m_LocalRotation: {x: 0, y: 0, z: -0.9989866, w: 0.04500876}
-  m_LocalPosition: {x: -0.013591874, y: 0.14641473, z: 0}
+  m_LocalPosition: {x: -0.01359187, y: 0.1464147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4248561639895754}
@@ -1368,7 +1368,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247548998125624}
   m_LocalRotation: {x: 0, y: 0, z: 0.6680586, w: 0.7441087}
-  m_LocalPosition: {x: 0.51747334, y: 0.15580493, z: 0}
+  m_LocalPosition: {x: 0.51747334, y: 0.1558049, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4805566538365986}
@@ -1566,7 +1566,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955864845179204}
   m_LocalRotation: {x: 0, y: 0, z: -0.7173608, w: -0.6967019}
-  m_LocalPosition: {x: 0.5161905, y: 0.13668066, z: 0}
+  m_LocalPosition: {x: 0.5161905, y: 0.1366807, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4572790648914442}
@@ -1726,7 +1726,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619388332654936}
   m_LocalRotation: {x: 0, y: 0, z: -0.99193126, w: -0.12677743}
-  m_LocalPosition: {x: -0.020357111, y: -0.1707677, z: 0}
+  m_LocalPosition: {x: -0.02035711, y: -0.1707677, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4248561639895754}
@@ -1801,7 +1801,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1558571877181718}
   m_LocalRotation: {x: 0, y: 0, z: -0.6967206, w: 0.7173426}
-  m_LocalPosition: {x: 0.51636773, y: -0.1542585, z: 0}
+  m_LocalPosition: {x: 0.5163677, y: -0.1542585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4572790648914442}
@@ -1888,7 +1888,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6068c250e44c91b4bad1eb09c2b77537, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -2279,6 +2279,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c76b6ea0ce9714e9834e3f85b34caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pitForward: {fileID: 1821788765747364}
+  pitForwardLR: {fileID: 1931729085214444}
+  pitBack: {fileID: 1997359496668018}
+  pitBackLR: {fileID: 1329708729568614}
+  pitForwardMeshes: {fileID: 1856191122849754}
+  pitForwardLRMeshes: {fileID: 1276928190226136}
+  pitBackMeshes: {fileID: 1159224113871588}
+  pitBackLRMeshes: {fileID: 1173823112507322}
   fxParent: {fileID: 0}
   rockProjectile: {fileID: 1281391274065506, guid: 454ab268ccb4619419c814ffef504c28,
     type: 2}
@@ -2624,6 +2632,10 @@ MonoBehaviour:
   pitForwardLR: {fileID: 1931729085214444}
   pitBack: {fileID: 1997359496668018}
   pitBackLR: {fileID: 1329708729568614}
+  pitForwardMeshes: {fileID: 1856191122849754}
+  pitForwardLRMeshes: {fileID: 1276928190226136}
+  pitBackMeshes: {fileID: 1159224113871588}
+  pitBackLRMeshes: {fileID: 1173823112507322}
   fxParent: {fileID: 0}
   pitFootstepFX: {fileID: 1369371304840970, guid: e0b5d89b7635164498546e60543a6023,
     type: 2}

@@ -13,12 +13,18 @@ public class PlayerMovement : MonoBehaviour
 	// Cached Component References
 	Rigidbody2D myRigidBody;
 
-    // Sprite GameObjects
+    // Sprite Parent GameObjects
     [SerializeField] GameObject pitRoot;
 	[SerializeField] GameObject pitForward;
 	[SerializeField] GameObject pitForwardLR;
     [SerializeField] GameObject pitBack;
     [SerializeField] GameObject pitBackLR;
+
+    //Meshes
+	[SerializeField] GameObject pitForwardMeshes;
+	[SerializeField] GameObject pitForwardLRMeshes;
+    [SerializeField] GameObject pitBackMeshes;
+    [SerializeField] GameObject pitBackLRMeshes;
 
     // Particles
     [SerializeField] GameObject fxParent;
@@ -91,32 +97,31 @@ public class PlayerMovement : MonoBehaviour
         // Activate/Deactivate Parent GameObject
         if (aimingForwardWithController)
         {
-            pitForward.SetActive(true);
-            pitForwardLR.SetActive(false);
-            pitBack.SetActive(false);
-            pitBackLR.SetActive(false);
-
+            pitForwardMeshes.SetActive(true);
+            pitForwardLRMeshes.SetActive(false);
+            pitBackMeshes.SetActive(false);
+            pitBackLRMeshes.SetActive(false);
         }
         else if (aimingLeftWithController || aimingRightWithController)
         {
-            pitForwardLR.SetActive(true);
-            pitForward.SetActive(false);
-            pitBack.SetActive(false);
-            pitBackLR.SetActive(false);
+            pitForwardLRMeshes.SetActive(true);
+            pitForwardMeshes.SetActive(false);
+            pitBackMeshes.SetActive(false);
+            pitBackLRMeshes.SetActive(false);
         }
         else if (aimingBackWithController)
         {
-            pitBack.SetActive(true);
-            pitForward.SetActive(false);
-            pitForwardLR.SetActive(false);
-            pitBackLR.SetActive(false);
+            pitBackMeshes.SetActive(true);
+            pitForwardMeshes.SetActive(false);
+            pitForwardLRMeshes.SetActive(false);
+            pitBackLRMeshes.SetActive(false);
         }
         else if (aimingBackLeftWithController || aimingBackRightWithController)
         {
-            pitBackLR.SetActive(true);
-            pitForward.SetActive(false);
-            pitForwardLR.SetActive(false);
-            pitBack.SetActive(false);
+            pitBackLRMeshes.SetActive(true);
+            pitForwardMeshes.SetActive(false);
+            pitForwardLRMeshes.SetActive(false);
+            pitBackMeshes.SetActive(false);
         }
 
         if (aimingLeftWithController || aimingBackLeftWithController)
@@ -133,19 +138,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Set Animation States
-        if (pitForward.activeInHierarchy == true)
+        if (pitForwardMeshes.activeInHierarchy)
         {
             pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerIsMoving);
         }
-        else if (pitForwardLR.activeInHierarchy)
+        else if (pitForwardLRMeshes.activeInHierarchy)
         {
             pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerIsMoving);
         }
-        else if (pitBack.activeInHierarchy)
+        else if (pitBackMeshes.activeInHierarchy)
         {
             pitBack.GetComponent<Animator>().SetBool("BackFeet", playerIsMoving);
         }
-        else if (pitBackLR.activeInHierarchy)
+        else if (pitBackLRMeshes.activeInHierarchy)
         {
             pitBackLR.GetComponent<Animator>().SetBool("BackLRFeet", playerIsMoving);
         }
@@ -215,48 +220,48 @@ public class PlayerMovement : MonoBehaviour
         // Activate/Deactivate Parent GameObject
         if (playerMovingForward)
         {
-            pitForward.SetActive(true);
-            pitForwardLR.SetActive(false);
-            pitBack.SetActive(false);
-            pitBackLR.SetActive(false);
+            pitForwardMeshes.SetActive(true);
+            pitForwardLRMeshes.SetActive(false);
+            pitBackMeshes.SetActive(false);
+            pitBackLRMeshes.SetActive(false);
             
         }
         else if (playerMovingLeft || playerMovingRight)
         {
-            pitForwardLR.SetActive(true);
-            pitForward.SetActive(false);
-            pitBack.SetActive(false);
-            pitBackLR.SetActive(false);
+            pitForwardLRMeshes.SetActive(true);
+            pitForwardMeshes.SetActive(false);
+            pitBackMeshes.SetActive(false);
+            pitBackLRMeshes.SetActive(false);
         }
         else if (playerMovingBack)
         {
-            pitBack.SetActive(true);
-            pitForward.SetActive(false);
-            pitForwardLR.SetActive(false);
-            pitBackLR.SetActive(false);
+            pitBackMeshes.SetActive(true);
+            pitForwardMeshes.SetActive(false);
+            pitForwardLRMeshes.SetActive(false);
+            pitBackLRMeshes.SetActive(false);
         }
         else if (playerMovingBackLeft || playerMovingBackRight)
         {
-            pitBackLR.SetActive(true);
-            pitForward.SetActive(false);
-            pitForwardLR.SetActive(false);
-            pitBack.SetActive(false);
+            pitBackLRMeshes.SetActive(true);
+            pitForwardMeshes.SetActive(false);
+            pitForwardLRMeshes.SetActive(false);
+            pitBackMeshes.SetActive(false);
         }
 
         // Set Animation States
-        if (pitForward.activeInHierarchy == true)
+        if (pitForwardMeshes.activeInHierarchy)
         {
             pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerIsMoving);
         }
-        else if (pitForwardLR.activeInHierarchy)
+        else if (pitForwardLRMeshes.activeInHierarchy)
         {
             pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerIsMoving);
         }
-        else if (pitBack.activeInHierarchy)
+        else if (pitBackMeshes.activeInHierarchy)
         {
             pitBack.GetComponent<Animator>().SetBool("BackFeet", playerIsMoving);
         }
-        else if (pitBackLR.activeInHierarchy)
+        else if (pitBackLRMeshes.activeInHierarchy)
         {
             pitBackLR.GetComponent<Animator>().SetBool("BackLRFeet", playerIsMoving);
         }
@@ -290,48 +295,48 @@ public class PlayerMovement : MonoBehaviour
             // Activate/Deactivate Parent GameObject
             if (facingForward)
             {
-                pitForward.SetActive(true);
-                pitForwardLR.SetActive(false);
-                pitBack.SetActive(false);
-                pitBackLR.SetActive(false);
+                pitForwardMeshes.SetActive(true);
+                pitForwardLRMeshes.SetActive(false);
+                pitBackMeshes.SetActive(false);
+                pitBackLRMeshes.SetActive(false);
 
             }
             else if (facingForwardLR)
             {
-                pitForwardLR.SetActive(true);
-                pitForward.SetActive(false);
-                pitBack.SetActive(false);
-                pitBackLR.SetActive(false);
+                pitForwardLRMeshes.SetActive(true);
+                pitForwardMeshes.SetActive(false);
+                pitBackMeshes.SetActive(false);
+                pitBackLRMeshes.SetActive(false);
             }
             else if (facingBack)
             {
-                pitBack.SetActive(true);
-                pitForward.SetActive(false);
-                pitForwardLR.SetActive(false);
-                pitBackLR.SetActive(false);
+                pitBackMeshes.SetActive(true);
+                pitForwardMeshes.SetActive(false);
+                pitForwardLRMeshes.SetActive(false);
+                pitBackLRMeshes.SetActive(false);
             }
             else if (facingBackLR)
             {
-                pitBackLR.SetActive(true);
-                pitForward.SetActive(false);
-                pitForwardLR.SetActive(false);
-                pitBack.SetActive(false);
+                pitBackLRMeshes.SetActive(true);
+                pitForwardMeshes.SetActive(false);
+                pitForwardLRMeshes.SetActive(false);
+                pitBackMeshes.SetActive(false);
             }
 
             // Set Animation States
-            if (pitForward.activeInHierarchy == true)
+            if (pitForwardMeshes.activeInHierarchy)
             {
                 pitForward.GetComponent<Animator>().SetBool("FrontFeet", playerIsMoving);
             }
-            else if (pitForwardLR.activeInHierarchy)
+            else if (pitForwardLRMeshes.activeInHierarchy)
             {
                 pitForwardLR.GetComponent<Animator>().SetBool("FrontLRFeet", playerIsMoving);
             }
-            else if (pitBack.activeInHierarchy)
+            else if (pitBackMeshes.activeInHierarchy)
             {
                 pitBack.GetComponent<Animator>().SetBool("BackFeet", playerIsMoving);
             }
-            else if (pitBackLR.activeInHierarchy)
+            else if (pitBackLRMeshes.activeInHierarchy)
             {
                 pitBackLR.GetComponent<Animator>().SetBool("BackLRFeet", playerIsMoving);
             }

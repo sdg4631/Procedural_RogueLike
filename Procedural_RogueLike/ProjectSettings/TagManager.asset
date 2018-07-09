@@ -22,6 +22,7 @@ TagManager:
   - TL
   - TLR
   - TR
+  - NormalEyes
   layers:
   - Default
   - TransparentFX
