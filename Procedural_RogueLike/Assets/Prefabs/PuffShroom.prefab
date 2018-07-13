@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4787671870105538}
   - component: {fileID: 212364360854934754}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PuffShroom EyeBack Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4435195951047106}
   - component: {fileID: 212779839898545924}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PuffShroom Stem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,8 @@ GameObject:
   - component: {fileID: 50276837721801952}
   - component: {fileID: 95163368371443638}
   - component: {fileID: 210709027933823652}
-  m_Layer: 0
+  - component: {fileID: 114155551629701948}
+  m_Layer: 14
   m_Name: PuffShroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4343842502488412}
   - component: {fileID: 212999047060834990}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PuffShroom Eye Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4002513181937270}
   - component: {fileID: 212642452466510444}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PuffShroom EyeBlack Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866124558808058}
   - component: {fileID: 212119759537143556}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PuffShroom Eye Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4708940669540440}
   - component: {fileID: 60569816332328478}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4573554349092000}
   - component: {fileID: 212266644961237160}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PuffShroom Cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328912697506272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.41, y: 0.92, z: 0}
+  m_LocalPosition: {x: 3.37, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4708940669540440}
@@ -259,11 +260,11 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328912697506272}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -320,6 +321,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114155551629701948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328912697506272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5142ea13ac42df44b932aaa4659eb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puffFXPrefab: {fileID: 1750488089142196, guid: 3b5560bc650dc3b4382457e20ee08c9c,
+    type: 2}
+  fxParent: {fileID: 0}
+  target: {fileID: 0}
+  timeBetweenPuffsMin: 3
+  timeBetweenPuffsMax: 9
 --- !u!210 &210709027933823652
 SortingGroup:
   m_ObjectHideFlags: 1
