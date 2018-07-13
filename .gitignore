@@ -23,6 +23,7 @@ ExportedObj/
 *.svd
 *.pdb
 *.opendb
+*.psd
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -35,4 +36,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Procedural_RogueLike/Assets/Sprites/ParticlePNGs.meta
-Procedural_RogueLike/Assets/Sprites/
+Procedural_RogueLike/Assets/Sprites
+
