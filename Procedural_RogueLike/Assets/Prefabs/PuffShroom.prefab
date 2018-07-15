@@ -336,8 +336,8 @@ MonoBehaviour:
     type: 2}
   fxParent: {fileID: 0}
   target: {fileID: 0}
-  timeBetweenPuffsMin: 3
-  timeBetweenPuffsMax: 9
+  timeBetweenPuffsMin: 2
+  timeBetweenPuffsMax: 11
 --- !u!210 &210709027933823652
 SortingGroup:
   m_ObjectHideFlags: 1

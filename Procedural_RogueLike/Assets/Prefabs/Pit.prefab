@@ -22,9 +22,8 @@ GameObject:
   - component: {fileID: 114635617855934024}
   - component: {fileID: 114342794255830342}
   - component: {fileID: 50111913755425208}
-  - component: {fileID: 60440239014535816}
   - component: {fileID: 210966017909270550}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Pit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606480011015236}
   - component: {fileID: 114829222926701850}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hips Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +56,7 @@ GameObject:
   - component: {fileID: 4731270349936346}
   - component: {fileID: 114026301370239606}
   - component: {fileID: 137252430012248500}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4268657298023958}
   - component: {fileID: 114095437576388964}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: L Leg Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +89,7 @@ GameObject:
   - component: {fileID: 4260419898682032}
   - component: {fileID: 114255092118105268}
   - component: {fileID: 137933779094898460}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,9 +105,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4707288274036050}
   - component: {fileID: 95636953124807094}
-  - component: {fileID: 60764406592740528}
   - component: {fileID: 60480516065900938}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit Root Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +123,7 @@ GameObject:
   - component: {fileID: 4898359712361922}
   - component: {fileID: 114462458997540454}
   - component: {fileID: 137846053285670838}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Left Eye Black
   m_TagString: NormalEyes
   m_Icon: {fileID: 0}
@@ -141,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4059139711829162}
   - component: {fileID: 114502389304118960}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: L Leg Front LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +154,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4303461763740356}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +169,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4094513199656886}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back LR Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +186,7 @@ GameObject:
   - component: {fileID: 4025584870152892}
   - component: {fileID: 114459347018961770}
   - component: {fileID: 137508416593142262}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +203,7 @@ GameObject:
   - component: {fileID: 4354317783392110}
   - component: {fileID: 114709731864658924}
   - component: {fileID: 137656509531464344}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Right eye black
   m_TagString: NormalEyes
   m_Icon: {fileID: 0}
@@ -221,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4805566538365986}
   - component: {fileID: 114076102817456860}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spine Front LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4550045165680942}
   - component: {fileID: 114460244847278006}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: left eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +252,7 @@ GameObject:
   - component: {fileID: 4883324322563918}
   - component: {fileID: 114564335566516958}
   - component: {fileID: 137484326233932192}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +267,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4955385618998840}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Front LR Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901846417180944}
   - component: {fileID: 114514914465297486}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: L Leg Back LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606019760666138}
   - component: {fileID: 114317857431120316}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: R Leg Front LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +316,7 @@ GameObject:
   - component: {fileID: 4403222537504522}
   - component: {fileID: 114987715145748692}
   - component: {fileID: 137827788646357532}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Eye Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4322589553367880}
   - component: {fileID: 95067099934595702}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit Back LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4403953282053724}
   - component: {fileID: 114840895642498326}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spine Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +365,7 @@ GameObject:
   - component: {fileID: 4651884178449360}
   - component: {fileID: 114844179938674542}
   - component: {fileID: 137604988653995836}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K right eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +382,7 @@ GameObject:
   - component: {fileID: 4963156849693972}
   - component: {fileID: 114054226848437234}
   - component: {fileID: 137704255563766748}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +399,7 @@ GameObject:
   - component: {fileID: 4196546721106526}
   - component: {fileID: 114417496385052048}
   - component: {fileID: 137216236961504980}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K right leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4867584061325860}
   - component: {fileID: 114730073478815154}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: R Leg Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +432,7 @@ GameObject:
   - component: {fileID: 4105353458191758}
   - component: {fileID: 114558714119762002}
   - component: {fileID: 137460167488515908}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K right leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +449,7 @@ GameObject:
   - component: {fileID: 4009451860821070}
   - component: {fileID: 114044018001400712}
   - component: {fileID: 137411921699709602}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K left eye angry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +466,7 @@ GameObject:
   - component: {fileID: 4892406822763320}
   - component: {fileID: 114053463321813144}
   - component: {fileID: 137405862023601104}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Eye Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4884083019777194}
   - component: {fileID: 114109199989124816}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: R Leg Back LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4267106422824664}
   - component: {fileID: 114689144839181044}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: right eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4960204581026002}
   - component: {fileID: 114180690916491082}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spine Back LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4976908554303848}
   - component: {fileID: 114343741506022274}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: R Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +547,7 @@ GameObject:
   - component: {fileID: 4369753420271158}
   - component: {fileID: 114569433459502912}
   - component: {fileID: 137791758100478732}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Angry Eye Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4113625345575340}
   - component: {fileID: 114052355981278312}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hips Front LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4248561639895754}
   - component: {fileID: 114812682726174722}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hips Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +596,7 @@ GameObject:
   - component: {fileID: 4399482613882354}
   - component: {fileID: 114432844155982392}
   - component: {fileID: 137838919595983646}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K right leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4935755259549084}
   - component: {fileID: 114425184236491532}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: R Leg Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +629,7 @@ GameObject:
   - component: {fileID: 4186360299921260}
   - component: {fileID: 114663304281174158}
   - component: {fileID: 137416622427192742}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K right eye angry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +646,7 @@ GameObject:
   - component: {fileID: 4496004342940222}
   - component: {fileID: 114895874437070178}
   - component: {fileID: 137398146333649814}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Angry Eye Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +663,7 @@ GameObject:
   - component: {fileID: 4755035935523102}
   - component: {fileID: 114710444538568912}
   - component: {fileID: 137870641868518680}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Front Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +680,7 @@ GameObject:
   - component: {fileID: 4471929822933830}
   - component: {fileID: 114310847126472346}
   - component: {fileID: 137649276595670668}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K left leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +697,7 @@ GameObject:
   - component: {fileID: 4680717572409882}
   - component: {fileID: 114677679983852260}
   - component: {fileID: 137690421607611580}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4571778903306646}
   - component: {fileID: 114414635367714906}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hips Back LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +730,7 @@ GameObject:
   - component: {fileID: 4889606990812598}
   - component: {fileID: 114607176124545648}
   - component: {fileID: 137856818906146188}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +747,7 @@ GameObject:
   - component: {fileID: 4505357353672794}
   - component: {fileID: 114279688841648830}
   - component: {fileID: 137961108828739986}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +764,7 @@ GameObject:
   - component: {fileID: 4888680573603678}
   - component: {fileID: 114261272373283154}
   - component: {fileID: 137856871525624520}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K left leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4599116562854936}
   - component: {fileID: 95348427916352362}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +797,7 @@ GameObject:
   - component: {fileID: 4629813836333492}
   - component: {fileID: 114428843599672446}
   - component: {fileID: 137971414026181164}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +812,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4231313980654818}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Front Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +829,7 @@ GameObject:
   - component: {fileID: 4207687794473222}
   - component: {fileID: 114307676385207604}
   - component: {fileID: 137656803339490958}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K left eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +846,7 @@ GameObject:
   - component: {fileID: 4371866402411412}
   - component: {fileID: 114225281926904106}
   - component: {fileID: 137854762768085984}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K Right Eye Black
   m_TagString: NormalEyes
   m_Icon: {fileID: 0}
@@ -864,7 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4572790648914442}
   - component: {fileID: 114493133362869388}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spine Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,7 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4496016607386862}
   - component: {fileID: 114464588842414980}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: L Leg Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -896,7 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4238270208377932}
   - component: {fileID: 95214359375445586}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit Front LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4849464717986948}
   - component: {fileID: 114454087373263678}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: L Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +927,7 @@ GameObject:
   - component: {fileID: 4963928530353452}
   - component: {fileID: 114006072188681616}
   - component: {fileID: 137409219389840848}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K left leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +944,7 @@ GameObject:
   - component: {fileID: 4809736493144576}
   - component: {fileID: 114161395314976126}
   - component: {fileID: 137653374656200036}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit 4K left eye black
   m_TagString: NormalEyes
   m_Icon: {fileID: 0}
@@ -962,7 +960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4880444517775882}
   - component: {fileID: 95474796093125888}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pit Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,7 +1327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893435644368382}
   m_LocalRotation: {x: -0, y: -0, z: -0.7434192, w: 0.6688258}
-  m_LocalPosition: {x: -0.016262958, y: 0.1706432, z: 0}
+  m_LocalPosition: {x: -0.017822152, y: 0.10277219, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4606480011015236}
@@ -1383,8 +1381,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887173083644598}
-  m_LocalRotation: {x: 0, y: 0, z: -0.006562807, w: 0.99997854}
-  m_LocalPosition: {x: 0.11743737, y: -0.000000007450581, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0065622083, w: 0.99997854}
+  m_LocalPosition: {x: 0.11744453, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849464717986948}
@@ -1426,7 +1424,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020922852074078}
-  m_LocalRotation: {x: -0, y: -0, z: 0.71518064, w: 0.69893974}
+  m_LocalRotation: {x: 0, y: 0, z: 0.71518064, w: 0.69893974}
   m_LocalPosition: {x: 0.008045033, y: -0.50401086, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1524,8 +1522,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239717715219412}
-  m_LocalRotation: {x: 0, y: 0, z: -0.012155893, w: 0.99992615}
-  m_LocalPosition: {x: 0.1483415, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.012148014, w: 0.9999262}
+  m_LocalPosition: {x: 0.14834152, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4267106422824664}
@@ -1685,7 +1683,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003716975954792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.61, y: 0.07, z: 0}
+  m_LocalPosition: {x: 5.619, y: 0.061, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4707288274036050}
@@ -1800,12 +1798,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &60440239014535816
+--- !u!60 &60480516065900938
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1003716975954792}
+  m_GameObject: {fileID: 1072679013441796}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1831,77 +1829,6 @@ PolygonCollider2D:
       - {x: -0.019007683, y: -0.5450804}
       - {x: 0.18307972, y: -0.4777881}
       - {x: 0.33455753, y: -0.17807794}
---- !u!60 &60480516065900938
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1072679013441796}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.17444468, y: 0.056689978}
-      - {x: -0.18887186, y: 0.060763717}
-      - {x: -0.3302436, y: -0.15715814}
-      - {x: -0.21670532, y: -0.45354843}
-      - {x: -0.019007683, y: -0.5450804}
-      - {x: 0.18307972, y: -0.4777881}
-      - {x: 0.33455753, y: -0.17807794}
---- !u!60 &60764406592740528
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1072679013441796}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: -0.18}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.3049729}
-      - {x: 0.11670807, y: 0.2817582}
-      - {x: 0.21564841, y: 0.21564837}
-      - {x: 0.2817582, y: 0.11670806}
-      - {x: 0.30497286, y: 0.0000000181778}
-      - {x: 0.2817582, y: -0.11670806}
-      - {x: 0.2156484, y: -0.21564837}
-      - {x: 0.116708085, y: -0.28175816}
-      - {x: -0.000000026661576, y: -0.3049729}
-      - {x: -0.11670807, y: -0.28175816}
-      - {x: -0.21564837, y: -0.21564844}
-      - {x: -0.2817582, y: -0.1167081}
-      - {x: -0.30497286, y: 0.0000000181778}
-      - {x: -0.2817582, y: 0.1167081}
-      - {x: -0.21564841, y: 0.21564837}
-      - {x: -0.11670807, y: 0.28175822}
 --- !u!95 &95067099934595702
 Animator:
   serializedVersion: 3
@@ -2064,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.14834149
+  m_Length: 0.14834152
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4805566538365986}
   m_AttachedIK: {fileID: 0}
@@ -2701,6 +2628,11 @@ MonoBehaviour:
     type: 2}
   dustTrailFX: {fileID: 1492039970330022, guid: 88cc02bc8a59dcf4882b7747a51d0ff8,
     type: 2}
+  dashState: 0
+  dashTimer: 0
+  maxDash: 0.07
+  dashSpeed: 5
+  savedVelocity: {x: 0, y: 0}
 --- !u!114 &114663304281174158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2841,7 +2773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.11743739
+  m_Length: 0.11744453
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4572790648914442}
   m_AttachedIK: {fileID: 0}

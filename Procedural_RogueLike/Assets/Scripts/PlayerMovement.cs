@@ -43,6 +43,24 @@ public class PlayerMovement : MonoBehaviour
     Vector3 currentPos; 
     float footstepTimer = 0;
     float dustTimer = 0;
+
+
+    // TODO remove public
+	public DashState dashState;
+    public float dashTimer;
+    public float maxDash = 2f;
+    public float dashSpeed = 5f;
+ 
+    public Vector2 savedVelocity;
+
+	public enum DashState 
+ 	{
+     Ready,
+     Dashing,
+     Cooldown
+	}
+
+    
     
 
 	void Start() 
@@ -52,20 +70,50 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Update()
     {
+        
         CheckForCursorMovement();
         CheckForPlayerMovement();
-        Move();
+        Dash();
+        if(dashState != DashState.Dashing) { Move(); }
         ControlSpriteWithCursorAiming();
         AimingWithController();
         PlayMovementParticles();
     }
 
-    void FixedUpdate()
+    private void Dash()
     {
-        
+        switch (dashState) 
+        {
+			case DashState.Ready:
+				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space);
+				if(isDashKeyDown)
+				{
+					savedVelocity = myRigidBody.velocity;
+					myRigidBody.velocity =  new Vector2(myRigidBody.velocity.x * dashSpeed, myRigidBody.velocity.y * dashSpeed);
+					dashState = DashState.Dashing;
+				}
+			break;
+
+			case DashState.Dashing:
+				dashTimer += Time.deltaTime;
+				if(dashTimer >= maxDash)
+				{
+					dashTimer = maxDash;
+					myRigidBody.velocity = savedVelocity;
+					dashState = DashState.Cooldown;
+				}
+			break;
+
+			case DashState.Cooldown:
+				dashTimer -= Time.deltaTime;
+				if(dashTimer <= 0)
+				{
+					dashTimer = 0;
+					dashState = DashState.Ready;
+				}
+			break;
+        }
     }
-
-
 
     private void CheckForPlayerMovement()
     {
