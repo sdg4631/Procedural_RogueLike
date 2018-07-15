@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckForCursorMovement();
         CheckForPlayerMovement();
-        
+        Move();
         ControlSpriteWithCursorAiming();
         AimingWithController();
         PlayMovementParticles();
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        
     }
 
 
