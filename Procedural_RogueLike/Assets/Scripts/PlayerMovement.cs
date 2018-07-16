@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject fxParent;
     [SerializeField] GameObject pitFootstepFX;
     [SerializeField] GameObject dustTrailFX;
+    [SerializeField] GameObject dashFXPrefab;
 
     // Cursor Variables
     bool aimingWithCursor = false;
@@ -43,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 currentPos; 
     float footstepTimer = 0;
     float dustTimer = 0;
+
+    float xThrow;
+    float yThrow;
 
 
     // TODO remove public
@@ -82,14 +86,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
+         // Player Input Returns
+        xThrow = Input.GetAxis("Horizontal");
+        yThrow = Input.GetAxis("Vertical");
+
         switch (dashState) 
         {
 			case DashState.Ready:
-				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space);
+				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Dash");
 				if(isDashKeyDown)
 				{
-					savedVelocity = myRigidBody.velocity;
-					myRigidBody.velocity =  new Vector2(myRigidBody.velocity.x * dashSpeed, myRigidBody.velocity.y * dashSpeed);
+					savedVelocity = myRigidBody.velocity;                  
+					myRigidBody.velocity =  new Vector2(xThrow * dashSpeed, yThrow * dashSpeed);
+                    var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);
+                    Vector3 dashDirection = new Vector3(xThrow * 100, yThrow * 100);
+                    print(dashDirection);
+                    dashFXPrefab.transform.LookAt(dashDirection);
 					dashState = DashState.Dashing;
 				}
 			break;
@@ -234,8 +246,8 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         // Player Input Returns
-        var xThrow = Input.GetAxis("Horizontal");
-        var yThrow = Input.GetAxis("Vertical");
+        xThrow = Input.GetAxis("Horizontal");
+        yThrow = Input.GetAxis("Vertical");
 
         // X Movement 
         var xVelocity = new Vector2(xThrow * horizontalMoveSpeed, myRigidBody.velocity.y);

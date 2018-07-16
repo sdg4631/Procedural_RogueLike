@@ -1683,7 +1683,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003716975954792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.619, y: 0.061, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4707288274036050}
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.14834152
+  m_Length: 0.14834154
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4805566538365986}
   m_AttachedIK: {fileID: 0}
@@ -2305,7 +2305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.113502376
+  m_Length: 0.11350238
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4960204581026002}
   m_AttachedIK: {fileID: 0}
@@ -2628,10 +2628,12 @@ MonoBehaviour:
     type: 2}
   dustTrailFX: {fileID: 1492039970330022, guid: 88cc02bc8a59dcf4882b7747a51d0ff8,
     type: 2}
+  dashFXPrefab: {fileID: 1414750963612706, guid: 5d56a7238ac9567408ef12d2e8b5ec25,
+    type: 2}
   dashState: 0
   dashTimer: 0
-  maxDash: 0.07
-  dashSpeed: 5
+  maxDash: 0.1
+  dashSpeed: 20
   savedVelocity: {x: 0, y: 0}
 --- !u!114 &114663304281174158
 MonoBehaviour:
@@ -2757,7 +2759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.13185376
+  m_Length: 0.13185374
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4403953282053724}
   m_AttachedIK: {fileID: 0}
