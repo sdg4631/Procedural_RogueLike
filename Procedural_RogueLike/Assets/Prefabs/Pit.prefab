@@ -2632,7 +2632,7 @@ MonoBehaviour:
     type: 2}
   dashState: 0
   dashTimer: 0
-  maxDash: 0.1
+  maxDash: 0.15
   dashSpeed: 20
   savedVelocity: {x: 0, y: 0}
 --- !u!114 &114663304281174158

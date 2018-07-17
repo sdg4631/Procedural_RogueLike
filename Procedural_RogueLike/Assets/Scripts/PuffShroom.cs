@@ -110,4 +110,6 @@ public class PuffShroom : MonoBehaviour
 		if (hitLeft) { wallLeft = true;}
 		else { wallLeft = false;}
 	}
+
+	
 }

@@ -64,12 +64,13 @@ public class PlayerMovement : MonoBehaviour
      Cooldown
 	}
 
-    
+    CameraShake cameraShake;
     
 
 	void Start() 
 	{
 		myRigidBody = GetComponent<Rigidbody2D>();
+        cameraShake = FindObjectOfType<CameraShake>();
 	}
 	
 	void Update()
@@ -90,23 +91,30 @@ public class PlayerMovement : MonoBehaviour
         xThrow = Input.GetAxis("Horizontal");
         yThrow = Input.GetAxis("Vertical");
 
+       var dashDirection = new Vector3();
+       dashDirection.x = xThrow;
+       dashDirection.y = yThrow;
+       dashDirection.Normalize();
+
         switch (dashState) 
         {
 			case DashState.Ready:
 				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Dash");
-				if(isDashKeyDown)
+				if(isDashKeyDown && playerIsMoving)
 				{
-					savedVelocity = myRigidBody.velocity;                  
-					myRigidBody.velocity =  new Vector2(xThrow * dashSpeed, yThrow * dashSpeed);
-                    var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);
-                    Vector3 dashDirection = new Vector3(xThrow * 100, yThrow * 100);
-                    print(dashDirection);
-                    dashFXPrefab.transform.LookAt(dashDirection);
+					savedVelocity = myRigidBody.velocity;                
+					myRigidBody.velocity =  new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);       
+                    var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);                    
+                    float rotationZ = Mathf.Atan2(dashDirection.y, dashDirection.x) * Mathf.Rad2Deg;
+                    dashFX.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+                    float destroyDelay = .7f;
+                    Destroy(dashFX, destroyDelay);
 					dashState = DashState.Dashing;
 				}
 			break;
 
 			case DashState.Dashing:
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);
 				dashTimer += Time.deltaTime;
 				if(dashTimer >= maxDash)
 				{
@@ -117,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 			break;
 
 			case DashState.Cooldown:
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), false);
 				dashTimer -= Time.deltaTime;
 				if(dashTimer <= 0)
 				{

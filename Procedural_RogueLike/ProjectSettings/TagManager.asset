@@ -23,6 +23,9 @@ TagManager:
   - TLR
   - TR
   - NormalEyes
+  - Dash
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
