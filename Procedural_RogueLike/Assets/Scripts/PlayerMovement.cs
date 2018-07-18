@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed = 5f;
  
     public Vector2 savedVelocity;
+    float rotationZ;
 
 	public enum DashState 
  	{
@@ -87,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
-         // Player Input Returns
+        // Player Input Returns
         xThrow = Input.GetAxis("Horizontal");
         yThrow = Input.GetAxis("Vertical");
 
@@ -100,18 +101,15 @@ public class PlayerMovement : MonoBehaviour
         {
 			case DashState.Ready:
 				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Dash");
-				if(isDashKeyDown && playerIsMoving)
-				{
-					savedVelocity = myRigidBody.velocity;                
-					myRigidBody.velocity =  new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);       
-                    var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);                    
-                    float rotationZ = Mathf.Atan2(dashDirection.y, dashDirection.x) * Mathf.Rad2Deg;
-                    dashFX.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-                    float destroyDelay = .7f;
-                    Destroy(dashFX, destroyDelay);
-					dashState = DashState.Dashing;
-				}
-			break;
+				if(isDashKeyDown)
+                {
+                    savedVelocity = myRigidBody.velocity;
+
+                    DashMovement(dashDirection);
+                    DashParticles(dashDirection);
+                    dashState = DashState.Dashing;
+                }
+                break;
 
 			case DashState.Dashing:
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);
@@ -133,6 +131,94 @@ public class PlayerMovement : MonoBehaviour
 					dashState = DashState.Ready;
 				}
 			break;
+        }
+    }
+
+    private void DashParticles(Vector3 dashDirection)
+    {
+        var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);
+
+        if (playerIsMoving)
+        {
+          rotationZ = Mathf.Atan2(dashDirection.y, dashDirection.x) * Mathf.Rad2Deg;  
+        }
+        else if (dashDirection.x == 0 && dashDirection.y == 0)
+        {
+            if (pitForwardMeshes.activeInHierarchy)
+            {
+                rotationZ = Mathf.Atan2(-1, 0) * Mathf.Rad2Deg;
+            }
+            else if (pitForwardLRMeshes.activeInHierarchy)
+            {
+                if (pitForwardLR.transform.localScale.x == 1)
+                {
+                   rotationZ = Mathf.Atan2(0, -1) * Mathf.Rad2Deg; 
+                }
+                else if (pitForwardLR.transform.localScale.x == -1)
+                {
+                    rotationZ = Mathf.Atan2(0, 1) * Mathf.Rad2Deg; 
+                }
+            }
+            else if (pitBackMeshes.activeInHierarchy)
+            {
+                rotationZ = Mathf.Atan2(1, 0) * Mathf.Rad2Deg;
+            }
+            else if (pitBackLRMeshes.activeInHierarchy)
+            {
+                if (pitBackLR.transform.localScale.x == 1)
+                {
+                    rotationZ = Mathf.Atan2(1, -1) * Mathf.Rad2Deg;
+                }
+                else if (pitBackLR.transform.localScale.x == -1)
+                {
+                    rotationZ = Mathf.Atan2(1, 1) * Mathf.Rad2Deg;
+                } 
+            }    
+        }
+        
+        dashFX.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        float destroyDelay = .7f;
+        Destroy(dashFX, destroyDelay);
+    }
+
+    private void DashMovement(Vector3 dashDirection)
+    {
+        if (playerIsMoving)
+        {
+            myRigidBody.velocity = new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);
+        }
+        else if (!playerIsMoving)
+        {
+            if (pitForwardMeshes.activeInHierarchy)
+            {
+                myRigidBody.velocity = new Vector2(0, -1 * dashSpeed);
+            }
+            else if (pitForwardLRMeshes.activeInHierarchy)
+            {
+                if (pitForwardLR.transform.localScale.x == 1)
+                {
+                    myRigidBody.velocity = new Vector2(-1 * dashSpeed, 0);
+                }
+                else if (pitForwardLR.transform.localScale.x == -1)
+                {
+                    myRigidBody.velocity = new Vector2(1 * dashSpeed, 0);
+                }
+            }
+            else if (pitBackMeshes.activeInHierarchy)
+            {
+                myRigidBody.velocity = new Vector2(0, 1 * dashSpeed);
+            }
+            else if (pitBackLRMeshes.activeInHierarchy)
+            {
+                if (pitBackLR.transform.localScale.x == 1)
+                {
+                    myRigidBody.velocity = new Vector2(-1 * dashSpeed, 1 * dashSpeed);
+                }
+                else if (pitBackLR.transform.localScale.x == -1)
+                {
+                    myRigidBody.velocity = new Vector2(1 * dashSpeed, 1 * dashSpeed);
+                }
+            }
         }
     }
 

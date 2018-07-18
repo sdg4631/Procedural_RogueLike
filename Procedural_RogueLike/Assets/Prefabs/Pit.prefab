@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50111913755425208}
   - component: {fileID: 210966017909270550}
   - component: {fileID: 60733454402321096}
+  - component: {fileID: 114138485478571542}
   m_Layer: 13
   m_Name: Pit
   m_TagString: Untagged
@@ -1790,7 +1791,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.01
+  m_Mass: 0.001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2115,6 +2116,17 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114138485478571542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003716975954792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36b1dc56bda68f44b804bbd39786255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114161395314976126
 MonoBehaviour:
   m_ObjectHideFlags: 1
