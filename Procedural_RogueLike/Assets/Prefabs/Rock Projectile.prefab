@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47351497a0351642a20e8ae7b40c8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileDamage: 2
+  projectileForce: 3
+  targetDrag: 30
 --- !u!198 &198274517072021416
 ParticleSystem:
   m_ObjectHideFlags: 1

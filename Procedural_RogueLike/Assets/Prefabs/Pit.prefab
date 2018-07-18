@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114342794255830342}
   - component: {fileID: 50111913755425208}
   - component: {fileID: 210966017909270550}
+  - component: {fileID: 60733454402321096}
   m_Layer: 13
   m_Name: Pit
   m_TagString: Untagged
@@ -1789,7 +1790,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1804,6 +1805,37 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072679013441796}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.17444468, y: 0.056689978}
+      - {x: -0.18887186, y: 0.060763717}
+      - {x: -0.3302436, y: -0.15715814}
+      - {x: -0.21670532, y: -0.45354843}
+      - {x: -0.019007683, y: -0.5450804}
+      - {x: 0.18307972, y: -0.4777881}
+      - {x: 0.33455753, y: -0.17807794}
+--- !u!60 &60733454402321096
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003716975954792}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

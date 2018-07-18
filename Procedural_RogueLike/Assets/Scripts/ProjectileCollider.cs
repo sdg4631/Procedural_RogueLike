@@ -5,7 +5,16 @@ using UnityEngine;
 public class ProjectileCollider : MonoBehaviour 
 {
 	SpriteRenderer[] sprites = null;
+	[SerializeField] public int projectileDamage;
+	[SerializeField] float projectileForce;
+	[SerializeField] float targetDrag;
 
+	EnemyHealthAndCollisionManager enemyHealth;
+
+	void Start()
+	{
+
+	}
 
 	void OnParticleCollision(GameObject other)
 	{
@@ -14,13 +23,32 @@ public class ProjectileCollider : MonoBehaviour
 		if (other.gameObject.tag == "Enemy")
 		{
 			if(body)
-			{				
-				StartCoroutine(BlinkRed(other));
-			}
-		}	
+            {
+                StartCoroutine(BlinkRed(other));
+                StartCoroutine(Knockback(other));
+				other.GetComponent<EnemyHealthAndCollisionManager>().ApplyDamage(projectileDamage);
+            }
+        }	
 	}
 
-	IEnumerator BlinkRed(GameObject gameObject)
+    IEnumerator Knockback(GameObject other)
+    {
+		if (other != null)
+		{
+			other.GetComponent<Rigidbody2D>().AddForce(transform.forward * projectileForce, ForceMode2D.Impulse);
+			other.GetComponent<Rigidbody2D>().drag = targetDrag;
+			yield return new WaitForSeconds(.5f);
+
+			if (other != null)
+			{
+				other.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+				other.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+				other.GetComponent<Rigidbody2D>().drag = 0.1f;
+			}
+		}
+    }
+
+    IEnumerator BlinkRed(GameObject gameObject)
 	{
 		sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
 		
