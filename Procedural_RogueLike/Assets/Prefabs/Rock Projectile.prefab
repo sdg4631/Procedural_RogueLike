@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDamage: 2
-  projectileForce: 3
-  targetDrag: 30
+  projectileForce: 0.5
+  targetDrag: 5
 --- !u!198 &198274517072021416
 ParticleSystem:
   m_ObjectHideFlags: 1
