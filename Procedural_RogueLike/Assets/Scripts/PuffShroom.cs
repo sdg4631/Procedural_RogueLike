@@ -47,24 +47,24 @@ public class PuffShroom : MonoBehaviour
     {
 		RaycastForWalls();
 
-		var xVelocity = Random.Range(-7, 7);
-		var yVelocity = Random.Range(-7, 7);
+		var xVelocity = Random.Range(-9, 9);
+		var yVelocity = Random.Range(-9, 9);
 		
 		if (wallUp)
 		{
-			yVelocity = Random.Range(-3, -7);
+			yVelocity = Random.Range(-5, -9);
 		}
 		if (wallDown)
 		{
-			yVelocity = Random.Range(3, 7);
+			yVelocity = Random.Range(5, 9);
 		}
 		if (wallLeft)
 		{
-			xVelocity = Random.Range(3, 7);
+			xVelocity = Random.Range(5, 9);
 		}
 		if (wallRight)
 		{
-			xVelocity = Random.Range(-3, -7);
+			xVelocity = Random.Range(-5, -9);
 		}
 		
         myRigidBody.velocity = new Vector2(xVelocity, yVelocity);
