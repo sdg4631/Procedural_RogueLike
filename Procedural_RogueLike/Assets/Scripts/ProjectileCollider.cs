@@ -11,11 +11,6 @@ public class ProjectileCollider : MonoBehaviour
 
 	EnemyHealthAndCollisionManager enemyHealth;
 
-	void Start()
-	{
-
-	}
-
 	void OnParticleCollision(GameObject other)
 	{
 		Rigidbody2D body = other.GetComponent<Rigidbody2D>();

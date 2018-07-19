@@ -113,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
 			case DashState.Dashing:
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);
+                
 				dashTimer += Time.deltaTime;
 				if(dashTimer >= maxDash)
 				{

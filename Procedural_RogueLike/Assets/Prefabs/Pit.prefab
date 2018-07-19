@@ -107,7 +107,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4707288274036050}
   - component: {fileID: 95636953124807094}
-  - component: {fileID: 60480516065900938}
   m_Layer: 13
   m_Name: Pit Root Transform
   m_TagString: Untagged
@@ -1675,7 +1674,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153003229946498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15100001, y: 0.12600002, z: -0.012172194}
+  m_LocalPosition: {x: -0.151, y: 0.12600002, z: -0.01217219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231313980654818}
@@ -1830,37 +1829,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &60480516065900938
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1072679013441796}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.17444468, y: 0.056689978}
-      - {x: -0.18887186, y: 0.060763717}
-      - {x: -0.3302436, y: -0.15715814}
-      - {x: -0.21670532, y: -0.45354843}
-      - {x: -0.019007683, y: -0.5450804}
-      - {x: 0.18307972, y: -0.4777881}
-      - {x: 0.33455753, y: -0.17807794}
 --- !u!60 &60733454402321096
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -2161,8 +2129,14 @@ MonoBehaviour:
     maxVal: 10
     currentVal: 10
   isInvulnerable: 0
-  invulnerabilityTimer: 2
-  invulnerabilityDuration: 2
+  invulnerabilityTimer: 1
+  invulnerabilityDuration: 1
+  pitFront: {fileID: 1821788765747364}
+  pitFrontLR: {fileID: 1931729085214444}
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.1
+  spriteBlinkingTotalTimer: 0
+  startBlinking: 0
 --- !u!114 &114161395314976126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3022,7 +2996,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43544734976868620, guid: 56c2fb1f10776c4408fcc51c62d5a75b, type: 2}
   m_Bones:
   - {fileID: 4867584061325860}
   m_BlendShapeWeights: []
@@ -3070,7 +3044,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43197836977213890, guid: d743176002042d24dbe8ad592127272f, type: 2}
   m_Bones:
   - {fileID: 4572790648914442}
   m_BlendShapeWeights: []
@@ -3118,7 +3092,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43128933466096228, guid: cc79c6b0f9aeb444e87e45b230c318da, type: 2}
   m_Bones:
   - {fileID: 4849464717986948}
   m_BlendShapeWeights: []
@@ -3358,7 +3332,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43690926740720126, guid: 53d7bfaf3459c9046a1f7b232a8e7227, type: 2}
   m_Bones:
   - {fileID: 4572790648914442}
   m_BlendShapeWeights: []
@@ -3694,7 +3668,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43535722527771534, guid: 5149fea6c2a604643b856fa66f112289, type: 2}
   m_Bones:
   - {fileID: 4496016607386862}
   m_BlendShapeWeights: []
@@ -3790,7 +3764,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43837490726357316, guid: 6e18f3fc0001e7b44b1c29b76d138558, type: 2}
   m_Bones:
   - {fileID: 4572790648914442}
   m_BlendShapeWeights: []
@@ -3838,7 +3812,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43795692600527692, guid: eafae88e7d62fec4182588b6be64a8d3, type: 2}
   m_Bones:
   - {fileID: 4976908554303848}
   m_BlendShapeWeights: []
@@ -3934,7 +3908,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43257552511400932, guid: bc19b5cab170d6a4eb845613f8bfbf4e, type: 2}
   m_Bones:
   - {fileID: 4572790648914442}
   m_BlendShapeWeights: []
@@ -3982,7 +3956,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43239308518285332, guid: 6c7c2a34f1db0a243a6d812be3bf15ef, type: 2}
   m_Bones:
   - {fileID: 4572790648914442}
   m_BlendShapeWeights: []
@@ -4126,7 +4100,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43410165511121826, guid: 882fa9f018ee27946adea203e1a46220, type: 2}
   m_Bones:
   - {fileID: 4572790648914442}
   m_BlendShapeWeights: []
