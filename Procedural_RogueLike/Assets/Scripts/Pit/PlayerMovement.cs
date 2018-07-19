@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
 			case DashState.Dashing:
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);
-                
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Projectile")), true);
 				dashTimer += Time.deltaTime;
 				if(dashTimer >= maxDash)
 				{
@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
 			case DashState.Cooldown:
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), false);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Projectile")), false);
 				dashTimer -= Time.deltaTime;
 				if(dashTimer <= 0)
 				{

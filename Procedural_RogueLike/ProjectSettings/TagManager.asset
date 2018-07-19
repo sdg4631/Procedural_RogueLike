@@ -26,6 +26,7 @@ TagManager:
   - Dash
   - Enemy
   - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -42,7 +43,7 @@ TagManager:
   - ShadowMask
   - Player
   - Enemy
-  - 
+  - Projectile
   - 
   - 
   - 

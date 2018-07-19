@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 114155551629701948}
   - component: {fileID: 60347610899170170}
   - component: {fileID: 114467783363698776}
+  - component: {fileID: 114447887732152920}
   m_Layer: 14
   m_Name: PuffShroom
   m_TagString: Enemy
@@ -371,6 +372,28 @@ MonoBehaviour:
   target: {fileID: 0}
   timeBetweenPuffsMin: 2
   timeBetweenPuffsMax: 11
+--- !u!114 &114447887732152920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328912697506272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cdb33e7403e8b40b150e04f65a47f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1993486920256166, guid: 019c8227375136e49ba68474ca1c5c3b,
+    type: 2}
+  projectileSpeed: 5
+  shootNorth: 0
+  shootNorthEast: 1
+  shootEast: 0
+  shootSouthEast: 1
+  shootSouth: 0
+  shootSouthWest: 1
+  shootWest: 0
+  shootNorthWest: 1
 --- !u!114 &114467783363698776
 MonoBehaviour:
   m_ObjectHideFlags: 1

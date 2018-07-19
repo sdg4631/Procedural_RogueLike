@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileCollider : MonoBehaviour 
+public class PlayerProjectileCollider : MonoBehaviour 
 {
 	SpriteRenderer[] sprites = null;
 	[SerializeField] public int projectileDamage;
