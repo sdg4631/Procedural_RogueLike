@@ -33,6 +33,12 @@ public class PlayerAttack : MonoBehaviour
 		ThrowRock();		
 	}
 
+    IEnumerator SetProjectileInactive(GameObject proj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        proj.SetActive(false);
+    }
+
 	void ThrowRock()
 	{
 		if (rockEquipped)
@@ -40,29 +46,33 @@ public class PlayerAttack : MonoBehaviour
 
 			if(Input.GetMouseButtonDown(0))
             {
-                PlayAttackAnimation();
-
+                // Find Cursor Coordinates
                 Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
                 cursorPos = Camera.main.ScreenToWorldPoint(cursorPos);
 
+                GameObject rock = ObjectPooler.SharedInstance.GetPooledObject("Player Projectile");
                 var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
-
-                var rock = Instantiate(rockProjectile, projSpawnPos, Quaternion.identity);
+                rock.transform.position = projSpawnPos;
+                rock.transform.rotation = transform.rotation;
+                rock.SetActive(true);             
                 rock.transform.LookAt(cursorPos);
                 rock.transform.parent = fxParent.transform;
-                float destroyDelay = 12f;
-                Destroy(rock, destroyDelay);
+                StartCoroutine(SetProjectileInactive(rock, 12f));    
+
+                PlayAttackAnimation();           
             }
             else if (Input.GetButtonDown("Fire1"))
             {
-                PlayAttackAnimation();
-				var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
-                var proj = Instantiate(rockProjectile, projSpawnPos, Quaternion.identity);
-				proj.transform.parent = fxParent.transform;
-                float destroyDelay = 12f;
-                Destroy(proj, destroyDelay);
+                GameObject rock = ObjectPooler.SharedInstance.GetPooledObject("Player Projectile");
+                var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
+                rock.transform.position = projSpawnPos;
+                rock.transform.rotation = transform.rotation;
+                rock.SetActive(true);
+             	rock.transform.parent = fxParent.transform;
+                StartCoroutine(SetProjectileInactive(rock, 12f));
 
-                AimProjOnController(proj);       
+                PlayAttackAnimation();
+                AimProjOnController(rock);       
             }
         }
 	}
