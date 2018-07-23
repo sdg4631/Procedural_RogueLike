@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectileSpawner : MonoBehaviour 
+public class EnemyProjectileSpawner: MonoBehaviour 
 {
-	[SerializeField] GameObject projectilePrefab = null;
+	[SerializeField] public string projectileTag;
+
 	[SerializeField] float projectileSpeed;
 
 	[SerializeField] bool shootNorth = false;
@@ -16,69 +17,71 @@ public class EnemyProjectileSpawner : MonoBehaviour
 	[SerializeField] bool shootWest = false;
 	[SerializeField] bool shootNorthWest = false;
 
-	float destroyDelay = 10f;
-
-	void Start() 
-	{
-		
-	}
-	
-
-	void Update() 
-	{
-		
-	}
-
-	void FireProjectile()
+	void Fireprojectile()
 	{
 		if (shootNorth)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1 * projectileSpeed);	
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1 * projectileSpeed);	
 		}
 		if (shootNorthEast)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 1 * projectileSpeed);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 1 * projectileSpeed);
 		}
 		if (shootEast)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 0);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 0);
 		}
 		if (shootSouthEast)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, -1 * projectileSpeed);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, -1 * projectileSpeed);
 		}
 		if (shootSouth)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1 * projectileSpeed);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1 * projectileSpeed);
 		}
 		if (shootSouthWest)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, -1 * projectileSpeed);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, -1 * projectileSpeed);
 		}
 		if (shootWest)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, 0);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, 0);
 		}
 		if (shootNorthWest)
 		{
-			var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-			proj.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, 1 * projectileSpeed);
-			Destroy(proj, destroyDelay);
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+			projectile.transform.position = transform.position;
+			projectile.transform.rotation = transform.rotation;
+			projectile.SetActive(true);
+			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, 1 * projectileSpeed);
 		}
 	}
-
 }

@@ -43,7 +43,7 @@ public class PlayerHealthAndDamage : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "Enemy")
+		if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
 		{
 			if (!isInvulnerable)
             {

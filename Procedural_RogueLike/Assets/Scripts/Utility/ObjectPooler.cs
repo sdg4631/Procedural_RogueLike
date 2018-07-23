@@ -36,6 +36,7 @@ public class ObjectPooler : MonoBehaviour
 			{
 				GameObject obj = (GameObject)Instantiate(item.objectToPool);
 				obj.SetActive(false);
+				obj.transform.parent = transform;
 				pooledObjects.Add(obj);
 			}
 		}
@@ -49,7 +50,7 @@ public class ObjectPooler : MonoBehaviour
 
 		for (int i = 0; i < pooledObjects.Count; i++)
 		{
-			if (!pooledObjects[i].activeInHierarchy)
+			if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
 			{
 				return pooledObjects[i];
 			}
@@ -75,6 +76,7 @@ public class ObjectPooler : MonoBehaviour
 				{
 					GameObject obj = (GameObject)Instantiate(item.objectToPool);
 					obj.SetActive(false);
+					obj.transform.parent = transform;
 					pooledObjects.Add(obj);
 					return obj;
 				}

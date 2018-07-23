@@ -25,9 +25,11 @@ TagManager:
   - NormalEyes
   - Dash
   - Enemy
-  - Projectile
   - Wall
   - Player Projectile
+  - Projectile Splash
+  - Puffshroom Projectile
+  - Puffshroom Projectile Splash
   layers:
   - Default
   - TransparentFX
