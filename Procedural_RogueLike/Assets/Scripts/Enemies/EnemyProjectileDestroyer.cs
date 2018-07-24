@@ -10,10 +10,22 @@ public class EnemyProjectileDestroyer : MonoBehaviour
 	[SerializeField] public string splashProjectileTag; 
 	private GameObject splash;
 
+	PolygonCollider2D myCollider;
 
-	void OnCollisionEnter2D(Collision2D other)
+	void Start()
 	{
-		if (other.gameObject.tag == "Player" || other.gameObject.tag == "Wall")
+		myCollider = GetComponent<PolygonCollider2D>();
+	}
+
+	void FixedUpdate()
+	{
+		WhenCollisionOccurs();
+	}
+
+
+	void WhenCollisionOccurs()
+	{
+		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Player", "Wall")))
 		{	
 			// Spawn Splash
 			splash = ObjectPooler.SharedInstance.GetPooledObject(splashProjectileTag);

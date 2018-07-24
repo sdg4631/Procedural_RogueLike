@@ -22,6 +22,8 @@ public class PlayerHealthAndDamage : MonoBehaviour
     public float spriteBlinkingTotalTimer = 0.0f;
     public bool startBlinking = false;
 
+	PolygonCollider2D myCollider;
+
 
 	void Awake()
 	{
@@ -31,19 +33,23 @@ public class PlayerHealthAndDamage : MonoBehaviour
 	void Start() 
 	{
 		cameraShake = FindObjectOfType<CameraShake>();
+		myCollider = GetComponent<PolygonCollider2D>();
 	}
 	
 
-	void Update() 
+	void FixedUpdate() 
 	{
 		InvulnerabilityTimer();
 		if (startBlinking == true) { StartBlinkingEffect(); }
+		GetHit();
 
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	void GetHit()
 	{
-		if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
+		// if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
+
+		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Projectile")))
 		{
 			if (!isInvulnerable)
             {

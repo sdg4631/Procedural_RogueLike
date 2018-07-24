@@ -17,6 +17,8 @@ public class EnemyProjectileSpawner: MonoBehaviour
 	[SerializeField] bool shootWest = false;
 	[SerializeField] bool shootNorthWest = false;
 
+	[SerializeField] bool isRotating = false;
+
 	void Fireprojectile()
 	{
 		if (shootNorth)
@@ -34,6 +36,11 @@ public class EnemyProjectileSpawner: MonoBehaviour
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 1 * projectileSpeed);
+
+			if (isRotating)
+			{
+				
+			}
 		}
 		if (shootEast)
 		{
