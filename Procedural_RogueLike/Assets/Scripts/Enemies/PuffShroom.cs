@@ -6,7 +6,6 @@ public class PuffShroom : MonoBehaviour
 {
 	Rigidbody2D myRigidBody;
 	Animator myAnimator;
-	PlayerMovement player;
 
 	[SerializeField] GameObject puffFXPrefab;
 	[SerializeField] GameObject fxParent; 
