@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour 
@@ -51,10 +52,12 @@ public class PlayerMovement : MonoBehaviour
 
     // TODO remove public
 	public DashState dashState;
-    public float dashTimer;
-    public float maxDash = 2f;
+    public float timeDashing;
+    public float maxDashTime = 2f;
     public float dashSpeed = 5f;
- 
+    public float currentDashCooldown = 0f;
+    public float maxDashCooldown = 3f;
+
     public Vector2 savedVelocity;
     float rotationZ;
 
@@ -65,13 +68,17 @@ public class PlayerMovement : MonoBehaviour
      Cooldown
 	}
 
+    [SerializeField] public GameObject dashCooldownBar = null;
+    public float fillAmount;
+
     CameraShake cameraShake;
     
 
 	void Start() 
 	{
 		myRigidBody = GetComponent<Rigidbody2D>();
-        cameraShake = FindObjectOfType<CameraShake>();
+        cameraShake = FindObjectOfType<CameraShake>();      
+        dashCooldownBar.SetActive(false); 
 	}
 	
 	void Update()
@@ -84,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
         ControlSpriteWithCursorAiming();
         AimingWithController();
         PlayMovementParticles();
+        DashBar();
+        
+        
     }
 
     private void Dash()
@@ -101,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         {
 			case DashState.Ready:
 				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Dash");
-				if(isDashKeyDown)
+				if(isDashKeyDown && playerIsMoving)
                 {
                     savedVelocity = myRigidBody.velocity;
                     Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);
@@ -114,10 +124,11 @@ public class PlayerMovement : MonoBehaviour
 
 			case DashState.Dashing:
                 
-				dashTimer += Time.deltaTime;
-				if(dashTimer >= maxDash)
+				timeDashing += Time.deltaTime;
+				if(timeDashing >= maxDashTime)
 				{
-					dashTimer = maxDash;
+					timeDashing = 0;
+                    currentDashCooldown = 0f;
 					myRigidBody.velocity = savedVelocity;
 					dashState = DashState.Cooldown;
 				}
@@ -126,14 +137,52 @@ public class PlayerMovement : MonoBehaviour
 			case DashState.Cooldown:
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), false);
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Projectile")), false);
-				dashTimer -= Time.deltaTime;
-				if(dashTimer <= 0)
-				{
-					dashTimer = 0;
+				currentDashCooldown += Time.deltaTime;
+				if(currentDashCooldown >= maxDashCooldown)
+				{					
 					dashState = DashState.Ready;
 				}
 			break;
         }
+    }
+
+    void DashBar()
+    {
+        fillAmount = currentDashCooldown / maxDashCooldown;
+        print(fillAmount);
+        dashCooldownBar.GetComponentInChildren<Image>().fillAmount = fillAmount;
+        DashEffects(fillAmount);
+    }
+
+    void DashEffects(float fillAmount)
+    {
+        if (fillAmount < 1)
+        { 
+            dashCooldownBar.GetComponentInChildren<Image>().color = new Color(220,224,0, 255);
+            dashCooldownBar.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+            dashCooldownBar.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+            dashCooldownBar.SetActive(true);
+        }
+        else if (fillAmount >= 1) 
+        {
+            dashCooldownBar.GetComponentInChildren<Image>().color = new Color(0,229,0, 255);
+            dashCooldownBar.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            
+            // For each image componenet in dashcooldownbar, fade the color transparency from 255 to 0
+            Image[] images = dashCooldownBar.GetComponentsInChildren<Image>();
+            foreach(var image in images)
+            {
+                image.CrossFadeAlpha(0, .1f, false);
+                dashCooldownBar.GetComponent<RectTransform>().localPosition = new Vector3(0.07f, -.15f, 0f);
+            }
+
+            Invoke("SetBarInactive", .2f);
+        }
+    }
+
+    void SetBarInactive()
+    {
+        dashCooldownBar.SetActive(false);
     }
 
     private void DashParticles(Vector3 dashDirection)
