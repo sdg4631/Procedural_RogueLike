@@ -149,8 +149,8 @@ public class PlayerMovement : MonoBehaviour
     void DashBar()
     {
         fillAmount = currentDashCooldown / maxDashCooldown;
-        print(fillAmount);
         dashCooldownBar.GetComponentInChildren<Image>().fillAmount = fillAmount;
+
         DashEffects(fillAmount);
     }
 
@@ -308,6 +308,7 @@ public class PlayerMovement : MonoBehaviour
         bool aimingBackRightWithController = rightAnalogXThrow > 0 && rightAnalogYThrow >= 0.5;
 
         // Activate/Deactivate Parent GameObject
+
         if (aimingForwardWithController)
         {
             pitForwardMeshes.SetActive(true);

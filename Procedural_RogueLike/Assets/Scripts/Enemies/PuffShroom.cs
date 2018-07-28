@@ -6,6 +6,7 @@ public class PuffShroom : MonoBehaviour
 {
 	Rigidbody2D myRigidBody;
 	Animator myAnimator;
+	Raycast ray;
 
 	[SerializeField] GameObject puffFXPrefab;
 	[SerializeField] GameObject fxParent; 
@@ -15,16 +16,12 @@ public class PuffShroom : MonoBehaviour
 
 	private bool isAlive = true;
 
-	private bool wallUp = false;
-	private bool wallDown = false;
-	private bool wallRight = false;
-	private bool wallLeft = false;
-
 
 	void Start() 
 	{
 		myRigidBody = GetComponent<Rigidbody2D>();
 		myAnimator = GetComponent<Animator>();
+		ray = GetComponent<Raycast>();
 		StartCoroutine(StartPuffAnimation());	
 	}
 
@@ -44,24 +41,23 @@ public class PuffShroom : MonoBehaviour
 
     void Move()
     {
-		RaycastForWalls();
 
 		var xVelocity = Random.Range(-12, 12);
 		var yVelocity = Random.Range(-12, 12);
 		
-		if (wallUp)
+		if (ray.wallUp)
 		{
 			yVelocity = Random.Range(-8, -12);
 		}
-		if (wallDown)
+		if (ray.wallDown)
 		{
 			yVelocity = Random.Range(8, 12);
 		}
-		if (wallLeft)
+		if (ray.wallLeft)
 		{
 			xVelocity = Random.Range(8, 12);
 		}
-		if (wallRight)
+		if (ray.wallRight)
 		{
 			xVelocity = Random.Range(-8, -12);
 		}
@@ -88,27 +84,5 @@ public class PuffShroom : MonoBehaviour
 			myAnimator.SetTrigger("Puff");
 		}
 		
-	}
-
-	void RaycastForWalls()
-	{
-		RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, 2f, LayerMask.GetMask("Wall"));
-		RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 2f, LayerMask.GetMask("Wall"));
-		RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 2f, LayerMask.GetMask("Wall"));
-		RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 2f, LayerMask.GetMask("Wall"));
-
-		if (hitUp) { wallUp = true;}
-		else { wallUp = false;}
-
-		if (hitDown) { wallDown = true;}
-		else {wallDown = false;}
-
-		if (hitRight) { wallRight = true;}
-		else {wallRight = false;}
-
-		if (hitLeft) { wallLeft = true;}
-		else { wallLeft = false;}
-	}
-
-	
+	}	
 }

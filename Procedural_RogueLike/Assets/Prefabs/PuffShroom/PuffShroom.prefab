@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 60347610899170170}
   - component: {fileID: 114467783363698776}
   - component: {fileID: 114000966730234950}
+  - component: {fileID: 114330106601527872}
   m_Layer: 14
   m_Name: PuffShroom
   m_TagString: Enemy
@@ -192,7 +193,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328912697506272}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -376,6 +377,7 @@ MonoBehaviour:
   shootSouthWest: 1
   shootWest: 0
   shootNorthWest: 1
+  isRotating: 0
 --- !u!114 &114155551629701948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,6 +395,22 @@ MonoBehaviour:
   target: {fileID: 0}
   timeBetweenPuffsMin: 2
   timeBetweenPuffsMax: 11
+--- !u!114 &114330106601527872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328912697506272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76e0038fbe0d4b42b33332183ea386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallUp: 0
+  wallDown: 0
+  wallRight: 0
+  wallLeft: 0
+  raycastWalls: 1
 --- !u!114 &114467783363698776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35b1313b9f8c0442bc1a9f8a088bb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
 --- !u!210 &210709027933823652
 SortingGroup:

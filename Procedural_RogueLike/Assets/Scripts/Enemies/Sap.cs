@@ -7,6 +7,7 @@ public class Sap : MonoBehaviour
 	Animator myAnimator;
 	Rigidbody2D myRigidBody;
 	PlayerMovement player;
+	Raycast ray;
 
 	bool isAlive = true;
 
@@ -20,13 +21,14 @@ public class Sap : MonoBehaviour
 		myAnimator = GetComponent<Animator>();
 		myRigidBody = GetComponent<Rigidbody2D>();
 		player = FindObjectOfType<PlayerMovement>();
+		ray = GetComponent<Raycast>();
 		StartCoroutine(StartBounceAnimation());
 	}
 	
 
 	void Update() 
 	{
-		Move();
+		
 	}
 
 	IEnumerator StartBounceAnimation()
@@ -41,17 +43,29 @@ public class Sap : MonoBehaviour
 		
 	}
 
-	void SetMoveSpeed(float newMoveSpeed)
-	{
-		moveSpeed = newMoveSpeed;
-	}
-
 	void Move()
 	{
-		if (Vector3.Distance(player.transform.position, transform.position) >= .6)
+		var xVelocity = Random.Range(-3, 3);
+		var yVelocity = Random.Range(-3, 3);
+		
+		if (ray.wallUp)
 		{
-			transform.position += (player.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+			yVelocity = Random.Range(-4, -3);
 		}
+		if (ray.wallDown)
+		{
+			yVelocity = Random.Range(3, 4);
+		}
+		if (ray.wallLeft)
+		{
+			xVelocity = Random.Range(3, 4);
+		}
+		if (ray.wallRight)
+		{
+			xVelocity = Random.Range(-4, -3);
+		}
+		
+        myRigidBody.velocity = new Vector2(xVelocity, yVelocity);
 		
 	}
 
