@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject pitBackMeshes;
     [SerializeField] GameObject pitBackLRMeshes;
 
+    // Eye Lights
+    [SerializeField] GameObject pitFrontLeftEye;
+    [SerializeField] GameObject pitFrontRightEye;
+    [SerializeField] GameObject pitFrontLRLeftEye;
+    [SerializeField] GameObject pitFrontLRRightEye;
+
     // Particles
     [SerializeField] GameObject fxParent;
     [SerializeField] GameObject pitFootstepFX;
@@ -92,8 +98,19 @@ public class PlayerMovement : MonoBehaviour
         AimingWithController();
         PlayMovementParticles();
         DashBar();
+        SetEyes();
         
-        
+    }
+
+    void SetEyes()
+    {
+        // Facing Forward
+        pitFrontLeftEye.SetActive(pitForwardMeshes.activeInHierarchy);
+        pitFrontRightEye.SetActive(pitForwardMeshes.activeInHierarchy);
+
+        // Facing LR
+        pitFrontLRLeftEye.SetActive(pitForwardLRMeshes.activeInHierarchy);
+        pitFrontLRRightEye.SetActive(pitForwardLRMeshes.activeInHierarchy);
     }
 
     private void Dash()

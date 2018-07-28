@@ -21,10 +21,12 @@ public class EnemyProjectileSpawner: MonoBehaviour
 
 	void Fireprojectile()
 	{
+		Vector3 spawnPos = new Vector3(0, -.3f, 0);
+
 		if (shootNorth)
 		{
-			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);		
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1 * projectileSpeed);	
@@ -32,7 +34,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootNorthEast)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 1 * projectileSpeed);
@@ -45,7 +47,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootEast)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, 0);
@@ -53,7 +55,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootSouthEast)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1 * projectileSpeed, -1 * projectileSpeed);
@@ -61,7 +63,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootSouth)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1 * projectileSpeed);
@@ -69,7 +71,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootSouthWest)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, -1 * projectileSpeed);
@@ -77,7 +79,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootWest)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, 0);
@@ -85,7 +87,7 @@ public class EnemyProjectileSpawner: MonoBehaviour
 		if (shootNorthWest)
 		{
 			GameObject projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + spawnPos;
 			projectile.transform.rotation = transform.rotation;
 			projectile.SetActive(true);
 			projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1 * projectileSpeed, 1 * projectileSpeed);

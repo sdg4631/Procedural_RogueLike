@@ -12,7 +12,7 @@ public class PuffShroom : MonoBehaviour
 	[SerializeField] GameObject fxParent; 
 	[SerializeField] Transform target;
 	[SerializeField] int timeBetweenPuffsMin = 3;
-	[SerializeField] int timeBetweenPuffsMax = 9;
+	[SerializeField] int timeBetweenPuffsMax = 6;
 
 	private bool isAlive = true;
 
@@ -33,10 +33,10 @@ public class PuffShroom : MonoBehaviour
     void PuffParticles()
     {
 		myAnimator.ResetTrigger("Puff");
-        var puffFX = Instantiate(puffFXPrefab, transform.position, Quaternion.identity);
-		puffFX.transform.parent = fxParent.transform;
-		float destroyDelay = 4f;
-        Destroy(puffFX, destroyDelay);
+        // var puffFX = Instantiate(puffFXPrefab, transform.position, Quaternion.identity);
+		// puffFX.transform.parent = fxParent.transform;
+		// float destroyDelay = 4f;
+        // Destroy(puffFX, destroyDelay);
     }
 
     void Move()
@@ -81,7 +81,7 @@ public class PuffShroom : MonoBehaviour
 		while(isAlive)
 		{
 			yield return new WaitForSeconds(timeBetweenPuffs);
-			myAnimator.SetTrigger("Puff");
+			myAnimator.SetTrigger("Puff");	
 		}
 		
 	}	
