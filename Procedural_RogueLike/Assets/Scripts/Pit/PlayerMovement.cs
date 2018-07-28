@@ -119,6 +119,8 @@ public class PlayerMovement : MonoBehaviour
         xThrow = Input.GetAxisRaw("Horizontal");
         yThrow = Input.GetAxisRaw("Vertical");
 
+        bool movementInput = (Mathf.Abs(xThrow) >= Mathf.Epsilon || Mathf.Abs(yThrow) >= Mathf.Epsilon);
+
        var dashDirection = new Vector3();
        dashDirection.x = xThrow;
        dashDirection.y = yThrow;
@@ -128,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         {
 			case DashState.Ready:
 				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Dash");
-				if(isDashKeyDown && playerIsMoving)
+				if(isDashKeyDown && movementInput)
                 {
                     savedVelocity = myRigidBody.velocity;
                     Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);

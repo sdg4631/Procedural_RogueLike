@@ -49,7 +49,7 @@ public class PlayerProjectileCollider : MonoBehaviour
 		
 		foreach (var sprite in sprites)
 		{
-			if (sprite != null)
+			if (sprite != null && sprite.tag != "EnemyEye")
 			{
 				sprite.color = Color.red;
 				yield return null;
@@ -59,7 +59,7 @@ public class PlayerProjectileCollider : MonoBehaviour
 		foreach (var sprite in sprites)
 		{
 			yield return new WaitForSeconds(.01f);
-			if (sprite != null)
+			if (sprite != null && sprite.tag != "EnemyEye")
 			{
 				sprite.color = Color.white;
 			}

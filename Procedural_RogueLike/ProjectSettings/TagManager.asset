@@ -30,6 +30,7 @@ TagManager:
   - Projectile Splash
   - Puffshroom Projectile
   - Puffshroom Projectile Splash
+  - EnemyEye
   layers:
   - Default
   - TransparentFX

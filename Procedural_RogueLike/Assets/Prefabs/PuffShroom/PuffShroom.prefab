@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 212999047060834990}
   m_Layer: 14
   m_Name: PuffShroom Eye Right
-  m_TagString: Untagged
+  m_TagString: EnemyEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 212119759537143556}
   m_Layer: 14
   m_Name: PuffShroom Eye Left
-  m_TagString: Untagged
+  m_TagString: EnemyEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 0.57
   LightColor: {r: 0.9528302, g: 0.049439307, b: 0.77503705, a: 1}
-  Intensity: 2.76
+  Intensity: 1.49
   Angle: 184
   ShadowMask:
     serializedVersion: 2

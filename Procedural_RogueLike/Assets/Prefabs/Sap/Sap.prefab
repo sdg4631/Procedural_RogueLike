@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212055382294720900}
   m_Layer: 14
   m_Name: Sap_4
-  m_TagString: Untagged
+  m_TagString: EnemyEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 212809515802653310}
   m_Layer: 14
   m_Name: Sap_3
-  m_TagString: Untagged
+  m_TagString: EnemyEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,8 +411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 0.39
-  LightColor: {r: 1, g: 0.5102247, b: 0, a: 1}
-  Intensity: 1.07
+  LightColor: {r: 1, g: 0.50980395, b: 0, a: 1}
+  Intensity: 0.76
   Angle: 360
   ShadowMask:
     serializedVersion: 2
