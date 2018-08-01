@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         {
 			case DashState.Ready:
 				var isDashKeyDown = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Dash");
-				if(isDashKeyDown && movementInput)
+				if(isDashKeyDown && movementInput && playerIsMoving)
                 {
                     savedVelocity = myRigidBody.velocity;
                     Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), (LayerMask.NameToLayer("Enemy")), true);
