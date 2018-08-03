@@ -25,7 +25,7 @@ public class EnemyProjectileDestroyer : MonoBehaviour
 
 	void WhenCollisionOccurs()
 	{
-		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Player", "Wall")))
+		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Player", "ProjectileWall")))
 		{	
 			// Spawn Splash
 			splash = ObjectPooler.SharedInstance.GetPooledObject(splashProjectileTag);
