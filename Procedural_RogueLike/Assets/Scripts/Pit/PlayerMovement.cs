@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	Rigidbody2D myRigidBody;
 
     // Sprite Parent GameObjects
-    [SerializeField] GameObject pitRoot;
+    [SerializeField] public GameObject pitRoot;
 	[SerializeField] GameObject pitForward;
 	[SerializeField] GameObject pitForwardLR;
     [SerializeField] GameObject pitBack;
@@ -78,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
     public float fillAmount;
 
     CameraShake cameraShake;
+
+    public bool changingRooms = false;
     
 
 	void Start() 
@@ -93,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         CheckForCursorMovement();
         CheckForPlayerMovement();
         Dash();
-        if(dashState != DashState.Dashing) { Move(); }
+        if(dashState != DashState.Dashing && changingRooms == false) { Move(); }
         ControlSpriteWithCursorAiming();
         AimingWithController();
         PlayMovementParticles();

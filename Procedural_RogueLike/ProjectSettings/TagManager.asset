@@ -36,6 +36,7 @@ TagManager:
   - RightDoor
   - LeftDoor
   - EnemyLight
+  - BlackScreen
   layers:
   - Default
   - TransparentFX
@@ -54,7 +55,7 @@ TagManager:
   - Enemy
   - Projectile
   - ProjectileWall
-  - 
+  - Camera
   - 
   - 
   - 
@@ -93,4 +94,7 @@ TagManager:
     locked: 0
   - name: Lighting
     uniqueID: 2762920363
+    locked: 0
+  - name: Black Screen
+    uniqueID: 1454995401
     locked: 0
