@@ -35,6 +35,7 @@ TagManager:
   - BotDoor
   - RightDoor
   - LeftDoor
+  - EnemyLight
   layers:
   - Default
   - TransparentFX
@@ -89,4 +90,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 3641327635
+    locked: 0
+  - name: Lighting
+    uniqueID: 2762920363
     locked: 0

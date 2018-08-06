@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightFlicker : MonoBehaviour 
+public class TorchFlicker : MonoBehaviour 
 {
-	Light2D myLight;
-
-	[SerializeField] float minRange = 1.25f;
-	[SerializeField] float maxRange = 1.75f;
+	[SerializeField] float minRange = .25f;
+	[SerializeField] float maxRange = .3f;
 
 	[SerializeField] float minTimeBetweenFlicker = 1f;
 	[SerializeField] float maxTimeBetweenFlicker = 2f;
@@ -15,7 +13,7 @@ public class LightFlicker : MonoBehaviour
 
 	void Start() 
 	{
-		myLight = GetComponent<Light2D>();
+		
 	}
 	
 
@@ -27,9 +25,8 @@ public class LightFlicker : MonoBehaviour
 		flickerTimer += Time.deltaTime;
 		if (flickerTimer >= timeBetweenFlicker)
 		{
-			myLight.Range = random;
+			transform.localScale = new Vector3(random, random);
 			flickerTimer = 0f;
 		}
-		
 	}
 }
