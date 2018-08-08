@@ -37,6 +37,7 @@ TagManager:
   - LeftDoor
   - EnemyLight
   - BlackScreen
+  - Canvas
   layers:
   - Default
   - TransparentFX

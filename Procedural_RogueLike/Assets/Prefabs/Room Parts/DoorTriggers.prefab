@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4862016376893306}
   - component: {fileID: 61088861489888672}
   - component: {fileID: 114863639952042754}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4965518920493048}
   - component: {fileID: 61574952360659404}
   - component: {fileID: 114537710534959892}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4307368980653502}
   - component: {fileID: 61054199797769898}
   - component: {fileID: 114653861222147590}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4424900264153454}
   - component: {fileID: 61824619364640914}
   - component: {fileID: 114964025308854240}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4924578080804494}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: DoorTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,6 +278,8 @@ MonoBehaviour:
   botDoor: 0
   rightDoor: 0
   leftDoor: 0
+  cameraSpeed: 3
+  blackScreen: {fileID: 0}
 --- !u!114 &114653861222147590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,6 +295,8 @@ MonoBehaviour:
   botDoor: 0
   rightDoor: 1
   leftDoor: 0
+  cameraSpeed: 3
+  blackScreen: {fileID: 0}
 --- !u!114 &114863639952042754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,6 +312,8 @@ MonoBehaviour:
   botDoor: 0
   rightDoor: 0
   leftDoor: 1
+  cameraSpeed: 3
+  blackScreen: {fileID: 0}
 --- !u!114 &114964025308854240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,3 +329,5 @@ MonoBehaviour:
   botDoor: 1
   rightDoor: 0
   leftDoor: 0
+  cameraSpeed: 3
+  blackScreen: {fileID: 0}

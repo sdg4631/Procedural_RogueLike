@@ -14,7 +14,7 @@ public class MoveToNextRoom : MonoBehaviour
 
 	[SerializeField] float cameraSpeed = 1.5f;
 	
-	[SerializeField] Image blackScreen;
+	private Image blackScreen = null;
 
 	CameraShake mainCamera;
 	PlayerMovement player;
@@ -22,8 +22,11 @@ public class MoveToNextRoom : MonoBehaviour
 	float stallPitTimer = 0f;
 	float stallDuration = .5f;
 
-	void Start()
+	void Awake()
 	{
+		GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+		blackScreen = canvas.GetComponentInChildren<Image>(includeInactive: true);
+
 		blackScreen.canvasRenderer.SetAlpha(0f);
 		blackScreen.gameObject.SetActive(true);
 
@@ -32,38 +35,45 @@ public class MoveToNextRoom : MonoBehaviour
 
 	void Update()
 	{
-		StallPit();
+		StartCoroutine(StallPit());
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player")
         {
-            MovePlayer(other);
+            TransferPlayer(other);
 			StartCoroutine(MoveCamera());
 			FadeIn();
 			Invoke("FadeOut", .1f);
-
 			player.changingRooms = true;
-			player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			player.pitRoot.GetComponent<Animator>().SetBool("isRunning", false);
-
+						
         }
     }
 
-	void StallPit()
+	IEnumerator StallPit()
 	{
 		if (player.changingRooms == true)
 		{
+			player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+			player.pitRoot.GetComponent<Animator>().SetBool("isRunning", false);
+
+
 			stallPitTimer += Time.deltaTime;
 			if (stallPitTimer >= stallDuration)
 			{
 				player.changingRooms = false;
+				
 			}
 		}
+		else 
+		{
+			stallPitTimer = 0.0f;
+		}
+		yield return 0;
 	}
 
-    void MovePlayer(Collider2D other)
+    void TransferPlayer(Collider2D other)
     {		
 		if (topDoor)
 		{
