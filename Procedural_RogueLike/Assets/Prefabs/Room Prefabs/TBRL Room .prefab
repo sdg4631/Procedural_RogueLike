@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 50993393682801358}
   - component: {fileID: 114319507657597028}
   - component: {fileID: 61627621973354562}
+  - component: {fileID: 114625080865442254}
   m_Layer: 11
   m_Name: 'Doors '
   m_TagString: Wall
@@ -2536,7 +2537,6 @@ MonoBehaviour:
   rightDoor: 0
   leftDoor: 0
   cameraSpeed: 3
-  blackScreen: {fileID: 0}
 --- !u!114 &114095316281067906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2665,8 +2665,6 @@ MonoBehaviour:
   isRightDoor: 1
   isLeftDoor: 1
   isEntryRoom: 0
-  doorCloseDelay: 0.5
-  enemiesCleared: 0
 --- !u!114 &114362719008454672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2712,7 +2710,6 @@ MonoBehaviour:
   rightDoor: 0
   leftDoor: 0
   cameraSpeed: 3
-  blackScreen: {fileID: 0}
 --- !u!114 &114503766139809178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2729,7 +2726,6 @@ MonoBehaviour:
   rightDoor: 0
   leftDoor: 1
   cameraSpeed: 3
-  blackScreen: {fileID: 0}
 --- !u!114 &114508637670085232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2741,6 +2737,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fe18a8e02b73640aeaec9bd74c3715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114625080865442254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298805574963260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58393ab1997a324dbb8d7fd1c95cdda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesCleared: 0
 --- !u!114 &114708872839995268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2768,7 +2776,6 @@ MonoBehaviour:
   rightDoor: 1
   leftDoor: 0
   cameraSpeed: 3
-  blackScreen: {fileID: 0}
 --- !u!114 &114779132353787146
 MonoBehaviour:
   m_ObjectHideFlags: 1

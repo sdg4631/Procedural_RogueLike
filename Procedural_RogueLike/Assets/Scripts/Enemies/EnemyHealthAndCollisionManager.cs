@@ -7,6 +7,8 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 	[SerializeField] int maxHealth;
 	[SerializeField] public int currentHealth;
 
+	SpawnEnemies enemySpawner;
+
 	void Start()
 	{
 		currentHealth = maxHealth;

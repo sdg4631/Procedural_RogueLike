@@ -5,6 +5,7 @@ using UnityEngine;
 public class ToggleDoors : MonoBehaviour 
 {
 	[SerializeField] Animator doors;
+	SpawnEnemies enemySpawner;
 
 	[SerializeField] bool isTopDoor = false;
 	[SerializeField] bool isBotDoor = false;
@@ -13,21 +14,20 @@ public class ToggleDoors : MonoBehaviour
 
 	[SerializeField] bool isEntryRoom = false;
 
-	[SerializeField] float doorCloseDelay = .5f;
+	private float doorCloseDelay = .3f;
 
 	private GameObject topDoor;
 	private GameObject botDoor;
 	private GameObject rightDoor;
 	private GameObject leftDoor;
 
-	public bool enemiesCleared = false; //TODO Move this bool to a class that keeps track of enemies in respective room
-
+	
 	// TODO Remove later
 	void DebugClearRoom()
 	{
 		if (Input.GetKeyDown("c"))
 		{
-			enemiesCleared = !enemiesCleared;
+			enemySpawner.enemiesCleared = !enemySpawner.enemiesCleared;
 		}
 	}
 
@@ -38,6 +38,8 @@ public class ToggleDoors : MonoBehaviour
 		botDoor = this.gameObject.transform.GetChild(1).gameObject;
 		rightDoor = this.gameObject.transform.GetChild(2).gameObject;
 		leftDoor = this.gameObject.transform.GetChild(3).gameObject;
+
+		enemySpawner = GetComponent<SpawnEnemies>();
 	}
 	
 
@@ -49,7 +51,7 @@ public class ToggleDoors : MonoBehaviour
 
     private void OpenDoors()
     {
-        if (enemiesCleared == true)
+        if (enemySpawner.enemiesCleared == true)
         {
             if (isTopDoor)
             {
@@ -75,8 +77,25 @@ public class ToggleDoors : MonoBehaviour
 
 	private void CloseDoors()
 	{
-		if (enemiesCleared == false && isEntryRoom == false)
+		if (enemySpawner.enemiesCleared == false && isEntryRoom == false)
 		{
+			if (isTopDoor)
+            {
+                topDoor.SetActive(true);
+            }
+            if (isBotDoor)
+            {
+                botDoor.SetActive(true);
+            }
+            if (isRightDoor)
+            {
+                rightDoor.SetActive(true);
+            }
+            if (isLeftDoor)
+            {
+                leftDoor.SetActive(true);
+            }
+
 			doors.SetBool("Open", false);
 			doors.SetBool("Close", true);	
 		}

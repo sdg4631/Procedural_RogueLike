@@ -38,6 +38,7 @@ TagManager:
   - EnemyLight
   - BlackScreen
   - Canvas
+  - EnemyTemplates
   layers:
   - Default
   - TransparentFX
