@@ -19,7 +19,6 @@ public class DestroyDuplicateRoom : MonoBehaviour
 		var overlappingRooms = myCollider.IsTouchingLayers(LayerMask.GetMask("SpawnedRoom"));
 		if (overlappingRooms)
 		{
-			print(gameObject + " destroyed");
 			templates.rooms.Remove(gameObject);
 			Destroy(gameObject);			
 		}

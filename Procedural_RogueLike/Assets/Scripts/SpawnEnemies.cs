@@ -69,10 +69,12 @@ public class SpawnEnemies : MonoBehaviour
 		var randomFirstTier = Random.Range(0, templates.firstTierEnemies.Length);
 		spawnFirstTier = Instantiate(templates.firstTierEnemies[randomFirstTier], spawnPos, Quaternion.identity);
 		spawnedFirstTierEnemies.Add(spawnFirstTier);
+		spawnFirstTier.transform.parent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
 
 		var randomSecondTier = Random.Range(0, templates.secondTierEnemies.Length);
 		spawnSecondTier = Instantiate(templates.secondTierEnemies[randomSecondTier], spawnPos, Quaternion.identity);
 		spawnedSecondTierEnemies.Add(spawnSecondTier);
+		spawnSecondTier.transform.parent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

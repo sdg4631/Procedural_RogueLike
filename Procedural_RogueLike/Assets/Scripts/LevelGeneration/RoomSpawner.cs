@@ -42,24 +42,28 @@ public class RoomSpawner : MonoBehaviour
 				// need to spawn room with a BOTTOM door
 				random = Random.Range(0, templates.bottomRooms.Length);
 				spawnedRoom = Instantiate(templates.bottomRooms[random], transform.position, Quaternion.identity);
+				spawnedRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}
 			else if (openingDirection == 2)
 			{
 				// need to spawn room with a TOP door
 				random = Random.Range(0, templates.topRooms.Length);
 				spawnedRoom = Instantiate(templates.topRooms[random], transform.position, Quaternion.identity);
+				spawnedRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}
 			else if (openingDirection == 3)
 			{
 				// need to spawn room with a LEFT door
 				random = Random.Range(0, templates.leftRooms.Length);
 				spawnedRoom = Instantiate(templates.leftRooms[random], transform.position, Quaternion.identity);
+				spawnedRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}
 			else if (openingDirection == 4)
 			{
 				// need to spawn room with a RIGHT door
 				random = Random.Range(0, templates.rightRooms.Length);
 				spawnedRoom = Instantiate(templates.rightRooms[random], transform.position, Quaternion.identity);
+				spawnedRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}
 		}
 		spawned = true;

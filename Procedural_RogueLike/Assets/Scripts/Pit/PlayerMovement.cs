@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject pitFrontLRRightEye;
 
     // Particles
-    [SerializeField] GameObject fxParent;
+    GameObject fxParent;
     [SerializeField] GameObject pitFootstepFX;
     [SerializeField] GameObject dustTrailFX;
     [SerializeField] GameObject dashFXPrefab;
@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
 		myRigidBody = GetComponent<Rigidbody2D>();
         cameraShake = FindObjectOfType<CameraShake>();      
         dashCooldownBar.SetActive(false); 
+        fxParent = GameObject.FindGameObjectWithTag("FXParent");
 	}
 	
 	void Update()
@@ -210,47 +211,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerIsMoving)
         {
-            var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);
+            // var dashFX = Instantiate(dashFXPrefab, transform.position, Quaternion.identity);
+            GameObject dashFX = ObjectPooler.SharedInstance.GetPooledObject("DashFX");
+            dashFX.transform.position = transform.position;
             rotationZ = Mathf.Atan2(dashDirection.y, dashDirection.x) * Mathf.Rad2Deg;  
             dashFX.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-            float destroyDelay = .7f;
-            Destroy(dashFX, destroyDelay);
-        }
-        // else if (dashDirection.x == 0 && dashDirection.y == 0)
-        // {
-        //     if (pitForwardMeshes.activeInHierarchy)
-        //     {
-        //         rotationZ = Mathf.Atan2(-1, 0) * Mathf.Rad2Deg;
-        //     }
-        //     else if (pitForwardLRMeshes.activeInHierarchy)
-        //     {
-        //         if (pitForwardLR.transform.localScale.x == 1)
-        //         {
-        //            rotationZ = Mathf.Atan2(0, -1) * Mathf.Rad2Deg; 
-        //         }
-        //         else if (pitForwardLR.transform.localScale.x == -1)
-        //         {
-        //             rotationZ = Mathf.Atan2(0, 1) * Mathf.Rad2Deg; 
-        //         }
-        //     }
-        //     else if (pitBackMeshes.activeInHierarchy)
-        //     {
-        //         rotationZ = Mathf.Atan2(1, 0) * Mathf.Rad2Deg;
-        //     }
-        //     else if (pitBackLRMeshes.activeInHierarchy)
-        //     {
-        //         if (pitBackLR.transform.localScale.x == 1)
-        //         {
-        //             rotationZ = Mathf.Atan2(1, -1) * Mathf.Rad2Deg;
-        //         }
-        //         else if (pitBackLR.transform.localScale.x == -1)
-        //         {
-        //             rotationZ = Mathf.Atan2(1, 1) * Mathf.Rad2Deg;
-        //         } 
-        //     }    
-        // }
-        
-        
+            dashFX.SetActive(true);
+            // float destroyDelay = .7f;
+            // Destroy(dashFX, destroyDelay);
+            StartCoroutine(SetGameObjectInactive(dashFX, .7f));
+        }      
     }
 
     private void DashMovement(Vector3 dashDirection)
@@ -259,39 +229,6 @@ public class PlayerMovement : MonoBehaviour
         {
             myRigidBody.velocity = new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);
         }
-        // else if (!playerIsMoving)
-        // {
-        //     if (pitForwardMeshes.activeInHierarchy)
-        //     {
-        //         myRigidBody.velocity = new Vector2(0, -1 * dashSpeed);
-        //     }
-        //     else if (pitForwardLRMeshes.activeInHierarchy)
-        //     {
-        //         if (pitForwardLR.transform.localScale.x == 1)
-        //         {
-        //             myRigidBody.velocity = new Vector2(-1 * dashSpeed, 0);
-        //         }
-        //         else if (pitForwardLR.transform.localScale.x == -1)
-        //         {
-        //             myRigidBody.velocity = new Vector2(1 * dashSpeed, 0);
-        //         }
-        //     }
-        //     else if (pitBackMeshes.activeInHierarchy)
-        //     {
-        //         myRigidBody.velocity = new Vector2(0, 1 * dashSpeed);
-        //     }
-        //     else if (pitBackLRMeshes.activeInHierarchy)
-        //     {
-        //         if (pitBackLR.transform.localScale.x == 1)
-        //         {
-        //             myRigidBody.velocity = new Vector2(-1 * dashSpeed, 1 * dashSpeed);
-        //         }
-        //         else if (pitBackLR.transform.localScale.x == -1)
-        //         {
-        //             myRigidBody.velocity = new Vector2(1 * dashSpeed, 1 * dashSpeed);
-        //         }
-        //     }
-        // }
     }
 
     private void CheckForPlayerMovement()
@@ -604,10 +541,14 @@ public class PlayerMovement : MonoBehaviour
         // Footsteps
         if (playerIsMoving && footstepTimer <= 0)
         {   
-            var footstepSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);       
-            var footsteps = Instantiate(pitFootstepFX, footstepSpawnPosition, Quaternion.identity);
+            var footstepSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);    
+            GameObject footsteps = ObjectPooler.SharedInstance.GetPooledObject("PitFootsteps");   
+            footsteps.transform.position = footstepSpawnPosition;
+            footsteps.transform.rotation = transform.rotation;
+            footsteps.SetActive(true);
             footsteps.transform.parent = fxParent.transform;
-            Destroy(footsteps, 1f);
+            StartCoroutine(SetGameObjectInactive(footsteps, 1f));
+            
             footstepTimer = .2f;           
         }
         footstepTimer -= Time.deltaTime;
@@ -616,13 +557,22 @@ public class PlayerMovement : MonoBehaviour
         if (playerIsMoving && dustTimer <= 0)
         {
             var dustTrailSpawnPosition = new Vector2(transform.position.x, transform.position.y - .5f);
-            var dustTrail = Instantiate(dustTrailFX, dustTrailSpawnPosition, Quaternion.identity);
+            GameObject dustTrail = ObjectPooler.SharedInstance.GetPooledObject("DustTrail");
+            dustTrail.transform.position = dustTrailSpawnPosition;
+            dustTrail.transform.rotation = transform.rotation;
+            dustTrail.SetActive(true);
             dustTrail.transform.parent = fxParent.transform;
-            float destroyTimer = 3f;
-            Destroy(dustTrail, destroyTimer);
+            StartCoroutine(SetGameObjectInactive(dustTrail, 3f));
+            
             dustTimer = 0.02f;
         }
         dustTimer -= Time.deltaTime;
+    }
+
+    IEnumerator SetGameObjectInactive(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(false);
     }
 
 }

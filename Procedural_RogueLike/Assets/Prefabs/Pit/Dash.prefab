@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 199037440882452584}
   m_Layer: 0
   m_Name: Dash
-  m_TagString: Untagged
+  m_TagString: DashFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

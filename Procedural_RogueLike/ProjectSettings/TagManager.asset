@@ -39,6 +39,12 @@ TagManager:
   - BlackScreen
   - Canvas
   - EnemyTemplates
+  - EnemyParent
+  - RoomsParent
+  - FXParent
+  - DustTrail
+  - PitFootsteps
+  - DashFX
   layers:
   - Default
   - TransparentFX

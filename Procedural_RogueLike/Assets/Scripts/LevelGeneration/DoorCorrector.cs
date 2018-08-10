@@ -31,7 +31,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TB, transform.position, Quaternion.identity);	
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;				
 			}					
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
@@ -42,7 +42,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TL, transform.position, Quaternion.identity);	
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}				
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
@@ -53,7 +53,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TR, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
@@ -64,7 +64,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TBL, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
@@ -75,7 +75,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TBR, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}		
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true)
@@ -86,7 +86,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TLR, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
@@ -97,7 +97,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.BL, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
@@ -108,7 +108,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.BR, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true)
@@ -119,7 +119,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.BLR, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true)
@@ -130,7 +130,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.LR, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == true && gameObject.tag != "Entry")
@@ -141,7 +141,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.TBRL, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}	
 		else if (searchForNeighbors.upNeighbor == true && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == false)
@@ -152,7 +152,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.T, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == true && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == false)
@@ -163,7 +163,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.B, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == true && searchForNeighbors.leftNeighbor == false)
@@ -174,7 +174,7 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.R, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
 		}
 		else if (searchForNeighbors.upNeighbor == false && searchForNeighbors.downNeighbor == false && searchForNeighbors.rightNeighbor == false && searchForNeighbors.leftNeighbor == true)
@@ -185,12 +185,8 @@ public class DoorCorrector : MonoBehaviour
 				Destroy(gameObject);
 				var newRoom = Instantiate(templates.L, transform.position, Quaternion.identity);
 				Destroy(newRoom.GetComponent<DoorCorrector>());	
-				print("Replaced room at: " + transform.position + " with" + newRoom);
+				newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsParent").transform;
 			}			
-		}
-		else
-		{
-
 		}
 	}
 }
