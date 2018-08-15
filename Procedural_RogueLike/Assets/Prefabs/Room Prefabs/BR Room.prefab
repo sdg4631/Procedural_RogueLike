@@ -330,6 +330,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1321303904583304
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4473281795430606}
+  - component: {fileID: 61561132336789496}
+  - component: {fileID: 114948655600262444}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1331240752338060
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,8 +771,6 @@ GameObject:
   - component: {fileID: 4420011729395788}
   - component: {fileID: 50351151489395960}
   - component: {fileID: 114517704432011402}
-  - component: {fileID: 61959237778768578}
-  - component: {fileID: 114670799291034274}
   m_Layer: 11
   m_Name: Doors
   m_TagString: Wall
@@ -1260,6 +1275,7 @@ Transform:
   - {fileID: 4294523305363272}
   - {fileID: 4166666876652190}
   - {fileID: 4085439771427398}
+  - {fileID: 4473281795430606}
   m_Father: {fileID: 4653921972661900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1302,6 +1318,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4933194984452548}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4473281795430606
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321303904583304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4420011729395788}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4482720904872610
 Transform:
@@ -2086,6 +2115,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.666866, y: 1.754425}
   m_EdgeRadius: 0
+--- !u!61 &61561132336789496
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321303904583304}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0150716305, y: -0.27}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.08, y: 8.2}
+  m_EdgeRadius: 0
 --- !u!61 &61566110126416520
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -2310,31 +2364,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.76, y: 2.484696}
-  m_EdgeRadius: 0
---- !u!61 &61959237778768578
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1797827306999446}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0150716305, y: -0.27}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16.08, y: 8.2}
   m_EdgeRadius: 0
 --- !u!95 &95773557107058206
 Animator:
@@ -2605,18 +2634,6 @@ MonoBehaviour:
   rightDoor: 1
   leftDoor: 0
   cameraSpeed: 3
---- !u!114 &114670799291034274
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1797827306999446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58393ab1997a324dbb8d7fd1c95cdda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesCleared: 0
 --- !u!114 &114872278886288942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2649,6 +2666,19 @@ MonoBehaviour:
   minTimeBetweenFlicker: 0.05
   maxTimeBetweenFlicker: 0.1
   flickerTimer: 0
+--- !u!114 &114948655600262444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321303904583304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58393ab1997a324dbb8d7fd1c95cdda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesCleared: 0
+  isEntryRoom: 0
 --- !u!198 &198088290934814366
 ParticleSystem:
   m_ObjectHideFlags: 1

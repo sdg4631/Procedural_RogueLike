@@ -411,6 +411,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1490924498228312
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4462177421909406}
+  - component: {fileID: 61625432165241788}
+  - component: {fileID: 114657644968092550}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1492760743512316
 GameObject:
   m_ObjectHideFlags: 1
@@ -819,8 +836,6 @@ GameObject:
   - component: {fileID: 4051297350478876}
   - component: {fileID: 50755723245254054}
   - component: {fileID: 114471363407263046}
-  - component: {fileID: 61314991190248494}
-  - component: {fileID: 114034301456797820}
   m_Layer: 11
   m_Name: Doors
   m_TagString: Wall
@@ -922,6 +937,7 @@ Transform:
   - {fileID: 4818324498209292}
   - {fileID: 4509318103597674}
   - {fileID: 4740717241107346}
+  - {fileID: 4462177421909406}
   m_Father: {fileID: 4977284038146238}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1228,6 +1244,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4280135386678666}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4462177421909406
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490924498228312}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4051297350478876}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4499895805639492
 Transform:
@@ -1861,31 +1890,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.866588, y: 1.754425}
   m_EdgeRadius: 0
---- !u!61 &61314991190248494
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940895873351154}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0150716305, y: -0.27}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16.08, y: 8.2}
-  m_EdgeRadius: 0
 --- !u!61 &61329377749830572
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -2110,6 +2114,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.7600002, y: 2.9265542}
+  m_EdgeRadius: 0
+--- !u!61 &61625432165241788
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490924498228312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0150716305, y: -0.27}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.08, y: 8.2}
   m_EdgeRadius: 0
 --- !u!61 &61629396689671594
 BoxCollider2D:
@@ -2354,18 +2383,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114034301456797820
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940895873351154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58393ab1997a324dbb8d7fd1c95cdda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesCleared: 0
 --- !u!114 &114069165639653576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2515,6 +2532,19 @@ MonoBehaviour:
   isBotDoor: 1
   isRightDoor: 0
   isLeftDoor: 0
+  isEntryRoom: 0
+--- !u!114 &114657644968092550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490924498228312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58393ab1997a324dbb8d7fd1c95cdda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesCleared: 0
   isEntryRoom: 0
 --- !u!114 &114660425059761588
 MonoBehaviour:

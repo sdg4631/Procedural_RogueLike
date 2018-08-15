@@ -100,6 +100,9 @@ TagManager:
   - name: Projectile
     uniqueID: 3641327635
     locked: 0
+  - name: Particle
+    uniqueID: 312267555
+    locked: 0
   - name: Lighting
     uniqueID: 2762920363
     locked: 0

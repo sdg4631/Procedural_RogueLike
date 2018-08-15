@@ -22,16 +22,6 @@ public class ToggleDoors : MonoBehaviour
 	private GameObject leftDoor;
 
 	
-	// TODO Remove later
-	void DebugClearRoom()
-	{
-		if (Input.GetKeyDown("c"))
-		{
-			enemySpawner.enemiesCleared = !enemySpawner.enemiesCleared;
-		}
-	}
-
-
 	void Start() 
 	{
 		topDoor = this.gameObject.transform.GetChild(0).gameObject;
@@ -39,14 +29,13 @@ public class ToggleDoors : MonoBehaviour
 		rightDoor = this.gameObject.transform.GetChild(2).gameObject;
 		leftDoor = this.gameObject.transform.GetChild(3).gameObject;
 
-		enemySpawner = GetComponent<SpawnEnemies>();
+		enemySpawner = GetComponentInChildren<SpawnEnemies>();
 	}
 	
 
 	void Update()
     {
         OpenDoors();
-		DebugClearRoom(); // TODO Remove later
     }
 
     private void OpenDoors()
