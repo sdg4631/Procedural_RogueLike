@@ -64,8 +64,8 @@ TagManager:
   - Projectile
   - ProjectileWall
   - Camera
-  - 
-  - 
+  - Tabs
+  - LootParent
   - 
   - 
   - 
@@ -108,4 +108,7 @@ TagManager:
     locked: 0
   - name: Black Screen
     uniqueID: 1454995401
+    locked: 0
+  - name: Interactable
+    uniqueID: 4209343991
     locked: 0
