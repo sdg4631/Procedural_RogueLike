@@ -45,6 +45,7 @@ TagManager:
   - DustTrail
   - PitFootsteps
   - DashFX
+  - Tab
   layers:
   - Default
   - TransparentFX
@@ -97,6 +98,9 @@ TagManager:
   - name: UI
     uniqueID: 147755017
     locked: 0
+  - name: Interactable
+    uniqueID: 4209343991
+    locked: 0
   - name: Projectile
     uniqueID: 3641327635
     locked: 0
@@ -108,7 +112,4 @@ TagManager:
     locked: 0
   - name: Black Screen
     uniqueID: 1454995401
-    locked: 0
-  - name: Interactable
-    uniqueID: 4209343991
     locked: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LootLob : MonoBehaviour 
 {
-	[SerializeField] float lobTime = 1f;
+	[SerializeField] public float lobTime = 1f;
 	[SerializeField] float minArc = 1f;
 	[SerializeField] float maxArc = 3f;
 
@@ -20,26 +20,17 @@ public class LootLob : MonoBehaviour
 	}
 
 	void OnEnable()
-	{
-		float delay = Random.Range(0, .5f);
-		Invoke("Lob", delay);
+	{	
+		Invoke("Lob", .01f);
 	}
 
 	void OnDisable()
 	{
 		core.transform.localPosition = Vector3.zero;
 	}
+
 	
-
-	void Update() 
-	{
-
-		if (Input.GetKeyDown(KeyCode.F))
-        {
-            Lob();
-
-        }
-    }
+	
 
     private void Lob()
     {
@@ -65,11 +56,13 @@ public class LootLob : MonoBehaviour
 			xRandom = Random.Range(0f, 1.25f);
 		}
 
-
         endingPoint = new Vector3(transform.position.x + xRandom, transform.position.y + yRandom);
-
+		
         iTween.MoveBy(core, iTween.Hash("y", arc, "time", lobTime / 2, "easeType", iTween.EaseType.easeOutQuad));
         iTween.MoveBy(core, iTween.Hash("y", -arc, "time", lobTime / 2, "delay", lobTime / 2, "easeType", iTween.EaseType.easeInCubic));
-        iTween.MoveTo(gameObject, iTween.Hash("position", endingPoint, "time", lobTime, "easeType", iTween.EaseType.linear));
+        iTween.MoveTo(gameObject, iTween.Hash("position", endingPoint, "time", lobTime, "easeType", iTween.EaseType.linear));		
+
+		iTween.ScaleTo(gameObject, new Vector3(1.25f, 1.25f, 1.25f), lobTime / 2);
+		iTween.ScaleTo(gameObject, iTween.Hash("scale", new Vector3(1f, 1f, 1f), "time", lobTime / 2, "delay", lobTime / 2));
     }
 }
