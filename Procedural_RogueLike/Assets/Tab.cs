@@ -5,31 +5,43 @@ using UnityEngine;
 public class Tab : MonoBehaviour 
 {
 	Animator myAnimator;
-	Animation anim;
 	float timeBetweenReflections;
+	float rotationSpeed; 
+	float rotationTimer;
+	float rotationDuration;
+	GameObject root;
 
-	Vector3 firstReflectionLinePos;
-	Vector3 secondReflectionLinePos;
+	LootLob lootLob;
 
 	void Start()
 	{
-		myAnimator = GetComponent<Animator>();
-		StartCoroutine(PlayReflectAnimation());
-	}
+		myAnimator = GetComponent<Animator>();	
+		lootLob = transform.parent.GetComponentInParent<LootLob>();
 
-	void OnEnable()
-	{
-		myAnimator = GetComponent<Animator>();
 		StartCoroutine(PlayReflectAnimation());
 
-		// TODO figure out how to reset pos on disable
-		firstReflectionLinePos = transform.GetChild(0).position;
-		secondReflectionLinePos = transform.GetChild(1).position;
+		root = transform.parent.parent.gameObject;
+
+		rotationDuration = lootLob.lobTime;
+		rotationTimer = 0f;
 	}
 
+	void Update()
+    {
+        RotationOnStart();
+    }
 
+    private void RotationOnStart()
+    {
+        rotationSpeed = Random.Range(900f, 2000f);
+        rotationTimer += Time.deltaTime;
+        if (rotationTimer < rotationDuration)
+        {
+            transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        }
+    }
 
-	IEnumerator PlayReflectAnimation()
+    IEnumerator PlayReflectAnimation()
 	{
 		while (true)
 		{
@@ -41,5 +53,15 @@ public class Tab : MonoBehaviour
 
 			myAnimator.ResetTrigger("Reflect");
 		}	
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "Player")
+		{
+			// TODO Instantiate particles
+			
+			Destroy(root);
+		}
 	}
 }

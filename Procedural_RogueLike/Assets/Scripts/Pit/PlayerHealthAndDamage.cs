@@ -47,8 +47,6 @@ public class PlayerHealthAndDamage : MonoBehaviour
 
 	void GetHit()
 	{
-		// if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
-
 		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Projectile")))
 		{
 			if (!isInvulnerable)

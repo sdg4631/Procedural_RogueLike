@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76e0038fbe0d4b42b33332183ea386a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayLength: 2
   wallUp: 0
   wallDown: 0
   wallRight: 0
@@ -398,6 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   currentHealth: 0
+  deathFXPrefab: {fileID: 1264381776036252, guid: 66099329be11f054e9bd59591d48a1c7,
+    type: 2}
 --- !u!210 &210822387677585944
 SortingGroup:
   m_ObjectHideFlags: 1
@@ -407,7 +410,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1487209711
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!212 &212055382294720900
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,6 +6,7 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 {
 	[SerializeField] int maxHealth;
 	[SerializeField] public int currentHealth;
+	[SerializeField] GameObject deathFXPrefab;
 
 	SpawnEnemies enemySpawner;
 
@@ -36,6 +37,9 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 	{
 		if (currentHealth <= 0)
 		{
+			var deathFX = Instantiate(deathFXPrefab, transform.position, Quaternion.identity);
+			
+			Destroy(deathFX, 2f);
 			Destroy(gameObject);
 		} 
 	}

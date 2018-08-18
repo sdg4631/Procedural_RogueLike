@@ -17,20 +17,9 @@ public class LootLob : MonoBehaviour
 	{
 		core = transform.GetChild(0).gameObject;	
 		ray = GetComponent<Raycast>();
-	}
 
-	void OnEnable()
-	{	
-		Invoke("Lob", .01f);
+		Lob();
 	}
-
-	void OnDisable()
-	{
-		core.transform.localPosition = Vector3.zero;
-	}
-
-	
-	
 
     private void Lob()
     {
