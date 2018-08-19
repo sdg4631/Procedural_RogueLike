@@ -8,16 +8,13 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 	[SerializeField] public int currentHealth;
 	[SerializeField] GameObject deathFXPrefab;
 
+	[SerializeField] GameObject tabsPrefab = null;
+
 	SpawnEnemies enemySpawner;
 
 	void Start()
 	{
 		currentHealth = maxHealth;
-	}
-
-	void Update()
-	{
-		Die();
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
@@ -31,16 +28,32 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 	public void ApplyDamage(int projectileDamage)
 	{
 		currentHealth = currentHealth - projectileDamage;
+
+		if (currentHealth <= 0)
+		{
+			float deathDelay = .15f;
+			Invoke("Die", deathDelay);
+		}
 	}
 
 	void Die()
 	{
-		if (currentHealth <= 0)
+		var deathFX = Instantiate(deathFXPrefab, transform.position, Quaternion.identity);
+
+		float amount = Random.Range(0f, 6f);
+		for (int i = 0; i < amount; i++)
 		{
-			var deathFX = Instantiate(deathFXPrefab, transform.position, Quaternion.identity);
+			if (tabsPrefab != null)
+			{
+				var tabs = Instantiate(tabsPrefab, transform.position, Quaternion.identity);
+			}
 			
-			Destroy(deathFX, 2f);
-			Destroy(gameObject);
-		} 
+		}
+		
+		
+		Destroy(deathFX, 2f);
+		Destroy(gameObject, .05f);		 
 	}
+
+
 }

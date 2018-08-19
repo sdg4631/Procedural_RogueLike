@@ -360,14 +360,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.17250443, y: 0.06323862}
-      - {x: -0.16968489, y: 0.059239864}
+    - - {x: 0.6359762, y: -0.115020156}
+      - {x: 0.4378237, y: 0.16907883}
+      - {x: 0.1987001, y: 0.39418757}
+      - {x: -0.0037404746, y: 0.43294513}
+      - {x: -0.24329665, y: 0.34388816}
+      - {x: -0.42815977, y: 0.17510772}
+      - {x: -0.6096672, y: -0.11704302}
       - {x: -0.381907, y: -0.20710194}
       - {x: -0.26622558, y: -0.5632738}
       - {x: -0.19700122, y: -0.64731324}
       - {x: 0.19353104, y: -0.65501153}
       - {x: 0.2689619, y: -0.5841464}
-      - {x: 0.39956665, y: -0.20754278}
+      - {x: 0.39065385, y: -0.20754284}
 --- !u!95 &95163368371443638
 Animator:
   serializedVersion: 3
@@ -453,10 +458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35b1313b9f8c0442bc1a9f8a088bb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 12
   currentHealth: 0
   deathFXPrefab: {fileID: 1264381776036252, guid: 66099329be11f054e9bd59591d48a1c7,
     type: 2}
+  tabsPrefab: {fileID: 1112015138494104, guid: 14c5306e5ae75f94a9cc727f17f3cc1d, type: 2}
 --- !u!210 &210709027933823652
 SortingGroup:
   m_ObjectHideFlags: 1

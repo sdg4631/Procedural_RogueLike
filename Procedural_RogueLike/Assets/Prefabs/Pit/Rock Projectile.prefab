@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50401567455723984}
   - component: {fileID: 61136769728676306}
   - component: {fileID: 114758642891737424}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Rock Projectile
   m_TagString: Player Projectile
   m_Icon: {fileID: 0}
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileDamage: 2
   projectileForce: 0.5
+  killingBlowForce: 10
   targetDrag: 5
 --- !u!198 &198274517072021416
 ParticleSystem:
@@ -14022,7 +14023,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -653639661
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -14078,7 +14079,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -653639661
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
