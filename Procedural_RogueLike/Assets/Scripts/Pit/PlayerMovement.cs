@@ -91,17 +91,16 @@ public class PlayerMovement : MonoBehaviour
 	}
 	
 	void Update()
-    {
-        
+    {  
         CheckForCursorMovement();
         CheckForPlayerMovement();
-        Dash();
-        if(dashState != DashState.Dashing && changingRooms == false) { Move(); }
+        PlayMovementParticles();
+        Dash();      
         ControlSpriteWithCursorAiming();
         AimingWithController();
-        PlayMovementParticles();
         DashBar();
         SetEyes();
+        if(dashState != DashState.Dashing && changingRooms == false) { Move(); }
         
     }
 
@@ -372,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
         {
             pitRoot.GetComponent<Animator>().SetBool("isRunning", true);
         }
-        currentPos = transform.position;  
+        
 
         if (aimingWithCursor == false && aimingWithController == false)
         {

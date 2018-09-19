@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Raycast : MonoBehaviour 
 {
-	[SerializeField] float rayLength = 2f;
+	[SerializeField] float rayLength = 4f;
 
 	public bool wallUp = false;
 	public bool wallDown = false;

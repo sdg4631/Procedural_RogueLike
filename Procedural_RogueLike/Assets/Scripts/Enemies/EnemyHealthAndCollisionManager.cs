@@ -31,7 +31,7 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 
 		if (currentHealth <= 0)
 		{
-			float deathDelay = .15f;
+			float deathDelay = 0f;
 			Invoke("Die", deathDelay);
 		}
 	}

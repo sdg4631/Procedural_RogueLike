@@ -19,14 +19,15 @@ public class PlayerProjectileCollider : MonoBehaviour
 		{      
 			if (other.GetComponent<EnemyHealthAndCollisionManager>().currentHealth > projectileDamage)
 			{
-				StartCoroutine(BlinkRed(other));
+				StartCoroutine(Blink(.03f, 1, Color.red, .5f, other));
+				//StartCoroutine(BlinkSmooth(1f, .5f, Color.red, other));
 				StartCoroutine(Knockback(other));
 				other.GetComponent<EnemyHealthAndCollisionManager>().ApplyDamage(projectileDamage);
 			}
 			else
 			{
-				StartCoroutine(StayRed(other));
-				StartCoroutine(DeathKnockback(other));
+				StartCoroutine(Blink(.03f, 1, Color.red, .75f, other));
+				//StartCoroutine(DeathKnockback(other));
 				other.GetComponent<EnemyHealthAndCollisionManager>().ApplyDamage(projectileDamage);
 			}
         }	
@@ -49,42 +50,6 @@ public class PlayerProjectileCollider : MonoBehaviour
 		}
     }
 
-    IEnumerator BlinkRed(GameObject gameObject)
-	{
-		sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
-		
-		foreach (var sprite in sprites)
-		{
-			if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
-			{
-				sprite.color = Color.red;
-				yield return null;
-			}				
-		}
-		foreach (var sprite in sprites)
-		{
-			yield return new WaitForSeconds(.01f);
-			if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
-			{
-				sprite.color = Color.white;
-			}		
-		}
-	}
-
-	IEnumerator StayRed(GameObject gameObject)
-	{
-		sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
-		
-		foreach (var sprite in sprites)
-		{
-			if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
-			{
-				sprite.color = Color.red;
-				yield return null;
-			}
-		}
-	}
-
 	IEnumerator DeathKnockback(GameObject other)
     {
 		if (other != null)
@@ -94,4 +59,67 @@ public class PlayerProjectileCollider : MonoBehaviour
 			yield return new WaitForSeconds(.5f);
 		}
     }
+
+	IEnumerator Blink(float delayBetweenBlinks, int numberOfBlinks, Color blinkColor, float alpha, GameObject obj)
+	{
+		var sprites = obj.GetComponentsInChildren<SpriteRenderer>();
+		var counter = 0;
+
+		while (counter <= numberOfBlinks)
+		{
+			foreach(var sprite in sprites)
+			{
+				if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
+				{
+					blinkColor.a =  alpha;
+					sprite.material.SetColor("_BlinkColor", blinkColor);	
+				}
+			}
+			counter++;
+			yield return new WaitForSeconds(delayBetweenBlinks);
+		}
+
+		// revert to our standard sprite color
+		foreach (var sprite in sprites)
+		{
+			if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
+			{
+				blinkColor.a = 0f;
+				sprite.material.SetColor("_BlinkColor", blinkColor);
+			}
+		}		
+	}
+
+	IEnumerator BlinkSmooth( float timeScale, float duration, Color blinkColor, GameObject obj )
+	{
+		var sprites = obj.GetComponentsInChildren<SpriteRenderer>();
+		var elapsedTime = 0f;
+
+		while( elapsedTime <= duration )
+		{
+			foreach(var sprite in sprites)
+			{
+				if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
+				{
+					blinkColor.a = Mathf.PingPong( elapsedTime * timeScale, 1f );
+					sprite.material.SetColor( "_BlinkColor", blinkColor );
+				}	
+				elapsedTime += Time.deltaTime;	
+			}
+			
+			yield return null;
+		}
+
+		// revert to our standard sprite color
+		foreach(var sprite in sprites)
+		{
+			if (sprite != null && sprite.tag != "EnemyEye" && sprite.tag != "EnemyLight")
+			{
+				blinkColor.a = 0f;
+				sprite.material.SetColor( "_BlinkColor", blinkColor );
+			}
+			
+		}
+		
+	}
 }

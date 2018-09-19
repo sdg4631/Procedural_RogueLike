@@ -30,19 +30,19 @@ public class LootLob : MonoBehaviour
 
 		if (ray.wallUp)
 		{
-			yRandom = Random.Range(-1.25f, 0f);
+			yRandom = Random.Range(-1.25f, -.25f);
 		}
 		if (ray.wallDown)
 		{
-			yRandom = Random.Range(0f, 1.25f);
+			yRandom = Random.Range(.25f, 1.25f);
 		}
 		if (ray.wallRight)
 		{
-			xRandom = Random.Range(-1.25f, 0f);
+			xRandom = Random.Range(-1.25f, -.25f);
 		}
 		if (ray.wallLeft)
 		{
-			xRandom = Random.Range(0f, 1.25f);
+			xRandom = Random.Range(.25f, 1.25f);
 		}
 
         endingPoint = new Vector3(transform.position.x + xRandom, transform.position.y + yRandom);
