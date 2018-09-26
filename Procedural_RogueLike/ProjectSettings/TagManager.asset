@@ -83,6 +83,9 @@ TagManager:
   - name: Room
     uniqueID: 3671951187
     locked: 0
+  - name: Doors
+    uniqueID: 235030457
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

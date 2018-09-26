@@ -43,7 +43,7 @@ public class PlayerProjectileCollider : MonoBehaviour
 
 			if (other != null)
 			{
-				other.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+				//other.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 				other.GetComponent<Rigidbody2D>().angularVelocity = 0f;
 				other.GetComponent<Rigidbody2D>().drag = 0.1f;
 			}
