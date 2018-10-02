@@ -6,21 +6,18 @@ public class Sap : MonoBehaviour
 {
 	Animator myAnimator;
 	Rigidbody2D myRigidBody;
-	PlayerMovement player;
 	Raycast ray;
 
 	bool isAlive = true;
 
 	[SerializeField] int timeBetweenBounceMin = 1;
 	[SerializeField] int timeBetweenBounceMax = 3;
-	[SerializeField] float moveSpeed = 1f; 
 
 
 	void Start() 
 	{
 		myAnimator = GetComponent<Animator>();
 		myRigidBody = GetComponent<Rigidbody2D>();
-		player = FindObjectOfType<PlayerMovement>();
 		ray = GetComponent<Raycast>();
 		StartCoroutine(StartBounceAnimation());
 	}

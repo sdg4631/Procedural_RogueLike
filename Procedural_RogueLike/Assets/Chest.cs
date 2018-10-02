@@ -35,7 +35,7 @@ public class Chest : MonoBehaviour
 
 		closedChest.gameObject.SetActive(false);
 		openChest.gameObject.SetActive(true);
-		closedChestFX.gameObject.SetActive(false);
 		openChestFX.gameObject.SetActive(true);
+		closedChestFX.gameObject.SetActive(false);
 	}
 }
