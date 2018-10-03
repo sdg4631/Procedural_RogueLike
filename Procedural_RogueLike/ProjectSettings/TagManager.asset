@@ -65,7 +65,7 @@ TagManager:
   - Projectile
   - ProjectileWall
   - Camera
-  - Tabs
+  - NonPlayerCollider
   - LootParent
   - Interactable
   - 

@@ -16,13 +16,13 @@ public class Bottlecap : MonoBehaviour
 		mycollider = GetComponent<BoxCollider2D>();
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player")
 		{
+			mycollider.enabled = false;
 			audioSource.PlayOneShot(pickupSFX);
 			var fizz = Instantiate(fizzFX, transform.position, fizzFX.transform.rotation);
-			mycollider.enabled = false;
 			gameObject.transform.GetChild(0).gameObject.SetActive(false);
 			Destroy(fizz, 2f);
 			Destroy(gameObject, 2f);
