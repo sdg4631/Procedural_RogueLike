@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4884810596363078}
   - component: {fileID: 198615613694828930}
   - component: {fileID: 199139565766880922}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Chest Open FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,8 @@ GameObject:
   - component: {fileID: 60042750716466378}
   - component: {fileID: 50218786642178394}
   - component: {fileID: 210435215473906302}
-  m_Layer: 0
+  - component: {fileID: 82186107782959754}
+  m_Layer: 20
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +59,7 @@ GameObject:
   - component: {fileID: 4558046079400158}
   - component: {fileID: 198815377129854468}
   - component: {fileID: 199317509653107976}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Chest Closed FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290968569584280}
   - component: {fileID: 212170719046142688}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Chest_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +92,7 @@ GameObject:
   - component: {fileID: 4984288876378112}
   - component: {fileID: 198282893759684342}
   - component: {fileID: 199425881879532814}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Chest Open FX Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463470127213908}
   - component: {fileID: 212614169694570840}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Chest_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +248,101 @@ PolygonCollider2D:
       - {x: 0.7269201, y: -0.5168321}
       - {x: 0.9075656, y: 0.23597312}
       - {x: 0.7632232, y: 0.7403375}
+--- !u!82 &82186107782959754
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399723532298352}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.601
+  m_Pitch: 0.7
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95663083683216130
 Animator:
   serializedVersion: 3
@@ -276,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e093c89e7900f2f42af72c36e2cc00a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chestOpenSFX: {fileID: 8300000, guid: 0bb30c20cebda9548a69cc59b1d665cf, type: 3}
 --- !u!198 &198282893759684342
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -6083,7 +6180,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -6099,7 +6196,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
+        atime1: 26407
         atime2: 0
         atime3: 0
         atime4: 0

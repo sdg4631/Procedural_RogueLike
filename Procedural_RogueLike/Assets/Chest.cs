@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour 
 {
+	[SerializeField] AudioClip chestOpenSFX;
+
 	Animator myAnimator;
+	AudioSource audioSource;
+	bool isChestOpen = false;
 
 	void Start() 
 	{
 		myAnimator = GetComponent<Animator>();
+		audioSource = GetComponent<AudioSource>();
 	}
 	
 
@@ -21,8 +26,12 @@ public class Chest : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player") // TODO add if statement to check if player has a key
 		{
-			
-			myAnimator.SetBool("chestOpen", true);
+			if (isChestOpen == false)
+			{
+				audioSource.PlayOneShot(chestOpenSFX);
+				myAnimator.SetBool("chestOpen", true);
+				isChestOpen = true;
+			}
 		}
 	}
 
