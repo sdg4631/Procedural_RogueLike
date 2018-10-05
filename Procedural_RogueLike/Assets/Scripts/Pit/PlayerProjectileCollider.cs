@@ -12,6 +12,11 @@ public class PlayerProjectileCollider : MonoBehaviour
 
 	EnemyHealthAndCollisionManager enemyHealth;
 
+	void Update()
+	{
+
+	}
+
 	void OnParticleCollision(GameObject other)
 	{
 
@@ -29,6 +34,26 @@ public class PlayerProjectileCollider : MonoBehaviour
 				StartCoroutine(Blink(.03f, 1, Color.red, .75f, other));
 				//StartCoroutine(DeathKnockback(other));
 				other.GetComponent<EnemyHealthAndCollisionManager>().ApplyDamage(projectileDamage);
+			}
+        }	
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Enemy"))
+		{      
+			if (other.gameObject.GetComponent<EnemyHealthAndCollisionManager>().currentHealth > projectileDamage)
+			{
+				StartCoroutine(Blink(.03f, 1, Color.red, .5f, other.gameObject));
+				//StartCoroutine(BlinkSmooth(1f, .5f, Color.red, other));
+				StartCoroutine(Knockback(other.gameObject));
+				other.gameObject.GetComponent<EnemyHealthAndCollisionManager>().ApplyDamage(projectileDamage);
+			}
+			else
+			{
+				StartCoroutine(Blink(.03f, 1, Color.red, .75f, other.gameObject));
+				//StartCoroutine(DeathKnockback(other));
+				other.gameObject.GetComponent<EnemyHealthAndCollisionManager>().ApplyDamage(projectileDamage);
 			}
         }	
 	}

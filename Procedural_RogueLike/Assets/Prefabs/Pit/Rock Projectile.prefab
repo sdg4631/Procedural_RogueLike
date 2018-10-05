@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 50401567455723984}
   - component: {fileID: 61136769728676306}
   - component: {fileID: 114758642891737424}
-  m_Layer: 15
+  m_Layer: 22
   m_Name: Rock Projectile
-  m_TagString: Player Projectile
+  m_TagString: RockProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4765257098006026}
   - component: {fileID: 198709354051298504}
   - component: {fileID: 199659526149844588}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Rock Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4349219314690860}
   - component: {fileID: 198274517072021416}
   - component: {fileID: 199317484795751838}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Rock Projectile Shatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

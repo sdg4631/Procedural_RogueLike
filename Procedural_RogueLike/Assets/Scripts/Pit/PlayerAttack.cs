@@ -17,20 +17,19 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject pitBackLRMeshes;
 
 	[SerializeField] GameObject fxParent;
-	[SerializeField] GameObject rockProjectile;
-	
-	bool rockEquipped = true;
 
+    public string currentProj;
+	public float projectileSpeed = 500f;
 
 	void Start() 
 	{
-		
+		currentProj = "FireballProjectile";
 	}
 	
 
 	void Update() 
 	{
-		ThrowRock();		
+		ThrowProjectile(currentProj);		
 	}
 
     IEnumerator SetProjectileInactive(GameObject proj, float delay)
@@ -39,42 +38,41 @@ public class PlayerAttack : MonoBehaviour
         proj.SetActive(false);
     }
 
-	void ThrowRock()
+	void ThrowProjectile(string projectileTag)
 	{
-		if (rockEquipped)
-		{
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            var direction = (mousePosition - transform.position).normalized;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-			if(Input.GetMouseButtonDown(0))
-            {
-                // Find Cursor Coordinates
-                Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
-                cursorPos = Camera.main.ScreenToWorldPoint(cursorPos);
+            GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+            var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
+            proj.transform.position = projSpawnPos;
+            proj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            proj.SetActive(true);             
+            proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * projectileSpeed);
+           
+            proj.transform.parent = fxParent.transform;
+            //StartCoroutine(SetProjectileInactive(proj, 12f));    
 
-                GameObject rock = ObjectPooler.SharedInstance.GetPooledObject("Player Projectile");
-                var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
-                rock.transform.position = projSpawnPos;
-                rock.transform.rotation = transform.rotation;
-                rock.SetActive(true);             
-                rock.transform.LookAt(cursorPos);
-                rock.transform.parent = fxParent.transform;
-                StartCoroutine(SetProjectileInactive(rock, 12f));    
-
-                PlayAttackAnimation();           
-            }
-            else if (Input.GetButtonDown("Fire1"))
-            {
-                GameObject rock = ObjectPooler.SharedInstance.GetPooledObject("Player Projectile");
-                var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
-                rock.transform.position = projSpawnPos;
-                rock.transform.rotation = transform.rotation;
-                rock.SetActive(true);
-             	rock.transform.parent = fxParent.transform;
-                StartCoroutine(SetProjectileInactive(rock, 12f));
-
-                PlayAttackAnimation();
-                AimProjOnController(rock);       
-            }
+            PlayAttackAnimation();           
         }
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+            var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
+            proj.transform.position = projSpawnPos;
+            proj.transform.rotation = transform.rotation;
+            proj.SetActive(true);
+            proj.transform.parent = fxParent.transform;
+            StartCoroutine(SetProjectileInactive(proj, 12f));
+
+            PlayAttackAnimation();
+            AimProjOnController(proj);       
+        }
+        
 	}
 
     void AimProjOnController(GameObject proj)

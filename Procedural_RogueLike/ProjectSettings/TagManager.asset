@@ -46,6 +46,8 @@ TagManager:
   - PitFootsteps
   - DashFX
   - Tab
+  - RockProjectile
+  - FireballProjectile
   layers:
   - Default
   - TransparentFX
@@ -68,8 +70,8 @@ TagManager:
   - NonPlayerCollider
   - LootParent
   - Interactable
-  - 
-  - 
+  - Chest
+  - PlayerProjectile
   - 
   - 
   - 

@@ -49,8 +49,7 @@ public class EnemyHealthAndCollisionManager : MonoBehaviour
 			}
 			
 		}
-		
-		
+
 		Destroy(deathFX, 2f);
 		Destroy(gameObject, .05f);		 
 	}
