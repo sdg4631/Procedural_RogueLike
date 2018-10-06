@@ -5,23 +5,26 @@ using UnityEngine;
 public class Fireball : MonoBehaviour 
 {
 	BoxCollider2D myCollider;
-
+	Rigidbody2D myRigidBody;
+	
 	void Start() 
 	{
 		myCollider = GetComponent<BoxCollider2D>();
+		myRigidBody = GetComponent<Rigidbody2D>();
+		
 	}
 	
-
 	void Update() 
-	{
+	{		
 		SetInactiveOnHit();
 	}
+
 
 	void SetInactiveOnHit()
 	{
 		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Chest", "ProjectileWall")))
 		{
-			StartCoroutine(SetProjectileInactive(gameObject, .1f));	
+			StartCoroutine(SetProjectileInactive(gameObject, 0));	
 		}
 	}
 

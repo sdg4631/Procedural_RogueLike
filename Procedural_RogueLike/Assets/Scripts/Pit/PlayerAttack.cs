@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
 	[SerializeField] GameObject fxParent;
 
     public string currentProj;
-	public float projectileSpeed = 500f;
+	
 
 	void Start() 
 	{
@@ -52,10 +52,7 @@ public class PlayerAttack : MonoBehaviour
             proj.transform.position = projSpawnPos;
             proj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             proj.SetActive(true);             
-            proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * projectileSpeed);
-           
-            proj.transform.parent = fxParent.transform;
-            //StartCoroutine(SetProjectileInactive(proj, 12f));    
+            proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * proj.GetComponent<PlayerProjectileStats>().projectileSpeed);
 
             PlayAttackAnimation();           
         }
