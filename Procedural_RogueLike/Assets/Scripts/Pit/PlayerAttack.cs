@@ -19,11 +19,13 @@ public class PlayerAttack : MonoBehaviour
 	[SerializeField] GameObject fxParent;
 
     public string currentProj;
+    public string currentMuzzle;
 	
 
 	void Start() 
 	{
 		currentProj = "FireballProjectile";
+        currentMuzzle = "FireballMuzzle";
 	}
 	
 
@@ -48,13 +50,14 @@ public class PlayerAttack : MonoBehaviour
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-            var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
+            var projSpawnPos = new Vector2(transform.position.x, transform.position.y + .5f);
             proj.transform.position = projSpawnPos;
             proj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             proj.SetActive(true);             
             proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * proj.GetComponent<PlayerProjectileStats>().projectileSpeed);
 
-            PlayAttackAnimation();           
+            PlayAttackAnimation();   
+            EnableMuzzleFlash(currentMuzzle, angle);        
         }
         else if (Input.GetButtonDown("Fire1"))
         {
@@ -71,6 +74,16 @@ public class PlayerAttack : MonoBehaviour
         }
         
 	}
+
+    void EnableMuzzleFlash(string muzzleTag, float angle)
+    {
+        GameObject muzzleFlash = ObjectPooler.SharedInstance.GetPooledObject(muzzleTag);
+        var projSpawnPos = new Vector2(transform.position.x, transform.position.y + .5f);
+        muzzleFlash.transform.position = projSpawnPos;
+        muzzleFlash.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        muzzleFlash.SetActive(true);
+        StartCoroutine(SetProjectileInactive(muzzleFlash, 2f));
+    }
 
     void AimProjOnController(GameObject proj)
     {

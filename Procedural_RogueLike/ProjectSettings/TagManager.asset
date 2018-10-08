@@ -48,6 +48,7 @@ TagManager:
   - Tab
   - RockProjectile
   - FireballProjectile
+  - FireballMuzzle
   layers:
   - Default
   - TransparentFX
