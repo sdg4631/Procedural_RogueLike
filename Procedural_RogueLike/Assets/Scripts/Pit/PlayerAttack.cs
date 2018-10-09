@@ -23,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
 
     float attackTimer;
     [SerializeField] public float minTimeBetweenAttacks = 1f;
+
+    Rigidbody2D myRigidbody;
     
 
 
@@ -34,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
 		currentProj = "FireballProjectile";
         currentMuzzle = "FireballMuzzle";
 
+        myRigidbody = GetComponent<Rigidbody2D>();
         cameraShake = FindObjectOfType<CameraShake>();
 
         attackTimer = minTimeBetweenAttacks;
@@ -72,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
                 proj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 proj.SetActive(true);             
                 proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * proj.GetComponent<PlayerProjectileStats>().projectileSpeed);
-
+                
                 PlayAttackAnimation();   
                 EnableMuzzleFlash(currentMuzzle, angle);        
                 // StartCoroutine(cameraShake.Shake(.1f, .05f, 0));

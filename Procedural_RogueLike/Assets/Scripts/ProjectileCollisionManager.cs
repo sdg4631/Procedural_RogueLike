@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour 
+public class ProjectileCollisionManager : MonoBehaviour 
 {
 	BoxCollider2D myCollider;
 	Rigidbody2D myRigidBody;
@@ -22,7 +22,7 @@ public class Fireball : MonoBehaviour
 
 	void SetInactiveOnHit()
 	{
-		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Chest", "ProjectileWall")))
+		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Chest", "ProjectileWall", "StaticObject")))
 		{
 			StartCoroutine(SetProjectileInactive(gameObject, 0));	
 		}
@@ -34,5 +34,5 @@ public class Fireball : MonoBehaviour
         proj.SetActive(false);
     }
 
-	
+
 }
