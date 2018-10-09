@@ -33,4 +33,6 @@ public class Fireball : MonoBehaviour
         yield return new WaitForSeconds(delay);
         proj.SetActive(false);
     }
+
+	
 }

@@ -20,12 +20,23 @@ public class PlayerAttack : MonoBehaviour
 
     public string currentProj;
     public string currentMuzzle;
+
+    float attackTimer;
+    [SerializeField] public float minTimeBetweenAttacks = 1f;
+    
+
+
+    CameraShake cameraShake;
 	
 
 	void Start() 
 	{
 		currentProj = "FireballProjectile";
         currentMuzzle = "FireballMuzzle";
+
+        cameraShake = FindObjectOfType<CameraShake>();
+
+        attackTimer = minTimeBetweenAttacks;
 	}
 	
 
@@ -42,43 +53,52 @@ public class PlayerAttack : MonoBehaviour
 
 	void ThrowProjectile(string projectileTag)
 	{
-        if(Input.GetMouseButtonDown(0))
+        attackTimer += Time.deltaTime;
+      
+        if (attackTimer > minTimeBetweenAttacks)
         {
-            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            var direction = (mousePosition - transform.position).normalized;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            if(Input.GetMouseButtonDown(0))
+            {
+                attackTimer = 0f;
 
-            GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-            var projSpawnPos = new Vector2(transform.position.x, transform.position.y + .5f);
-            proj.transform.position = projSpawnPos;
-            proj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            proj.SetActive(true);             
-            proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * proj.GetComponent<PlayerProjectileStats>().projectileSpeed);
+                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                var direction = (mousePosition - transform.position).normalized;
+                var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            PlayAttackAnimation();   
-            EnableMuzzleFlash(currentMuzzle, angle);        
+                GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+                var projSpawnPos = new Vector2(transform.position.x, transform.position.y + .3f);
+                proj.transform.position = projSpawnPos;
+                proj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                proj.SetActive(true);             
+                proj.GetComponent<Rigidbody2D>().AddForce(proj.transform.right * proj.GetComponent<PlayerProjectileStats>().projectileSpeed);
+
+                PlayAttackAnimation();   
+                EnableMuzzleFlash(currentMuzzle, angle);        
+                // StartCoroutine(cameraShake.Shake(.1f, .05f, 0));
+            }
+            else if (Input.GetButtonDown("Fire1"))
+            {
+                attackTimer = 0f;
+
+                GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+                var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
+                proj.transform.position = projSpawnPos;
+                proj.transform.rotation = transform.rotation;
+                proj.SetActive(true);
+                proj.transform.parent = fxParent.transform;
+                StartCoroutine(SetProjectileInactive(proj, 12f));
+
+                PlayAttackAnimation();
+                AimProjOnController(proj);       
+            }
         }
-        else if (Input.GetButtonDown("Fire1"))
-        {
-            GameObject proj = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
-            var projSpawnPos = new Vector2(transform.position.x, transform.position.y - .2f);
-            proj.transform.position = projSpawnPos;
-            proj.transform.rotation = transform.rotation;
-            proj.SetActive(true);
-            proj.transform.parent = fxParent.transform;
-            StartCoroutine(SetProjectileInactive(proj, 12f));
-
-            PlayAttackAnimation();
-            AimProjOnController(proj);       
-        }
-        
 	}
 
     void EnableMuzzleFlash(string muzzleTag, float angle)
     {
         GameObject muzzleFlash = ObjectPooler.SharedInstance.GetPooledObject(muzzleTag);
-        var projSpawnPos = new Vector2(transform.position.x, transform.position.y + .5f);
+        var projSpawnPos = new Vector2(transform.position.x, transform.position.y + .3f);
         muzzleFlash.transform.position = projSpawnPos;
         muzzleFlash.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         muzzleFlash.SetActive(true);
