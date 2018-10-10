@@ -6,11 +6,16 @@ public class ProjectileCollisionManager : MonoBehaviour
 {
 	BoxCollider2D myCollider;
 	Rigidbody2D myRigidBody;
+	GameObject fxParent;
+	
+	[SerializeField] string onHitFXTag;
 	
 	void Start() 
 	{
 		myCollider = GetComponent<BoxCollider2D>();
 		myRigidBody = GetComponent<Rigidbody2D>();
+
+		fxParent = GameObject.FindGameObjectWithTag("FXParent");
 		
 	}
 	
@@ -24,7 +29,15 @@ public class ProjectileCollisionManager : MonoBehaviour
 	{
 		if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Chest", "ProjectileWall", "StaticObject")))
 		{
-			StartCoroutine(SetProjectileInactive(gameObject, 0));	
+			// Activate On Hit FX
+			GameObject onHitFX = ObjectPooler.SharedInstance.GetPooledObject(onHitFXTag);
+			onHitFX.transform.position = transform.position;
+			onHitFX.transform.rotation = Quaternion.identity;
+			onHitFX.transform.parent = fxParent.transform;
+			onHitFX.SetActive(true);
+
+
+			StartCoroutine(SetProjectileInactive(gameObject, 0f));	
 		}
 	}
 

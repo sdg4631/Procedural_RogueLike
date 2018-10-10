@@ -49,6 +49,7 @@ TagManager:
   - RockProjectile
   - FireballProjectile
   - FireballMuzzle
+  - FireballExplosion
   layers:
   - Default
   - TransparentFX

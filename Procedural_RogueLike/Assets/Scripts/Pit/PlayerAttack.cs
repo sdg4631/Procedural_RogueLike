@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject pitBackMeshes;
     [SerializeField] GameObject pitBackLRMeshes;
 
-	[SerializeField] GameObject fxParent;
+	GameObject fxParent;
 
     public string currentProj;
     public string currentMuzzle;
@@ -40,6 +40,8 @@ public class PlayerAttack : MonoBehaviour
         cameraShake = FindObjectOfType<CameraShake>();
 
         attackTimer = minTimeBetweenAttacks;
+
+        fxParent = GameObject.FindGameObjectWithTag("FXParent");
 	}
 	
 
