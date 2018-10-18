@@ -77,15 +77,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject dashCooldownBar = null;
     public float fillAmount;
 
-    CameraShake cameraShake;
 
     public bool changingRooms = false;
     
 
 	void Start() 
 	{
-		myRigidBody = GetComponent<Rigidbody2D>();
-        cameraShake = FindObjectOfType<CameraShake>();      
+		myRigidBody = GetComponent<Rigidbody2D>();     
         dashCooldownBar.SetActive(false); 
         fxParent = GameObject.FindGameObjectWithTag("FXParent");
 	}

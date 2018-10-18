@@ -5,7 +5,6 @@ using UnityEngine;
 public class ProjectileCollisionManager : MonoBehaviour 
 {
 	BoxCollider2D myCollider;
-	Rigidbody2D myRigidBody;
 	GameObject fxParent;
 	
 	[SerializeField] string onHitFXTag;
@@ -13,7 +12,6 @@ public class ProjectileCollisionManager : MonoBehaviour
 	void Start() 
 	{
 		myCollider = GetComponent<BoxCollider2D>();
-		myRigidBody = GetComponent<Rigidbody2D>();
 
 		fxParent = GameObject.FindGameObjectWithTag("FXParent");
 		

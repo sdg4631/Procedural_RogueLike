@@ -6,6 +6,10 @@ public class Bottlecap : MonoBehaviour
 {
 	[SerializeField] GameObject fizzFX;
 	[SerializeField] AudioClip pickupSFX;
+	[SerializeField] int value;
+	
+	PlayerInventory playerInventory;
+	
 
 	AudioSource audioSource;
 	BoxCollider2D mycollider;
@@ -14,12 +18,14 @@ public class Bottlecap : MonoBehaviour
 	{
 		audioSource = GetComponent<AudioSource>();
 		mycollider = GetComponent<BoxCollider2D>();
+		playerInventory = FindObjectOfType<PlayerInventory>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player")
 		{
+			playerInventory.numOfBottlecaps += value;
 			mycollider.enabled = false;
 			audioSource.PlayOneShot(pickupSFX);
 			var fizz = Instantiate(fizzFX, transform.position, fizzFX.transform.rotation);

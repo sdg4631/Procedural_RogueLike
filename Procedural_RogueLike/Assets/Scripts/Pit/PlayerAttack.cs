@@ -24,20 +24,15 @@ public class PlayerAttack : MonoBehaviour
     float attackTimer;
     [SerializeField] public float minTimeBetweenAttacks = 1f;
 
-    Rigidbody2D myRigidbody;
     
 
 
-    CameraShake cameraShake;
 	
 
 	void Start() 
 	{
 		currentProj = "FireballProjectile";
         currentMuzzle = "FireballMuzzle";
-
-        myRigidbody = GetComponent<Rigidbody2D>();
-        cameraShake = FindObjectOfType<CameraShake>();
 
         attackTimer = minTimeBetweenAttacks;
 
