@@ -7,10 +7,10 @@ using System; // // needed to make Serializable without monobehavior attached
 public class Stat 
 {
     // [SerializeField] private BarScript bar;
-    [SerializeField] private float maxVal;
-    [SerializeField] private float currentVal;
+    [SerializeField] private int maxVal;
+    [SerializeField] private int currentVal;
 
-    public float CurrentVal
+    public int CurrentVal
     {
         get
         {
@@ -24,7 +24,7 @@ public class Stat
         }
     }
 
-    public float MaxVal
+    public int MaxVal
     {
         get
         {

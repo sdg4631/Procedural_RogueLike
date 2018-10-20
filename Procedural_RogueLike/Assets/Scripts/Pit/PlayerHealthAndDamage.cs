@@ -60,6 +60,7 @@ public class PlayerHealthAndDamage : MonoBehaviour
                 pitFront.GetComponent<Animator>().SetTrigger("Flinch");
 				pitFrontLR.GetComponent<Animator>().SetTrigger("FlinchLR");
 				startBlinking = true;
+				
             }
 		}
 	}
