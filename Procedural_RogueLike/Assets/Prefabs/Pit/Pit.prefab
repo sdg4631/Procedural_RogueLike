@@ -3393,8 +3393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    maxVal: 0
-    currentVal: 0
+    maxVal: 3
+    currentVal: 3
   isInvulnerable: 0
   invulnerabilityTimer: 131.89366
   invulnerabilityDuration: 1
@@ -4299,8 +4299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade74f16f72f3a4284ebaf73d7c5b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMoveSpeed: 5000
-  verticalMoveSpeed: 4000
+  horizontalMoveSpeed: 5
+  verticalMoveSpeed: 4
   pitRoot: {fileID: 1072679013441796}
   pitForward: {fileID: 1821788765747364}
   pitForwardLR: {fileID: 1931729085214444}
